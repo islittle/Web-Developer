@@ -1,8 +1,8 @@
-Web-Developer:wangfeng
-QQ:769407183
-Used to store the front-end development file
+Web-Developer:wangfeng<br>
+QQ:769407183<br>
+Used to store the front-end development file<br>
 
-1. 规范说明
+<h2>1. 规范说明</h2>
 注: 本文档采用 Front-End-Standards 项目编写
 
 1.1 规范目的
@@ -13,7 +13,7 @@ Used to store the front-end development file
 
 本文档如有不对或者不合适的地方请及时提出，大家一起讨论决定后方可更改。
 
-2. 代码规范
+<h2>2. 代码规范</h2>
 2.1 Html规范
 
 2.1.1 文件命名规范
@@ -67,6 +67,7 @@ d. a,b两条, 适用于已建好框架的页面, 如, 要已建好框架的页�
 按b命名法则: <div id=”nav”><div class=”nav_subnav”>…</div></div> 样式写法:
 
 .nav_subnav{……}
+
 5.css属性书写顺序, 建议遵循: 布局定位属性–>自身属性–>文本属性–>其他属性. 此条可根据自身习惯书写, 但尽量保证同类属性写在一起.
 
 属性列举： 布局定位属性主要包括: display & list-style & position（相应的 top, right, bottom, left） ＆ float & clear ＆ visibility ＆ overflow；
