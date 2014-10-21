@@ -15,7 +15,7 @@ font-size:16px;
 <h2 class="h2">前端工具</h2>
 在线压缩工具<br>
 http://ganquan.info/yui<br>
-css速查表<br><br>
+css速查表<br>
 http://code.ciaoca.com/style/css-cheat-sheet<br>
 字符编解码<br>
 http://www.baidufe.com/fehelper/endecode.html<br>
