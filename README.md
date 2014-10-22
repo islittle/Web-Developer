@@ -1,6 +1,8 @@
+/*
 Web-Developer:wangfeng<br>
 QQ:769407183<br>
 Used to store the front-end development file<br>
+*/
 <h2>1. 规范说明</h2>
 注: 本文档采用 Front-End-Standards 项目编写
 
@@ -307,7 +309,7 @@ var f = function () {
 
 1.统一使用英文小写(linux下是严格区分大小写)，无连接符号，如帮助中心模板页: helpcenter.html
 
-2.业务js跟服务走，如当前访问的url: https://test.yrz.cn/Help/Security/index ，对应在 appjs 目录下应该有该文件 help/security/index.js
+2.业务js跟服务走，如当前访问的/Help/Security/index ，对应在 appjs 目录下应该有该文件 help/security/index.js
 
 3.2 目录结构及说明
 
