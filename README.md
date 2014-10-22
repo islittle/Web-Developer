@@ -1,7 +1,7 @@
+&lt;html&gt;
 Web-Developer:wangfeng<br>
 QQ:769407183<br>
 Used to store the front-end development file<br>
-<xmp>
 <h2>1. 规范说明</h2>
 注: 本文档采用 Front-End-Standards 项目编写
 
@@ -636,7 +636,7 @@ a:active {color:#bc2931;}
 其他
 开发过程中严格按分工完成页面, 以提高css复用率, 避免重复开发;
 减小沉冗代码, 书写所有人都可以看的懂的代码. 简洁易懂是一种美德. 为用户着想, 为服务器着想.
-
+@lt;/html&gt;
 <h2 class="h2">前端工具</h2>
 在线压缩工具<br>
 http://ganquan.info/yui<br>
