@@ -49,7 +49,10 @@ Used to store the front-end development file<br>
 
 3.class与id命名与使用：
 
-属性尽量不用Id，如特殊情况下有属性内容，使用请加上css_； 其他样式名称由小写英文&数字&_来组合命名,如i_comment,fontred,w200,h200; 避免使用中文拼音,尽量使用简易的单词组合； 总之, 命名要语义化, 简明化。
+属性尽量不用Id，如特殊情况下有属性内容，使用请加上css_； 
+其他样式名称由小写英文&数字&_来组合命名,如i_comment,fontred,w200,h200; 
+避免使用中文拼音,尽量使用简易的单词组合； 
+总之, 命名要语义化, 简明化。
 
 详见: 附录6.2：常用class/Id命名规范
 
@@ -61,9 +64,8 @@ b. 取父级元素id/class命名部分命名, 示例见d;
 
 c. 重复使用率高的命名, 请以自己代号加下划线起始, 比如i_clear;
 
-d. a,b两条, 适用于已建好框架的页面, 如, 要已建好框架的页面代码<div id=”nav”></div>中加入新的div元素, 按a命名法则: <div id=”nav”><div class=”subNav”>…</div></div> 样式写法:#nav .subNav {……};按b命名法则: <div id=”nav”><div class=”nav_subnav”>…</div></div> 样式写法:
-
-.nav_subnav{……}
+d. a,b两条, 适用于已建好框架的页面, 如, 要已建好框架的页面代码<div id=”nav”></div>中加入新的div元素, 按a命名法则: <div id=”nav”><div class=”subNav”>…</div></div> 样式写法:#nav .subNav {……};
+按b命名法则: <div id=”nav”><div class=”nav_subnav”>…</div></div> 样式写法:.nav_subnav{……}
 
 5.css属性书写顺序, 建议遵循: 布局定位属性–>自身属性–>文本属性–>其他属性. 此条可根据自身习惯书写, 但尽量保证同类属性写在一起.
 
@@ -94,7 +96,7 @@ reset.css文件中会初始化表格样式)
 
 11.杜绝使用
 
-<meta http-equiv=”X-UA-Compatible” content=”IE=7“/>
+"<meta http-equiv=”X-UA-Compatible” content=”IE=7“/>"
 来兼容IE8
 
 12.用png图片做透明图片时, 要求图片格式为png-24格式,尽量避免兼容性属性的使用,比如text-shadow || css3的相关属性，毕竟现在兼容有限。
@@ -147,48 +149,49 @@ display:none; /* 让元素看不见 */
 
 2.3.1 文件结构和命名
 
-文件结构见 UPG项目脚手架：js文件结构，文件命名见 UPG项目脚手架：文件命名
+文件结构见项目脚手架：js文件结构，文件命名见项目脚手架：文件命名
 
 2.3.2 编码风格
 
 代码检测工具
 
 根据不同IDE配置不同的检测工具(JSLint, JSHint等)及其选项，列举JSHint：
-
-"jshint_options": {
-  "es3": true, //兼容es3规范，针对旧版浏览器编写的代码
-  "esnext": false, //不使用最新的es6规范
-  "camelcase": true, //使用驼峰式命名
-  "eqeqeq": false, //不强制使用===比较运算符
-  "expr": true, //允许未赋值的函数名表达式，例如console && console.log(1)
-  "freeze": false, //不限制对内置对象的扩展
-  "immed": true, //禁止未用括号包含立即执行函数
-  "latedef": true, //禁止先调用后定义
-  "maxparams": 4, //函数最多不超过4个参数
-  "noarg": false, //不禁止对arguments.caller和arguments.callee的调用
-  "noempty": false, //禁止空代码块
-  "nonew": false, //允许直接new实例化而不赋值给变量
-  "plusplus": false, //允许++和--运算符使用
-  "quotmark": "single", //字符串使用单引号
-  "smarttabs": false, //不允许混合tab和空格缩进
-  "maxerr": false,
-  "strict": false, //不强制使用es5严格模式
-  "sub": true, //允许用[]形式访问对象属性
-  "unused": false, //允许定义没用的变量，在某些函数回调中，经常出现多个参数，但不一定会用
-  "multistr": false, //禁止多行字符串，改用加号连接
-  "undef": true,  //禁止明确未定义的变量调用，如果你的变量（myvar）是在其他文件中定义的，可以使用/*global myvar */绕过检测
-  "forin": false, // 如果为真，那么，jsHint允许在for in 循环里面不出现hasOwnProperty
-  "devel": true, //允许对调试用的alert和console.log的调用
-  "jquery": true, //检查预定义的全局变量，防止出现$未定义，该项根据实际代码修改
-  "browser": true,
-  "predef": ["define", "seajs", "console", "require", "module"],
-  "wsh": true,
-  "evil": false, // 不允许使用eval
-  "asi": true, // 行尾分号
-  "newcap": true, // jsHint会要求每一个构造函数名都要大写字母开头
-  "curly": true, // 使用if和while等结构语句时加上{}来明确代码块
-  "maxlen": 100
+<ul>
+<li>"jshint_options": {</li>
+<li> "es3": true, //兼容es3规范，针对旧版浏览器编写的代码</li>
+<li>"esnext": false, //不使用最新的es6规范</li>
+<li>"camelcase": true, //使用驼峰式命名</li>
+<li>"eqeqeq": false, //不强制使用===比较运算符</li>
+<li>"expr": true, //允许未赋值的函数名表达式，例如console && console.log(1)</li>
+<li>"freeze": false, //不限制对内置对象的扩展</li>
+<li>"immed": true, //禁止未用括号包含立即执行函数</li>
+<li>"latedef": true, //禁止先调用后定义</li>
+<li>"maxparams": 4, //函数最多不超过4个参数</li>
+<li>"noarg": false, //不禁止对arguments.caller和arguments.callee的调用</li>
+<li>"noempty": false, //禁止空代码块</li>
+<li>"nonew": false, //允许直接new实例化而不赋值给变量</li>
+<li>"plusplus": false, //允许++和--运算符使用</li>
+<li>"quotmark": "single", //字符串使用单引号</li>
+<li>"smarttabs": false, //不允许混合tab和空格缩进</li>
+<li>"maxerr": false,</li>
+<li>"strict": false, //不强制使用es5严格模式</li>
+<li>"sub": true, //允许用[]形式访问对象属性</li>
+<li>"unused": false, //允许定义没用的变量，在某些函数回调中，经常出现多个参数，但不一定会用</li>
+<li>"multistr": false, //禁止多行字符串，改用加号连接</li>
+<li>"undef": true,  //禁止明确未定义的变量调用，如果你的变量（myvar）是在其他文件中定义的，可以使用/*global myvar */绕过检测</li>
+<li>"forin": false, // 如果为真，那么，jsHint允许在for in 循环里面不出现hasOwnProperty</li>
+<li>"devel": true, //允许对调试用的alert和console.log的调用</li>
+<li>"jquery": true, //检查预定义的全局变量，防止出现$未定义，该项根据实际代码修改</li>
+<li>"browser": true,</li>
+<li>"predef": ["define", "seajs", "console", "require", "module"],</li>
+<li>"wsh": true,</li>
+<li>"evil": false, // 不允许使用eval</li>
+<li>"asi": true, // 行尾分号</li>
+<li>"newcap": true, // jsHint会要求每一个构造函数名都要大写字母开头</li>
+<li>"curly": true, // 使用if和while等结构语句时加上{}来明确代码块</li>
+<li>"maxlen": 100</li>
 }
+</ul>
 缩进：
 
 两个空格 2space，注： 不同IDE可以配置缩进风格
