@@ -4,16 +4,18 @@ Used to store the front-end development file<br>
 
 <h2>1. 规范说明</h2>
 注: 本文档采用 Front-End-Standards 项目编写
-
+<pre>
 1.1 规范目的
 
-项目在扩展，人员在增加，为提高团队相互协作效率，提高代码的规范性和可维护性，统一团队编码规范和风格。本规范文档一经确认，前端开发人员必须按本文档规范进行前台页面开发。
+项目在扩展，人员在变化，为提高团队相互协作效率以及快速熟悉的目的，提高代码的规范性，可维护性，美观性，统一团队编码规范和风格。建立一个合理的规范，前端开发人员按本文档规范进行前台页面开发，达到规范的目的。
 
-此规范为参考规范，不全是硬性要求，仅让所有代码都是有规可循的，并且能够得到沉淀，减少重复劳动。
+此规范为参考规范，仅供参考，仅让所有代码都是有规可循的，并且能够得到堆积，减少重复劳动和不必要的修改。
 
-本文档如有不对或者不合适的地方请及时提出，大家一起讨论决定后方可更改。
+本文档如有不对或者不合适的地方请反馈，大家一起学习。
+</pre>
 
 <h2>2. 代码规范</h2>
+<pre>
 2.1 Html规范
 
 2.1.1 文件命名规范
@@ -35,7 +37,7 @@ Used to store the front-end development file<br>
 
 2.1.3 html书写规范
 
-详见：附录6.4：html书写规范
+详见：6.4：html书写规范
 
 2.2 Css规范
 
@@ -45,7 +47,7 @@ Used to store the front-end development file<br>
 
 前端页面框架编辑者会根据各个模块, 同时根据页面相似程序, 事先写好大体框架文件, 分配给前端人员实现内部结构表现行为; 共用css文件reset.css由前端页面框架编辑者书写, 协作开发过程中, 每个页面请务必都要引入, 此文件包含整站基础样式, 此文件不可随意 修改; common.css为页容样式； mainsource.css为当前项目开发模式下的其它css文件管理文件，mainsource文件夹放置其它各页面css，多人开发时，统一为自己订制一个代号，具体作用下文会做说明。 预防多人开发同一个项目时的svn冲突。
 
-详细结构可以参见：upg脚手架下的目录结构级说明
+详细结构可以参见：脚手架下的目录结构级说明
 
 3.class与id命名与使用：
 
@@ -54,7 +56,7 @@ Used to store the front-end development file<br>
 避免使用中文拼音,尽量使用简易的单词组合； 
 总之, 命名要语义化, 简明化。
 
-详见: 附录6.2：常用class/Id命名规范
+详见: 6.2：常用class/Id命名规范
 
 4.规范class与id命名(此条重要, 若有不明白请及时与i沟通)：
 
@@ -96,7 +98,7 @@ reset.css文件中会初始化表格样式)
 
 11.杜绝使用
 
-"<meta http-equiv=”X-UA-Compatible” content=”IE=7“/>"
+<meta http-equiv=”X-UA-Compatible” content=”IE=7“/>
 来兼容IE8
 
 12.用png图片做透明图片时, 要求图片格式为png-24格式,尽量避免兼容性属性的使用,比如text-shadow || css3的相关属性，毕竟现在兼容有限。
@@ -150,7 +152,7 @@ display:none; /* 让元素看不见 */
 2.3.1 文件结构和命名
 
 文件结构见项目脚手架：js文件结构，文件命名见项目脚手架：文件命名
-
+</pre>
 2.3.2 编码风格
 
 代码检测工具
@@ -193,7 +195,7 @@ display:none; /* 让元素看不见 */
 }
 </ul>
 缩进：
-
+<pre>
 两个空格 2space，注： 不同IDE可以配置缩进风格
 
 注释：
@@ -299,7 +301,10 @@ var f = function () {
   /*@cc_on if (@_jscript) { return 2* @*/  3; /*@ } @*/
 };
 //条件注释妨碍自动化工具的执行, 因为在运行时, 它们会改变 JavaScript 语法树.
-<h2>3. UPG项目脚手架</h2>
+</pre>
+
+<h2>3. 项目脚手架</h2>
+<pre>
 3.1 文件命名
 
 1.统一使用英文小写(linux下是严格区分大小写)，无连接符号，如帮助中心模板页: helpcenter.html
@@ -358,7 +363,7 @@ var f = function () {
   |   |   ---prototype.js
   |   |   ---sea.js
   |   |   ---seastyle.js
-  |   |   ---upgTool.js
+  |   |   ---Tool.js
   |   +---componentjs (富应用组件)
   |   |   +---highcharts (图表)
   |   |   +---ueditor (百度ueditor编辑器)
@@ -398,7 +403,7 @@ var f = function () {
   |   |   +---textlength
   |   |   +---timepicker
   |   |   +---tipsy
-  |   |   +---upgui
+  |   |   +---ui
   |   |   +---upload
   |   |   +---uploadify
   |   |   +---validate
@@ -420,9 +425,10 @@ var f = function () {
   |---Gruntfile.js (grunt打包配置文件)
   |---updateAppjs.json (grunt打包配置文件，用于暂存一定时间内改动过的appjs中的js文件)
   |---cssimage.py (给css中的背景图片加版本号，在发布脚本中执行)
+pre>
 <h2>4. 生产力工具推荐</h2>
 Mind Map版本：前端工具
-
+<pre>
 4.1 for Mac OS
 
 for more app detial check -> IUSETHIS
@@ -496,10 +502,10 @@ Wiki page index
 测试技巧Gmail 添加词缀 .+ 获得多个邮件的方法
 关于Mac Win Linux跨系统传文件，文件名乱码的解决方案
 技术团队"路由代理"解决方案和使用须知
-
+</pre>
 <h2>5. 参考资料</h2>
  参考网站
-
+<pre>
 注： 工具类
 
 Grunt中文网
@@ -508,8 +514,9 @@ Grunt中文网
 
 markdown语法说明(简体中文)
 
-
+</pre>
 <h2>6. 其他规则</h2>
+<pre>
 6.1 hack规则
 
 一般情况下，不要使用 IE 条件注释：
@@ -630,7 +637,7 @@ a:active {color:#bc2931;}
 其他
 开发过程中严格按分工完成页面, 以提高css复用率, 避免重复开发;
 减小沉冗代码, 书写所有人都可以看的懂的代码. 简洁易懂是一种美德. 为用户着想, 为服务器着想.
-
+</pre>
 <h2 class="h2">前端工具</h2>
 在线压缩工具<br>
 http://ganquan.info/yui<br>
