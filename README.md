@@ -61,10 +61,7 @@ b. 取父级元素id/class命名部分命名, 示例见d;
 
 c. 重复使用率高的命名, 请以自己代号加下划线起始, 比如i_clear;
 
-d. a,b两条, 适用于已建好框架的页面, 如, 要已建好框架的页面代码<div id=”nav”></div>中加入新的div元素, 按a命名法则: <div id=”nav”><div class=”subNav”>…</div></div> 样式写法:
-
-#nav .subNav {……};
-按b命名法则: <div id=”nav”><div class=”nav_subnav”>…</div></div> 样式写法:
+d. a,b两条, 适用于已建好框架的页面, 如, 要已建好框架的页面代码<div id=”nav”></div>中加入新的div元素, 按a命名法则: <div id=”nav”><div class=”subNav”>…</div></div> 样式写法:#nav .subNav {……};按b命名法则: <div id=”nav”><div class=”nav_subnav”>…</div></div> 样式写法:
 
 .nav_subnav{……}
 
