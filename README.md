@@ -1,4 +1,3 @@
-&lt;html&gt;
 Web-Developer:wangfeng<br>
 QQ:769407183<br>
 Used to store the front-end development file<br>
@@ -66,8 +65,8 @@ b. 取父级元素id/class命名部分命名, 示例见d;
 
 c. 重复使用率高的命名, 请以自己代号加下划线起始, 比如i_clear;
 
-d. a,b两条, 适用于已建好框架的页面, 如, 要已建好框架的页面代码<div id=”nav”></div>中加入新的div元素, 按a命名法则: <div id=”nav”><div class=”subNav”>…</div></div> 样式写法:#nav .subNav {……};
-按b命名法则: <div id=”nav”><div class=”nav_subnav”>…</div></div> 样式写法:.nav_subnav{……}
+d. a,b两条, 适用于已建好框架的页面, 如, 要已建好框架的页面代码&lt;div id=”nav”&gt;&lt;/div&gt;中加入新的div元素, 按a命名法则: &lt;div id=”nav”&gt;&lt;div class=”subNav”&gt;…&lt;/div&gt;&lt;/div&gt; 样式写法:#nav .subNav {……};
+按b命名法则: &lt;div id=”nav”&gt;&lt;div class=”nav_subnav”&gt;…&lt;/div&gt;&lt;/div&gt; 样式写法:.nav_subnav{……}
 
 5.css属性书写顺序, 建议遵循: 布局定位属性–>自身属性–>文本属性–>其他属性. 此条可根据自身习惯书写, 但尽量保证同类属性写在一起.
 
@@ -79,9 +78,9 @@ d. a,b两条, 适用于已建好框架的页面, 如, 要已建好框架的页�
 
 7.充分利用html自身属性及样式继承原理减少代码量, 比如:
 
-&gt;ul class=”list”&lt;
-  &gt;li>这儿是标题列表<span>2010-09-15&gt;/span&lt;&gt;/li&lt;
-&gt/u&lt;
+&lt;ul class=”list”&gt;
+  &lt;li&gt;这儿是标题列表&lt;span&gt;2010-09-15&gt;/span&lt;&lt;/li&gt;
+&lt;/u&gt;
 
 /*css样式*/
 ul.list li{position:relative}
@@ -98,7 +97,7 @@ reset.css文件中会初始化表格样式)
 
 11.杜绝使用
 
-<meta http-equiv=”X-UA-Compatible” content=”IE=7“/>
+&lt;meta http-equiv=”X-UA-Compatible” content=”IE=7“/&gt;
 来兼容IE8
 
 12.用png图片做透明图片时, 要求图片格式为png-24格式,尽量避免兼容性属性的使用,比如text-shadow || css3的相关属性，毕竟现在兼容有限。
@@ -284,10 +283,10 @@ var obj = {};
 4.大字符串的创建注意格式
 
 //html结构的字符串推荐使用这种方式
-var listHtml = '<ul class="list">' +
-                 '<li class="item">first item</li>' +
-                 '<li class="item">second item</li>' +
-               '</ul>';
+var listHtml = '&lt;ul class="list"&gt;' +
+                 '&lt;li class="item"&gt;first item&lt;/li&gt;' +
+                 '&lt;li class="item"&gt;second item&lt;/li&gt;' +
+               '&lt;/ul&gt;';
 5.使用闭包封装整个js文件代码
 
 6.避免使用 eval，with
@@ -537,24 +536,24 @@ markdown语法说明(简体中文)
 6.2 常用class/Id命名规范
 
 常用类
-页　眉：header	内　容：content	容　器：container	页　脚：footer	版　权：copyright
-导　航：`nav`	主导航:mainnav(globalnav)	顶导航：topnav	子导航：subnav	菜单：menu
-子菜单：submenu	标　志：logo	标　语：banner	标　题：title	侧边栏：sidebar
-状态：status	投票：vote	合作伙伴：partner	友情链接：friendlink	外　套：wrap
-商　标：label	左导航：leftsideBar	右导航：rightsideBar	菜单内容：menu1content	菜单容量：menucontainer
-子图标：Icon	注　释：note	搜　索：search	按　钮：btn	登陆条：loginbar
-登　录：login	链　接：link	信息框：manage	标签页：tab	文章列表：list
-提示信息：msg	小技巧：tips	加入：joinus	指南：guild	服务：service
-热点：hot	新闻：news	下载：download	注册：regsiter	功能区： shop(如购物车，收银台)
+页　眉：header  内　容：content 容　器：container   页　脚：footer  版　权：copyright
+导　航：`nav`   主导航:mainnav(globalnav)  顶导航：topnav  子导航：subnav  菜单：menu
+子菜单：submenu 标　志：logo    标　语：banner  标　题：title   侧边栏：sidebar
+状态：status   投票：vote 合作伙伴：partner    友情链接：friendlink 外　套：wrap
+商　标：label   左导航：leftsideBar 右导航：rightsideBar    菜单内容：menu1content   菜单容量：menucontainer
+子图标：Icon    注　释：note    搜　索：search  按　钮：btn 登陆条：loginbar
+登　录：login   链　接：link    信息框：manage  标签页：tab 文章列表：list
+提示信息：msg    小技巧：tips    加入：joinus   指南：guild    服务：service
+热点：hot  新闻：news 下载：download 注册：regsiter 功能区： shop(如购物车，收银台)
 模块前缀
-作用	
-设置: set	添加: add	删除: del	操作: op	密码: pw	导入: inc
-类型	
-按钮: bt	文本: tx	段落: p	图标: icon	颜色: color,c	背景: bg	边框: bor
-状态	
-成功: suc	失败: lost	透明: tran
-位置	
-公共: gb	边框: bor	弹出: pop	标题: title,tit	菜单: menu	内容: cont	提示: hint	导航: nav	信息: info	预览: pvw
+作用  
+设置: set 添加: add 删除: del 操作: op  密码: pw  导入: inc
+类型  
+按钮: bt  文本: tx  段落: p   图标: icon    颜色: color,c 背景: bg  边框: bor
+状态  
+成功: suc 失败: lost    透明: tran
+位置  
+公共: gb  边框: bor 弹出: pop 标题: title,tit   菜单: menu    内容: cont    提示: hint    导航: nav 信息: info    预览: pvw
 6.3 Reset.css 部分代码(参考)
 
 Html,body{padding:0;margin:0;font:12px/normal SunSin;color:#666; background:#ffffff; }
@@ -584,16 +583,16 @@ a:active {color:#bc2931;}
 
 6.4 html书写规范
 
-1.文档类型声明及编码: 统一为html5声明类型<!DOCTYPE html>; 编码统一为<meta charset=”utf-8″ />, 书写时利用IDE实现层次分明的缩进;
+1.文档类型声明及编码: 统一为html5声明类型&lt;!DOCTYPE html&gt;; 编码统一为&lt;meta charset=”utf-8″ /&gt;, 书写时利用IDE实现层次分明的缩进;
 
-2.非特殊情况下样式文件必须外链至<head>…</head>之间;非特殊情况下JavaScript文件必须外链至页面底部;
+2.非特殊情况下样式文件必须外链至&lt;head&gt;…&lt;/head&gt;之间;非特殊情况下JavaScript文件必须外链至页面底部;
 
 3.引入样式文件或JavaScript文件时, 须略去默认类型声明, 写法如下:
 
-<link rel=”stylesheet”type=”text/css” href=”…” />
-<style>…</style>
-<script src=”…”></script>
-4.所有编码均遵循xhtml标准, 标签 & 属性 & 属性命名 必须由小写字母及下划线数字组成, 且所有标签必须闭合, 包括<br />, <hr />等; 属性值必须用双引号包括;
+&lt;link rel=”stylesheet”type=”text/css” href=”…” /&gt;
+&lt;style&gt;…&lt;/style&gt;
+&lt;script src=”…”&gt;&lt;/script&gt;
+4.所有编码均遵循xhtml标准, 标签 & 属性 & 属性命名 必须由小写字母及下划线数字组成, 且所有标签必须闭合, 包括&lt;br /&gt;, &lt;hr /&gt;等; 属性值必须用双引号包括;
 
 5.充分利用无兼容性问题的html自身标签, 比如span, em, strong, optgroup, label,等等; 需要为 html元素添加自定义属性的时候, 首先要考虑下有没有默认的已有的合适标签去设置, 如果没有, 可以使用须以”data-”为前缀来添加自定义属性，避免使用”data:”等其他命名方式;
 
@@ -601,26 +600,26 @@ a:active {color:#bc2931;}
 
 7.尽可能减少div嵌套, 如
 
-<div class=”box”>
-  <div class=”welcome”>
-    欢迎访问XXX, 您的用户名是<div class=”name”>用户名</div>
-  </div>
-</div>
+&lt;div class=”box”&gt;
+  &lt;div class=”welcome”&gt;
+    欢迎访问XXX, 您的用户名是&lt;div class=”name”&gt;用户名&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 完全可以用以下代码替代:
 
-<div class=”box”>
-  <p>欢迎访问XXX, 您的用户名是<span>用户名</span></p>
-</div>
+&lt;div class=”box”&gt;
+  &lt;p&gt;欢迎访问XXX, 您的用户名是&lt;span&gt;用户名&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
 8.书写链接地址时, 必须避免重定向，例如：href=”http://itaolun.com/”, 即须在URL地址后面加上“/”；
 
 9.在页面中尽量避免使用style属性,即style=”…”;
 
 10.必须为含有描述性表单元素(checkbox, radio)添加label, input, textarea按实际需要如:
 
-<p>姓名: <input type=”text” id=”name” name=”name” /></p>
+&lt;p&gt;姓名: &lt;input type=”text” id=”name” name=”name” /&gt;&lt;/p&gt;
 须写成:
 
-<p><label>姓名:<input type=”text” id=”name” /></label></p>
+&lt;p&gt;&lt;label&gt;姓名:&lt;input type=”text” id=”name” /&gt;&lt;/label&gt;&lt;/p&gt;
 11.重要图片必须加上alt属性; 给重要的元素和截断的元素加上title;
 
 12.给区块代码及重要功能(比如循环)加上注释, 方便后台添加功能;
@@ -632,11 +631,10 @@ a:active {color:#bc2931;}
 15.class & id 参见 css书写规范
 
 16.HTML文件缩进以2个空格为标准。
-</xmp>
+
 其他
 开发过程中严格按分工完成页面, 以提高css复用率, 避免重复开发;
 减小沉冗代码, 书写所有人都可以看的懂的代码. 简洁易懂是一种美德. 为用户着想, 为服务器着想.
-@lt;/html&gt;
 <h2 class="h2">前端工具</h2>
 在线压缩工具<br>
 http://ganquan.info/yui<br>
