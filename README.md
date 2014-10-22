@@ -79,9 +79,9 @@ d. a,b两条, 适用于已建好框架的页面, 如, 要已建好框架的页�
 
 7.充分利用html自身属性及样式继承原理减少代码量, 比如:
 
-<ul class=”list”>
-  <li>这儿是标题列表<span>2010-09-15</span></li>
-</ul>
+&gt;ul class=”list”&lt;
+  &gt;li>这儿是标题列表<span>2010-09-15&gt;/span&lt;&gt;/li&lt;
+&gt/u&lt;
 
 /*css样式*/
 ul.list li{position:relative}
