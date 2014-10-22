@@ -15,7 +15,7 @@ Used to store the front-end development file<br>
 
 
 <h2>2. 代码规范</h2>
-<pre>
+
 2.1 Html规范
 
 2.1.1 文件命名规范
@@ -301,10 +301,9 @@ var f = function () {
   /*@cc_on if (@_jscript) { return 2* @*/  3; /*@ } @*/
 };
 //条件注释妨碍自动化工具的执行, 因为在运行时, 它们会改变 JavaScript 语法树.
-</pre>
 
 <h2>3. 项目脚手架</h2>
-<pre>
+
 3.1 文件命名
 
 1.统一使用英文小写(linux下是严格区分大小写)，无连接符号，如帮助中心模板页: helpcenter.html
@@ -425,10 +424,10 @@ var f = function () {
   |---Gruntfile.js (grunt打包配置文件)
   |---updateAppjs.json (grunt打包配置文件，用于暂存一定时间内改动过的appjs中的js文件)
   |---cssimage.py (给css中的背景图片加版本号，在发布脚本中执行)
-pre>
+
 <h2>4. 生产力工具推荐</h2>
 Mind Map版本：前端工具
-<pre>
+
 4.1 for Mac OS
 
 for more app detial check -> IUSETHIS
@@ -502,10 +501,10 @@ Wiki page index
 测试技巧Gmail 添加词缀 .+ 获得多个邮件的方法
 关于Mac Win Linux跨系统传文件，文件名乱码的解决方案
 技术团队"路由代理"解决方案和使用须知
-</pre>
+
 <h2>5. 参考资料</h2>
  参考网站
-<pre>
+
 注： 工具类
 
 Grunt中文网
@@ -514,9 +513,9 @@ Grunt中文网
 
 markdown语法说明(简体中文)
 
-</pre>
+
 <h2>6. 其他规则</h2>
-<pre>
+
 6.1 hack规则
 
 一般情况下，不要使用 IE 条件注释：
@@ -637,7 +636,7 @@ a:active {color:#bc2931;}
 其他
 开发过程中严格按分工完成页面, 以提高css复用率, 避免重复开发;
 减小沉冗代码, 书写所有人都可以看的懂的代码. 简洁易懂是一种美德. 为用户着想, 为服务器着想.
-</pre>
+
 <h2 class="h2">前端工具</h2>
 在线压缩工具<br>
 http://ganquan.info/yui<br>
