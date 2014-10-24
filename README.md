@@ -21,24 +21,83 @@ Used to store the front-end development file<br>
 
 2.1.1 文件命名规范
 
-1.Html文件统一用小写英文字母，数字与划线组合，其中不能包含汉字，空格与特殊字符
+1.Html文件统一用大小写英文字母（开头用小写，全小写更好，以免和js里的冲突），数字与划线组合，其中不能包含汉字，空格与特殊字符
 
-命名原则：可以参考PHP里的方法名，尽量使用驼峰式；使得你自己与工作组的每一个成员能够方便的理解每一个文件的意义;当在文件夹中使用“按名称排列”的命令时，同一种大类的文件能够排列在一起，以便查找，修改，替换等操作
+命名原则：可以参考bootstrap里的方法名，中划线组合以模块区分css的位置；使得项目组每一个成员能够方便直观的理解每一个累名的意义和所在位置;当在文件夹中使用“按名称排列”的命令时，同一种性质的模块文件能够排列在一起，然后可以快速的操作。
 
 2.各子页命名的原则是以栏目英文翻译后取单一单词做名称如：
 
-关于我们：aboutus.html ；反馈：feedback；产品：product；联系我们：contactus
+关于我们：aboutus.html ；产品：product.html；联系我们：contactus.html；公用文章模板：page.html
 
 2.1.2 html注释
 
 注释格式
 
 <!-- 这儿是注释 -->
-’–’只能在注释的始末位置,不可置入注释文字区域;
+注释中’–’只能在始末位置,不可置入注释文字区域;
+head中不要加注释，以免造成有些浏览器出现不正常现象；
 
 2.1.3 html书写规范
 
-详见：6.4：html书写规范
+1.文档类型声明及编码: 
+统一为html5声明类型&lt;
+!DOCTYPE html&gt;; 
+编码统一为&lt;meta charset=”utf-8″ /&gt;
+书写时实现层次分明的缩进（2个或者4个空格）;
+
+2.非特殊情况下样式文件必须外链至&lt;head&gt;…&lt;/head&gt;之间;非特殊情况下JavaScript文件必须外链至页面底部;
+
+3.引入样式文件或JavaScript文件时, 须略去默认类型声明, 写法如下:
+
+&lt;link rel=”stylesheet” type=”text/css” href=”…” /&gt;
+&lt;style&gt;…&lt;/style&gt;
+&lt;script src=”…”&gt;&lt;/script&gt;
+(style标签在浏览器中是css的事实标准,script标签在浏览器是js的事实标准)
+
+引入JS库文件, 文件名须包含库名称及版本号及是否为压缩版, 比如jquery-1.9.1.min.js; 引入插件, 文件名格式为库名称+插件名称, 比如jQuery.cookie.js; 
+
+4.所有编码均遵循xhtml标准, 标签 & 属性 & 属性命名, 且所有标签必须闭合, 包括&lt;br /&gt;, &lt;hr /&gt;等; 属性值必须用双引号包括;
+
+5.充分利用无兼容性问题的html自身标签, 比如span, em, strong, optgroup, label,等等; 需要为 html元素添加自定义属性的时候, 首先要考虑下有没有默认的已有的合适标签去设置, 如果没有, 可以使用须以”data-”为前缀来添加自定义属性，避免使用”data:”等其他命名方式;
+
+6.语义化html, 如标题根据重要性用h*(同一页面只能有一个h1), 段落标记用p, 列表用ul, 内联元素中不可嵌套块级元素;
+
+7.尽可能减少div嵌套,充分的组合利用每个标签的默认属性规则, 如
+
+&lt;div class=”box”&gt;
+  &lt;div class=”welcome”&gt;
+    欢迎访问XXX, 您的用户名是&lt;div class=”name”&gt;用户名&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+用以下代码替代更能显示你对标签的理解:
+
+&lt;div class=”box”&gt;
+  &lt;p&gt;欢迎访问XXX, 您的用户名是&lt;span&gt;用户名&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+8.书写链接地址时, 必须避免重定向，例如：href=”http://***.***/”, 即须在URL地址后面加上“/”；
+
+9.在页面中尽量避免使用style属性,即style=”…”;利用好分离模式。
+
+10.必须为含有描述性表单元素(checkbox, radio)添加label, input, textarea按实际需要如:
+
+&lt;p&gt;姓名: &lt;input type=”text” id=”name” name=”name” /&gt;&lt;/p&gt;
+
+写成一下为好（可以避免浏览器中解析的区别，样式不一样）:
+
+&lt;p&gt;&lt;label&gt;姓名:&lt;input type=”text” id=”name” /&gt;&lt;/label&gt;&lt;/p&gt;
+
+11.图片加上alt属性（方便查找理解，当然看情况，有些模板没有办法添加）; 给重要的元素和截断的元素加上title;
+
+12.给区块代码及重要功能(比如循环)加上注释, 方便后台添加功能;
+
+13.特殊符号使用: 尽可能使用代码替代: 比如 <(<) & >(>) & 空格( ) & »(») 等等;
+
+14.书写页面过程中, 请考虑向后扩展性，实用性，维护性;
+
+15.class & id 参见 css书写规范
+
 
 2.2 Css规范
 
@@ -583,56 +642,6 @@ a:active {color:#bc2931;}
 .dele{text-decoration:line-through;}
 .ful {text-decoration:underline;}
 
-6.4 html书写规范
-
-1.文档类型声明及编码: 统一为html5声明类型&lt;!DOCTYPE html&gt;; 编码统一为&lt;meta charset=”utf-8″ /&gt;, 书写时利用IDE实现层次分明的缩进;
-
-2.非特殊情况下样式文件必须外链至&lt;head&gt;…&lt;/head&gt;之间;非特殊情况下JavaScript文件必须外链至页面底部;
-
-3.引入样式文件或JavaScript文件时, 须略去默认类型声明, 写法如下:
-
-&lt;link rel=”stylesheet”type=”text/css” href=”…” /&gt;
-&lt;style&gt;…&lt;/style&gt;
-&lt;script src=”…”&gt;&lt;/script&gt;
-4.所有编码均遵循xhtml标准, 标签 & 属性 & 属性命名 必须由小写字母及下划线数字组成, 且所有标签必须闭合, 包括&lt;br /&gt;, &lt;hr /&gt;等; 属性值必须用双引号包括;
-
-5.充分利用无兼容性问题的html自身标签, 比如span, em, strong, optgroup, label,等等; 需要为 html元素添加自定义属性的时候, 首先要考虑下有没有默认的已有的合适标签去设置, 如果没有, 可以使用须以”data-”为前缀来添加自定义属性，避免使用”data:”等其他命名方式;
-
-6.语义化html, 如标题根据重要性用h*(同一页面只能有一个h1), 段落标记用p, 列表用ul, 内联元素中不可嵌套块级元素;
-
-7.尽可能减少div嵌套, 如
-
-&lt;div class=”box”&gt;
-  &lt;div class=”welcome”&gt;
-    欢迎访问XXX, 您的用户名是&lt;div class=”name”&gt;用户名&lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-完全可以用以下代码替代:
-
-&lt;div class=”box”&gt;
-  &lt;p&gt;欢迎访问XXX, 您的用户名是&lt;span&gt;用户名&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;
-8.书写链接地址时, 必须避免重定向，例如：href=”http://itaolun.com/”, 即须在URL地址后面加上“/”；
-
-9.在页面中尽量避免使用style属性,即style=”…”;
-
-10.必须为含有描述性表单元素(checkbox, radio)添加label, input, textarea按实际需要如:
-
-&lt;p&gt;姓名: &lt;input type=”text” id=”name” name=”name” /&gt;&lt;/p&gt;
-须写成:
-
-&lt;p&gt;&lt;label&gt;姓名:&lt;input type=”text” id=”name” /&gt;&lt;/label&gt;&lt;/p&gt;
-11.重要图片必须加上alt属性; 给重要的元素和截断的元素加上title;
-
-12.给区块代码及重要功能(比如循环)加上注释, 方便后台添加功能;
-
-13.特殊符号使用: 尽可能使用代码替代: 比如 <(<) & >(>) & 空格( ) & »(») 等等;
-
-14.书写页面过程中, 请考虑向后扩展性;
-
-15.class & id 参见 css书写规范
-
-16.HTML文件缩进以2个空格为标准。
 
 其他
 开发过程中严格按分工完成页面, 以提高css复用率, 避免重复开发;
