@@ -34,7 +34,7 @@ Used to store the front-end development file<br>
 
 注释格式
 
-&gt;!-- 这儿是注释 --&lt;
+&lt;!-- 这儿是注释 --&gt;
 注释中’–’只能在始末位置,不可置入注释文字区域;
 head中不要加注释，以免造成有些浏览器出现不正常现象；
 
@@ -51,9 +51,9 @@ head中不要加注释，以免造成有些浏览器出现不正常现象；
 
 3.引入样式文件或JavaScript文件时, 须略去默认类型声明, 写法如下:
 
-&lt;link rel=”stylesheet” type=”text/css” href=”…” /&gt;
-&lt;style&gt;…&lt;/style&gt;
-&lt;script src=”…”&gt;&lt;/script&gt;
+&lt;link rel=”stylesheet” type=”text/css” href=”…” /&gt;       
+&lt;style&gt;…&lt;/style&gt;       
+&lt;script src=”…”&gt;&lt;/script&gt;     
 (style标签在浏览器中是css的事实标准,script标签在浏览器是js的事实标准)
 
 引入JS库文件, 文件名须包含库名称及版本号及是否为压缩版, 比如jquery-1.9.1.min.js; 引入插件, 文件名格式为库名称+插件名称, 比如jQuery.cookie.js; 
@@ -66,19 +66,19 @@ head中不要加注释，以免造成有些浏览器出现不正常现象；
 
 7.尽可能减少标签嵌套,充分的组合利用每个标签的默认属性规则, 如
 
-&lt;div class=”box”&gt;
-&lt;div class=”welcome”&gt;
-欢迎访问XXX, 您的用户名是&lt;div class=”name”&gt;用户名&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;div class=”box”&gt;     
+&lt;div class=”welcome”&gt; 
+欢迎访问XXX, 您的用户名是&lt;div class=”name”&gt;用户名&lt;/div&gt;   
+&lt;/div&gt;  
+&lt;/div&gt;  
 
 用以下代码替代更能显示你对标签的理解:
 
-&lt;div class=”box”&gt;
-&lt;p&gt;欢迎访问XXX, 您的用户名是&lt;span&gt;用户名&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;
+&lt;div class=”box”&gt;     
+&lt;p&gt;欢迎访问XXX, 您的用户名是&lt;span&gt;用户名&lt;/span&gt;&lt;/p&gt;  
+&lt;/div&gt;  
 
-8.书写链接地址时, 必须避免重定向（还能避免浏览器之间的问题），例如：href=”http://***.***/”, 即须在URL地址后面加上“/”；
+8.书写链接地址时, 必须避免重定向（还能避免浏览器之间的问题），例如：href=”http://&Chi;&Chi;&Chi;.&Chi;&Chi;&Chi;/”, 即须在URL地址后面加上“/”；
 
 9.在页面中尽量避免使用style属性,即style=”…”;利用好分离模式。
 
