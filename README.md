@@ -41,8 +41,8 @@ head中不要加注释，以免造成有些浏览器出现不正常现象；
 <h4>2.1.3 html书写规范</h4>
 
 1.文档类型声明及编码: <br/>
-统一为html5声明类型&lt; <br/>
-!DOCTYPE html&gt;;  <br/>
+统一为html5声明类型 <br/>
+&lt;!DOCTYPE html&gt;;  <br/>
 编码统一为&lt;meta charset=”utf-8″ /&gt; <br/>
 书写时实现层次分明的缩进（2个或者4个空格,据不完全统计，2个空格的适应所有设备环境）;
 
