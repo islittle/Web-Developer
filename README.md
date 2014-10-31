@@ -1,6 +1,7 @@
 /*
 Web-Developer:wangfeng<br>
 QQ:769407183<br>
+date： October 31 modify
 Used to store the front-end development file<br>
 */
 <h2>1. 规范说明</h2>
@@ -355,7 +356,7 @@ this.name = name;
 var STATIC_VARIABLE = 100;
 var PI = Math.PI;
 
-2.3.3 语言规范
+<h4>2.3.5 语言规范</h4>
 
 1.变量命名必须加上 var 关键字
 
@@ -363,11 +364,13 @@ var PI = Math.PI;
 
 var foo = function(a) {
 console.log(a);
-} //这里丢掉分号会有意想不到的结果
+} //这里丢掉分号自己可以试一下效果
 (function(){
 console.log('hello');
 })();
-3.创建基本类型时，不使用 new 关键字，而直接使用对象字面量，注: 除了在需要实例化一个对象，或罕见的需要延时加载数据的情况外
+
+3.创建基本类型时，不使用 new 关键字，而直接使用对象字面量，
+注: 除了在需要实例化一个对象，或罕见的需要延时加载数据的情况外
 
 //不使用new关键字创建
 var list = new Array(1, 2, 3);
@@ -375,6 +378,7 @@ var obj = new Object();
 //使用字面量
 var list = [1, 2, 3];
 var obj = {};
+
 4.大字符串的创建注意格式
 
 //html结构的字符串推荐使用这种方式
@@ -382,6 +386,7 @@ var listHtml = '&lt;ul class="list"&gt;' +
        '&lt;li class="item"&gt;first item&lt;/li&gt;' +
        '&lt;li class="item"&gt;second item&lt;/li&gt;' +
      '&lt;/ul&gt;';
+     
 5.使用闭包封装整个js文件代码
 
 6.避免使用 eval，with
@@ -396,221 +401,56 @@ var f = function () {
 };
 //条件注释妨碍自动化工具的执行, 因为在运行时, 它们会改变 JavaScript 语法树.
 
-<h2>3. 项目脚手架</h2>
 
-3.1 文件命名
+<h2>3. 前端工具推荐</h2>
 
-1.统一使用英文小写(linux下是严格区分大小写)，无连接符号，如帮助中心模板页: helpcenter.html
-
-2.业务js跟服务走，如当前访问的/Help/Security/index ，对应在 appjs 目录下应该有该文件 help/security/index.js
-
-3.2 目录结构及说明
-
-.项目根目录
-+---public (静态目录)
-+---.build (项目构建临时目录)
-+---css (css目录)
-|   +---mainsource(各个模块的css文件，开发环境由mainsource.css引入，生产环境被压到main.min.css中)
-|   |   ---modules1.css
-|   |   ---modules2.css
-|   |   ---modules3.css
-|   ---reset.css (重置、统一浏览器样式)
-|   ---common.css (头部、底部、表格、按钮等公共样式)
-|   ---mainsource.css (引入mainsource该文件夹下的模块css文件)
-+---dist (grunt发布目录)
-|   +---js
-|   |   +---basejs
-|   |   +---appjs
-|   |   +---modulejs
-|   |   +---componentjs
-|   +---css
-|   |   ---base.min.css (合并reset.css和common.css)
-|   |   ---main.min.css (合并mainsource等其他模块css文件)
-+---images (组件、插件的图片文件夹)
-|   +---demoimg (放测试用的图片)
-|   +---97date
-|   +---box2
-|   +---colorbox
-|   +---hovercard
-|   +---industry
-|   +---jcarousel
-|   +---jcorp
-|   +---jqueryui
-|   +---load
-|   +---multiselect
-|   +---orderlist
-|   +---pop
-|   +---popimage
-|   +---search
-|   +---tipsy
-|   +---upload
-|   +---uploadify
-|   +---webcam
-|   +---zclip
-+---js (js开发目录，符合cmd规范)
-|   +---appjs (与业务对应的模块)
-|   |   +---common (公用模块)
-|   |      ---common.js (全站共用业务js)
-|   +---basejs (基础模块)
-|   |   ---jquery.js
-|   |   ---prototype.js
-|   |   ---sea.js
-|   |   ---seastyle.js
-|   |   ---Tool.js
-|   +---componentjs (富应用组件)
-|   |   +---highcharts (图表)
-|   |   +---ueditor (百度ueditor编辑器)
-|   +---moudlejs (cmd模块组件)
-|   |   +---ajaxform
-|   |   +---animatecolor
-|   |   +---area
-|   |   +---autocomplete
-|   |   +---banner
-|   |   +---box2
-|   |   +---box3
-|   |   +---colorbox
-|   |   +---cookie
-|   |   +---countdown
-|   |   +---datepicker
-|   |   +---datepickerui
-|   |   +---easing
-|   |   +---ghosttext
-|   |   +---hovercard
-|   |   +---hoverdelay
-|   |   +---industry
-|   |   +---jcarousel
-|   |   +---jcorp
-|   |   +---jqueryui
-|   |   +---jscrollpane
-|   |   +---mousewheel
-|   |   +---multiselect
-|   |   +---orderlist
-|   |   +---passwordrate
-|   |   +---pop
-|   |   +---popimage
-|   |   +---position
-|   |   +---rotate
-|   |   +---search
-|   |   +---slideimgtab
-|   |   +---tagit
-|   |   +---textlength
-|   |   +---timepicker
-|   |   +---tipsy
-|   |   +---ui
-|   |   +---upload
-|   |   +---uploadify
-|   |   +---validate
-|   |   +---verifyid
-|   |   +---webcam
-|   |   +---widget
-|   |   +---zclip
-|   ---normaljs (非cmd模块js)
-+---tpl (静态模板)
-+---bin (运用在项目中时的一些脚本片段)
-|   ---appjs.php (项目中引入对应业务的方法)
-|   ---baseUrl2VersionUrl.php (根据文件路径返回以最后修改时间为版本号的url)
-|   ---cssimage.py (给css文件中的背景图片url加版本号)
-|   ---publish.sh (打包脚本，一般放在打包服务器的更新脚本中)
-|   ---static.include.html (引入静态文件)
-|   ---Preferences.sublime-settings (sublime配置文件)
-|   ---SublimeLinter.sublime-settings (SublimeLinter配置文件)
-|---package.json (grunt打包配置文件)
-|---Gruntfile.js (grunt打包配置文件)
-|---updateAppjs.json (grunt打包配置文件，用于暂存一定时间内改动过的appjs中的js文件)
-|---cssimage.py (给css中的背景图片加版本号，在发布脚本中执行)
-
-<h2>4. 生产力工具推荐</h2>
-Mind Map版本：前端工具
-
-4.1 for Mac OS
+3.1 for Mac OS
 
 for more app detial check -> IUSETHIS
 
-4.1.1 前端相关工具(Mac)
+3.2 前端相关工具(Mac)
 
 编辑器：Sublime Text 2 / TextMate 2 / Vim / Intellij IDEA
+
 命令行：iTerm2
+
 浏览器调试环境：Chrome / Firefox + Firebug
+
 移动设备调试环境：Mozilla Fennec
+
 兼容性测试：VirtualBox + Win XP（IE 8）
+
 版本控制工具：GitHub for Mac / Versions / SourceTree
+
 FTP工具：Filezilla / ForkLift
+
 HTTP抓包及Post/Get模拟：Charles
+
 PHP集成环境：XAMPP for Mac / MAMP
+
 SQL数据库管理：Sequel Pro
+
 标注工具：Mark Man / xScope
+
 取色拾色器： Frank DeLoupe / Sip / Snip / xScope
+
 MarkDown编辑器：Mou
+
 浏览器免刷新开发环境：LiveReLoad / CodeKit
+
 CSS Sprite切图工具：SpriteRight
-Less -> CSS 编译：CodeKit / LiveReLoad / Less
+
+sass -> CSS 编译ruby+compass、koala
+
 配色方案工具：ColorSchemer Studio
+
 多浏览器Cookie管理：Cookie
+
 图片素材收集：Sparkbox / Pixa
-4.1.2 其他效率工具
 
-快速启动及切换app：Alfred
-剪切板历史记录：Alfred(Fretures -> Clipboard)
-笔记：Evernote
-轻量级GTD：Clear
-压缩解压：The Unarchiver / Keka / iPack
-语言文档和快捷词扩展：Dash
-时间中断提醒：BreakTime
-4.2 前端相关工具(Windows)
+<h2>4. 其他规则</h2>
 
-编辑器：Sublime Text 2 / Vim / Intellij IDEA
-命令行：Putty
-浏览器调试环境：Chrome / Firefox
-移动设备调试环境：Chrome Remote USB Debugging
-版本控制：Subversion / Github for Windows
-FTP工具：Filezilla
-抓包工具：Fiddler2
-MarkDown：MarkdownPad
-浏览器免刷新开发环境：LiveReLoad / F5
-Less -> CSS编译：less.org(nodejs环境下编译)
-Haml -> Html编译：haml.info(Gem下编译)
-响应式设计查看工具：Firefox Responsive Design View
-4.2.1 其他效率工具(Windows)
-
-笔记：Evernote
-压缩解压：7z
-4.3 其他收集
-
-Firefox 扩展收藏集 -> Firefox Add-ons collections
-Chrome 扩展 -> 待添加
-Sublime Text 2 技巧 -> ST2 资源技巧汇总
-YUIDoc
-grunt： grunt-cmd-transport grunt-cmd-concat grunt-contrib-jshint grunt-contrib-uglify grunt-contrib-watch grunt-contrib-clean grunt-contrib-cssmin grunt-contrib-copy
-sublime（推荐）: emmet（zen coding） jshint css精灵 DocBlock
-Fiddle
-firebug
-Yslow
-IETester
-浏览器: FireFox–>IE7–>IE8–>IE9 –>IE10 –>Opera–>Chrome
-4.4 相关技巧
-
-Wiki page index
-
-各浏览器的缓存清除方法
-测试技巧Gmail 添加词缀 .+ 获得多个邮件的方法
-关于Mac Win Linux跨系统传文件，文件名乱码的解决方案
-技术团队"路由代理"解决方案和使用须知
-
-<h2>5. 参考资料</h2>
-参考网站
-
-注： 工具类
-
-Grunt中文网
-开源中国在线工具 (有相当多的前后端实用的工具，强烈推荐哦 ^-^ )
-注： 学习类
-
-markdown语法说明(简体中文)
-
-
-<h2>6. 其他规则</h2>
-
-6.1 hack规则
+<h3>4.1 hack规则</h3>
 
 一般情况下，不要使用 IE 条件注释：
 通用 Hack
@@ -628,21 +468,25 @@ markdown语法说明(简体中文)
 .selector .child{property:value;} /* for ie-6 */
 .selector > .child{property:value;} /* except ie-6 */
 关于Hack: 在firefox写完，IE有问题？还是其他浏览器也出现了。你知道IE Hack 能解决。我想，你也可能知道，用其他方法也能绕过。建议少用Hack。
-6.2 常用class/Id命名规范
 
-6.3 Reset.css 部分代码(参考)
+
+<h3>4.2 Reset.css 部分代码(参考)</h3>
 
 Html,body{padding:0;margin:0;font:12px/normal SunSin;color:#666; background:#ffffff; }
+html {-webkit-text-size-adjust:none;}
 h1, h2, h3, h4, h5, h6, form, div, p, i, img, ul, li, ol, table, tr, td,th, fieldset, label, legend,button,input { margin:0;padding:0;}
-li{list-style:none;}
+ul,li { list-style:none;}
 img{border:none; vertical-align:middle; }
 table{border-collapse:collapse;}
 hr{clear:both;border-width:0;border-top:1px solid #ccc;border-bottom:1px solid #FFF;height:2px;overflow:hidden;}
+.cl:after{display:block;clear:both;height:0;overflow:hidden;visibility:hidden;content:".";}
+.cl{clear:both;*zoom:1;}
 
 /*link*/
-a:link {color:#333;text-decoration:none;font-family:arial;}
-a:visited {color:#333;text-decoration:none;font-family:arial;}
-a:hover {color:#bc2931; text-decoration:underline;font-family:arial;}
+a { text-decoration:none; outline:none; color:#666;cursor:pointer;}
+a:link {color:#333;}
+a:visited {color:#333;}
+a:hover {color:#bc2931;}
 a:active {color:#bc2931;}
 
 /*font*/
