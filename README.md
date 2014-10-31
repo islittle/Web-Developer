@@ -455,52 +455,52 @@ sass -> CSS 编译ruby+compass、koala
 
 一般情况下，不要使用 IE 条件注释：
 通用 Hack
-.all-IE{property:value\9;}
-.gte-IE-8{property:value\0;}
-.lte-IE-7{*property:value;}
-.IE-7{+property:value;}
-.IE-6{_property:value;}
-.not-IE{property//:value;}
-@-moz-document url-prefix() { .firefox{property:value;} }
-@media all and (-webkit-min-device-pixel-ratio:0) { .webkit{property:value;} }
-@media all and (-webkit-min-device-pixel-ratio:10000),not all and (-webkit-min-device-pixel-ratio:0) { .opera{property:value;} }
-@media screen and (max-device-width: 480px) { .iphone-or-mobile-s-webkit{property:value;} }
+.all-IE{property:value\9;}  
+.gte-IE-8{property:value\0;}       
+.lte-IE-7{*property:value;} 
+.IE-7{+property:value;}     
+.IE-6{_property:value;}     
+.not-IE{property//:value;}  
+@-moz-document url-prefix() { .firefox{property:value;} }      
+@media all and (-webkit-min-device-pixel-ratio:0) { .webkit{property:value;} }      
+@media all and (-webkit-min-device-pixel-ratio:10000),not all and (-webkit-min-device-pixel-ratio:0) { .opera{property:value;} }   
+@media screen and (max-device-width: 480px) { .iphone-or-mobile-s-webkit{property:value;} }       
 当然，强烈建议你使用更优雅的hack方式。那就是避免hack。或者在书写上，做点小trick。比如：
-.selector .child{property:value;} /* for ie-6 */
-.selector > .child{property:value;} /* except ie-6 */
+.selector .child{property:value;} /* for ie-6 */ 
+.selector > .child{property:value;} /* except ie-6 */   
 关于Hack: 在firefox写完，IE有问题？还是其他浏览器也出现了。你知道IE Hack 能解决。我想，你也可能知道，用其他方法也能绕过。建议少用Hack。
 
 
 <h3>4.2 Reset.css 部分代码(参考)</h3>
 
-Html,body{padding:0;margin:0;font:12px/normal SunSin;color:#666; background:#ffffff; }
-html {-webkit-text-size-adjust:none;}
-h1, h2, h3, h4, h5, h6, form, div, p, i, img, ul, li, ol, table, tr, td,th, fieldset, label, legend,button,input { margin:0;padding:0;}
-ul,li { list-style:none;}
-img{border:none; vertical-align:middle; }
-table{border-collapse:collapse;}
-hr{clear:both;border-width:0;border-top:1px solid #ccc;border-bottom:1px solid #FFF;height:2px;overflow:hidden;}
-.cl:after{display:block;clear:both;height:0;overflow:hidden;visibility:hidden;content:".";}
-.cl{clear:both;*zoom:1;}
+Html,body{padding:0;margin:0;font:12px/normal SunSin;color:#666; background:#ffffff; }     
+html {-webkit-text-size-adjust:none;}     
+h1, h2, h3, h4, h5, h6, form, div, p, i, img, ul, li, ol, table, tr, td,th, fieldset, label, legend,button,input { margin:0;padding:0;} 
+ul,li { list-style:none;}   
+img{border:none; vertical-align:middle; } 
+table{border-collapse:collapse;}   
+hr{clear:both;border-width:0;border-top:1px solid #ccc;border-bottom:1px solid #FFF;height:2px;overflow:hidden;}       
+.cl:after{display:block;clear:both;height:0;overflow:hidden;visibility:hidden;content:".";}       
+.cl{clear:both;*zoom:1;}    
 
 /*link*/
-a { text-decoration:none; outline:none; color:#666;cursor:pointer;}
-a:link {color:#333;}
-a:visited {color:#333;}
-a:hover {color:#bc2931;}
-a:active {color:#bc2931;}
+a { text-decoration:none; outline:none; color:#666;cursor:pointer;}   
+a:link {color:#333;} 
+a:visited {color:#333;}     
+a:hover {color:#bc2931;}    
+a:active {color:#bc2931;}   
 
 /*font*/
-.f12{font-size:12px;}
-.f14{font-size:14px;}
-.fb{font-weight:800;}
-.fi{font-style:italic;}
-.dn{display:none;}
-.db{display:block;}
-.fl{float:left;}
-.fr{float:right}
-.dele{text-decoration:line-through;}
-.ful {text-decoration:underline;}
+.f12{font-size:12px;}       
+.f14{font-size:14px;}       
+.fb{font-weight:800;}       
+.fi{font-style:italic;}     
+.dn{display:none;}   
+.db{display:block;}  
+.fl{float:left;}     
+.fr{float:right}     
+.dele{text-decoration:line-through;}      
+.ful {text-decoration:underline;}  
 
 
 其他
