@@ -1,7 +1,7 @@
 /*
 Web-Developer:wangfeng<br>
 QQ:769407183<br>
-date： October 31 modify<br>              
+date： October 31 modify<br>
 Used to store the front-end development file<br>
 */
 <h2>1. 规范说明</h2>
