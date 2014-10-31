@@ -454,10 +454,10 @@ sass -> CSS 编译ruby+compass、koala
 <h3>4.1 hack规则</h3>
 
 一般情况下，不要使用 IE 条件注释：
-通用 Hack
+通用 Hack            
 .all-IE{property:value\9;}  
 .gte-IE-8{property:value\0;}       
-.lte-IE-7{*property:value;} 
+.lte-IE-7{*property:value;}        
 .IE-7{+property:value;}     
 .IE-6{_property:value;}     
 .not-IE{property//:value;}  
