@@ -1,4 +1,4 @@
-/*
+/*<br>
 Web-Developer:wangfeng<br>
 QQ:769407183<br>
 date： October 31 modify<br>
@@ -164,9 +164,10 @@ f. 取父级元素id/class命名部分命名;
 g. 重复使用率高的命名,在reset中统一定义，如属性有所不同，以页面或者区别加划线起始,比如page-fl，fl—db（db是display：block）;
 
 h. 适用于已建好框架的页面, 
-如, 要已建好框架的页面代码&lt;div id=”nav”&gt;&lt;/div&gt;中加入新的div元素, 
-按易懂命名法则: &lt;div id=”nav”&gt;&lt;div class=”subNav”&gt;…&lt;/div&gt;&lt;/div&gt; 样式写法:#nav .subNav {……};
-按后缀命名法则: &lt;div id=”nav”&gt;&lt;div class=”nav-subnav”&gt;…&lt;/div&gt;&lt;/div&gt; 样式写法:.nav-subnav{……}
+如, 要已建好框架的页面代码&lt;div id=”nav”&gt;&lt;/div&gt;中加入新的div元素,
+
+按易懂命名法则: &lt;div id=”nav”&gt;&lt;div class=”subNav”&gt;…&lt;/div&gt;&lt;/div&gt; 样式写法:#nav .subNav {……};    
+按后缀命名法则: &lt;div id=”nav”&gt;&lt;div class=”nav-subnav”&gt;…&lt;/div&gt;&lt;/div&gt; 样式写法:.nav-subnav{……}   
 
 4.css属性书写顺序, 建议遵循: 布局定位属性–>自身属性–>文本属性–>其他属性.尽量保证同类属性写在一起.
 
