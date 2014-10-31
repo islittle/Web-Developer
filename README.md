@@ -305,7 +305,7 @@ i++;
 i--;
 
 //二元操作符前后使用一个空格
-var name = 'Hoogle';
+var name = 'web';
 
 //对象的属性冒号前没有空格，后面留一个空格
 var obj = {
