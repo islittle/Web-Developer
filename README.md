@@ -493,11 +493,11 @@ sass -> CSS 编译ruby+compass、koala
                 <td>游览器内核</td><td>Trident</td><td>Trident</td><td>Trident</td><td>Gecko</td><td>Presto</td><td>WebKit</td>
               </tr>
             </tbody></table>
-注意： 
-浏览器优先级别:FF<IE7<IE6,CSS hack书写顺序一般为FF IE7 IE6
-举例： 
-background-color:red\0;IE8和IE9都支持；   
-background-color:blue\9\0; 仅IE9支持；    
+注意：                       
+浏览器优先级别:FF<IE7<IE6,CSS hack书写顺序一般为FF IE7 IE6            
+举例：               
+background-color:red\0;IE8和IE9都支持；             
+background-color:blue\9\0; 仅IE9支持；              
        
 @-moz-document url-prefix() { .firefox{property:value;} }      
 @media all and (-webkit-min-device-pixel-ratio:0) { .webkit{property:value;} }      
