@@ -478,16 +478,16 @@ sass -> CSS 编译ruby+compass、koala
                 <td>@media screen and (-webkit-min-device-pixel-ratio:0){<span class="red">.bb </span>{}}</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>√</td>
               </tr>
               <tr  >
-                <td><span class="red">.bb </span>, x:-moz-any-link, x:default</td><td>X</td><td>√</td><td>X</td><td>√(ff3.5及以下)</td><td>X</td><td>X</td>
+                <td><span class="red">.tag </span>, x:-moz-any-link, x:default</td><td>X</td><td>√</td><td>X</td><td>√(ff3.5及以下)</td><td>X</td><td>X</td>
               </tr>
               <tr  >
-                <td>@-moz-document url-prefix(){<span class="red">.bb</span>{}}</td><td>X</td><td>X</td><td>X</td><td>√</td><td>X</td><td>X</td>
+                <td>@-moz-document url-prefix(){<span class="red">.tag</span>{}}</td><td>X</td><td>X</td><td>X</td><td>√</td><td>X</td><td>X</td>
               </tr>
               <tr  >
-                <td>@media all and (min-width: 0px){<span class="red">.bb </span>{}}</td><td>X</td><td>X</td><td>X</td><td>√</td><td>√</td><td>√</td>
+                <td>@media all and (min-width: 0px){<span class="red">.tag </span>{}}</td><td>X</td><td>X</td><td>X</td><td>√</td><td>√</td><td>√</td>
               </tr>
               <tr  >
-                <td>* +html <span class="red">.bb </span>{}</td><td>X</td><td>√</td><td>X</td><td>X</td><td>X</td><td>X</td>
+                <td>* +html <span class="red">.tag </span>{}</td><td>X</td><td>√</td><td>X</td><td>X</td><td>X</td><td>X</td>
               </tr>
               <tr >
                 <td>游览器内核</td><td>Trident</td><td>Trident</td><td>Trident</td><td>Gecko</td><td>Presto</td><td>WebKit</td>
