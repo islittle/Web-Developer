@@ -475,7 +475,7 @@ sass -> CSS 编译ruby+compass、koala
                 <td>!important</td><td>X</td><td>√</td><td>√</td><td>√</td><td>√</td><td>√</td>
               </tr>
               <tr  >
-                <td>@media screen and (-webkit-min-device-pixel-ratio:0){<span class="red">.bb </span>{}}</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>√</td>
+                <td>@media screen and (-webkit-min-device-pixel-ratio:0){<span class="red">.tag </span>{}}</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>√</td>
               </tr>
               <tr  >
                 <td><span class="red">.tag </span>, x:-moz-any-link, x:default</td><td>X</td><td>√</td><td>X</td><td>√(ff3.5及以下)</td><td>X</td><td>X</td>
