@@ -475,19 +475,19 @@ sass -> CSS 编译ruby+compass、koala
                 <td>!important</td><td>X</td><td>√</td><td>√</td><td>√</td><td>√</td><td>√</td>
               </tr>
               <tr  >
-                <td>@media screen and (-webkit-min-device-pixel-ratio:0){<span class="red">.tag </span>{}}</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>√</td>
+                <td>@media screen and (-webkit-min-device-pixel-ratio:0){<span class="red">.selector </span>{}}</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>√</td>
               </tr>
               <tr  >
-                <td><span class="red">.tag </span>, x:-moz-any-link, x:default</td><td>X</td><td>√</td><td>X</td><td>√(ff3.5及以下)</td><td>X</td><td>X</td>
+                <td><span class="red">.selector </span>, x:-moz-any-link, x:default</td><td>X</td><td>√</td><td>X</td><td>√(ff3.5及以下)</td><td>X</td><td>X</td>
               </tr>
               <tr  >
-                <td>@-moz-document url-prefix(){<span class="red">.tag</span>{}}</td><td>X</td><td>X</td><td>X</td><td>√</td><td>X</td><td>X</td>
+                <td>@-moz-document url-prefix(){<span class="red">.selector</span>{}}</td><td>X</td><td>X</td><td>X</td><td>√</td><td>X</td><td>X</td>
               </tr>
               <tr  >
-                <td>@media all and (min-width: 0px){<span class="red">.tag </span>{}}</td><td>X</td><td>X</td><td>X</td><td>√</td><td>√</td><td>√</td>
+                <td>@media all and (min-width: 0px){<span class="red">.selector </span>{}}</td><td>X</td><td>X</td><td>X</td><td>√</td><td>√</td><td>√</td>
               </tr>
               <tr  >
-                <td>* +html <span class="red">.tag </span>{}</td><td>X</td><td>√</td><td>X</td><td>X</td><td>X</td><td>X</td>
+                <td>* +html <span class="red">.selector </span>{}</td><td>X</td><td>√</td><td>X</td><td>X</td><td>X</td><td>X</td>
               </tr>
               <tr >
                 <td>游览器内核</td><td>Trident</td><td>Trident</td><td>Trident</td><td>Gecko</td><td>Presto</td><td>WebKit</td>
@@ -497,17 +497,39 @@ sass -> CSS 编译ruby+compass、koala
 浏览器优先级别:FF<IE7<IE6,CSS hack书写顺序一般为FF IE7 IE6            
 举例：               
 background-color:red\0;IE8和IE9都支持；             
-background-color:blue\9\0; 仅IE9支持；              
-       
-@-moz-document url-prefix() { .firefox{property:value;} }      
-@media all and (-webkit-min-device-pixel-ratio:0) { .webkit{property:value;} }      
-@media all and (-webkit-min-device-pixel-ratio:10000),not all and (-webkit-min-device-pixel-ratio:0) { .opera{property:value;} }   
-@media screen and (max-device-width: 480px) { .iphone-or-mobile-s-webkit{property:value;} }       
-当然，强烈建议你使用更优雅的hack方式。那就是避免hack。或者在书写上，做点小trick。比如：
-.selector .child{property:value;} /* for ie-6 */ 
-.selector > .child{property:value;} /* except ie-6 */   
-关于Hack: 在firefox写完，IE有问题？还是其他浏览器也出现了。你知道IE Hack 能解决。我想，你也可能知道，用其他方法也能绕过。建议少用Hack。
+background-color:blue\9\0; 仅IE9支持；  
 
+<h3>其它hack</h3>
+1、Firefox  
+@-moz-document url-prefix() { .selector { property: value; } } 
+上面是仅仅被Firefox浏览器识别的写法   支持所有firefox版本  
+ep：#selector[id=selector] { property: value; }      
+或： @-moz-document url-prefix() { .selector { property: value; } }      
+支持所有Gecko内核的浏览器 (包括Firefox)  *>.selector { property: value; }
+                            
+2、Webkit枘核浏览器(chrome and safari) 
+@media screen and (-webkit-min-device-pixel-ratio:0) { selector { property: value; } }             主要是针对Webkit内核的浏览器，如 Chrome 和 Safari浏览器：      
+ep：@media screen and (-webkit-min-device-pixel-ratio:0) { .demo { color: #666666; } }            
+                     
+3、Opera浏览器（挪威 Kestrel内核Presto）                        
+html:first-child>body selector {property:value;} 或： @media all and (min-width:0) { selector {property: value;} } 或： @media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0) { head~body selector { property: value; } }                    
+这些都是Opera浏览器的Hack写法：           
+ep：@media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0) { head~body .demo { background: green; } }     
+              
+4、IE9浏览器         
+:root selector {property: value/9;} 经测试这是IE9特有的写法。                 
+ep： :root .demo {color: #fff03f/9;}          
+              
+5、IE9以及IE9以下版本                     
+selector {property:value/9;}                        这种写法只有IE9以及IE9以下版本能识别，这里需要注意此处“9”只能是“9”不能是别的，比如说“7”，不然会失去效果的。           
+ep： .demo {background: lime9;} 
+              
+6.移动设备（只做简单介绍）                         
+@media screen and (max-device-width: 480px) { .iphone-or-mobile-s-webkit{property:value;} }              
+              
+建议你使用更完美的hack方式，就是避免hack。或者在书写上，做点小trick。比如：
+.selector .child{property:value;} /* for ie-6 */ 
+.selector > .child{property:value;} /* except ie-6 */                 
 
 <h3>4.2 Reset.css 部分代码(参考)</h3>
 
