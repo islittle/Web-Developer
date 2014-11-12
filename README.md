@@ -456,41 +456,49 @@ sass -> CSS 编译ruby+compass、koala
 一般情况下，不要使用 IE 条件注释：
 通用 Hack
 <table id="tipTable">
-              <tbody><tr class="innerLord">
+              <tbody><tr  >
                 <th>标记</th><th>IE6</th><th>IE7</th><th>IE8</th><th>FF</th><th>Opera</th><th>Sarari</th>
               </tr>
-              <tr class="innerDiff">
+              <tr  >
                 <td>[*+&gt;&lt;]</td><td>√</td><td>√</td><td>X</td><td>X</td><td>X</td><td>X</td>
               </tr>             
-              <tr class="innerDiff">
+              <tr  >
                 <td>_</td><td>√</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td>
               </tr>
-              <tr class="innerDiff">
+              <tr  >
                 <td>\9</td><td>√</td><td>√</td><td>√</td><td>X</td><td>X</td><td>X</td>
               </tr>
-              <tr class="innerDiff">
+              <tr  >
                 <td>\0</td><td>X</td><td>X</td><td>√</td><td>X</td><td>√</td><td>X</td>
               </tr>
-              <tr class="innerDiff">
+              <tr  >
+                <td>!important</td><td>X</td><td>√</td><td>√</td><td>√</td><td>√</td><td>√</td>
+              </tr>
+              <tr  >
                 <td>@media screen and (-webkit-min-device-pixel-ratio:0){<span class="red">.bb </span>{}}</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>√</td>
               </tr>
-              <tr class="innerDiff">
+              <tr  >
                 <td><span class="red">.bb </span>, x:-moz-any-link, x:default</td><td>X</td><td>√</td><td>X</td><td>√(ff3.5及以下)</td><td>X</td><td>X</td>
               </tr>
-              <tr class="innerDiff">
+              <tr  >
                 <td>@-moz-document url-prefix(){<span class="red">.bb</span>{}}</td><td>X</td><td>X</td><td>X</td><td>√</td><td>X</td><td>X</td>
               </tr>
-              <tr class="innerDiff">
+              <tr  >
                 <td>@media all and (min-width: 0px){<span class="red">.bb </span>{}}</td><td>X</td><td>X</td><td>X</td><td>√</td><td>√</td><td>√</td>
               </tr>
-              <tr class="innerDiff">
+              <tr  >
                 <td>* +html <span class="red">.bb </span>{}</td><td>X</td><td>√</td><td>X</td><td>X</td><td>X</td><td>X</td>
               </tr>
-              <tr class="innerLord">
+              <tr >
                 <td>游览器内核</td><td>Trident</td><td>Trident</td><td>Trident</td><td>Gecko</td><td>Presto</td><td>WebKit</td>
               </tr>
             </tbody></table>
-
+注意： 
+浏览器优先级别:FF<IE7<IE6,CSS hack书写顺序一般为FF IE7 IE6
+举例： 
+background-color:red\0;IE8和IE9都支持；   
+background-color:blue\9\0; 仅IE9支持；    
+       
 @-moz-document url-prefix() { .firefox{property:value;} }      
 @media all and (-webkit-min-device-pixel-ratio:0) { .webkit{property:value;} }      
 @media all and (-webkit-min-device-pixel-ratio:10000),not all and (-webkit-min-device-pixel-ratio:0) { .opera{property:value;} }   
