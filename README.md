@@ -454,13 +454,43 @@ sass -> CSS 编译ruby+compass、koala
 <h3>4.1 hack规则</h3>
 
 一般情况下，不要使用 IE 条件注释：
-通用 Hack            
-.all-IE{property:value\9;}  
-.gte-IE-8{property:value\0;}       
-.lte-IE-7{*property:value;}        
-.IE-7{+property:value;}     
-.IE-6{_property:value;}     
-.not-IE{property//:value;}  
+通用 Hack
+<table id="tipTable">
+              <tbody><tr class="innerLord">
+                <th>标记</th><th>IE6</th><th>IE7</th><th>IE8</th><th>FF</th><th>Opera</th><th>Sarari</th>
+              </tr>
+              <tr class="innerDiff">
+                <td>[*+&gt;&lt;]</td><td>√</td><td>√</td><td>X</td><td>X</td><td>X</td><td>X</td>
+              </tr>             
+              <tr class="innerDiff">
+                <td>_</td><td>√</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td>
+              </tr>
+              <tr class="innerDiff">
+                <td>\9</td><td>√</td><td>√</td><td>√</td><td>X</td><td>X</td><td>X</td>
+              </tr>
+              <tr class="innerDiff">
+                <td>\0</td><td>X</td><td>X</td><td>√</td><td>X</td><td>√</td><td>X</td>
+              </tr>
+              <tr class="innerDiff">
+                <td>@media screen and (-webkit-min-device-pixel-ratio:0){<span class="red">.bb </span>{}}</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>√</td>
+              </tr>
+              <tr class="innerDiff">
+                <td><span class="red">.bb </span>, x:-moz-any-link, x:default</td><td>X</td><td>√</td><td>X</td><td>√(ff3.5及以下)</td><td>X</td><td>X</td>
+              </tr>
+              <tr class="innerDiff">
+                <td>@-moz-document url-prefix(){<span class="red">.bb</span>{}}</td><td>X</td><td>X</td><td>X</td><td>√</td><td>X</td><td>X</td>
+              </tr>
+              <tr class="innerDiff">
+                <td>@media all and (min-width: 0px){<span class="red">.bb </span>{}}</td><td>X</td><td>X</td><td>X</td><td>√</td><td>√</td><td>√</td>
+              </tr>
+              <tr class="innerDiff">
+                <td>* +html <span class="red">.bb </span>{}</td><td>X</td><td>√</td><td>X</td><td>X</td><td>X</td><td>X</td>
+              </tr>
+              <tr class="innerLord">
+                <td>游览器内核</td><td>Trident</td><td>Trident</td><td>Trident</td><td>Gecko</td><td>Presto</td><td>WebKit</td>
+              </tr>
+            </tbody></table>
+
 @-moz-document url-prefix() { .firefox{property:value;} }      
 @media all and (-webkit-min-device-pixel-ratio:0) { .webkit{property:value;} }      
 @media all and (-webkit-min-device-pixel-ratio:10000),not all and (-webkit-min-device-pixel-ratio:0) { .opera{property:value;} }   
