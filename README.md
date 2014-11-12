@@ -396,11 +396,11 @@ var listHtml = '&lt;ul class="list"&gt;' +
 
 8.避免使用IE下的条件注释
 
-//不要这样子写:
-var f = function () {
-/*@cc_on if (@_jscript) { return 2* @*/  3; /*@ } @*/
-};
-//条件注释妨碍自动化工具的执行, 因为在运行时, 它们会改变 JavaScript 语法树.
+//不要这样子写:             
+var f = function () {              
+/* @cc_on if (@_jscript) { return 2* @*/  3; /*@ } @*/         
+};            
+//条件注释妨碍自动化工具的执行, 因为在运行时, 它们会改变 JavaScript 语法树.         
 
 
 <h2>3. 前端工具推荐</h2>
