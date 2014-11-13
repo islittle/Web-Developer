@@ -522,7 +522,7 @@ ep： :root .demo {color: #fff03f/9;}
               
 5、IE9以及IE9以下版本                     
 selector {property:value/9;}                        这种写法只有IE9以及IE9以下版本能识别，这里需要注意此处“9”只能是“9”不能是别的，比如说“7”，不然会失去效果的。           
-ep： .demo {background: lime9;} 
+ep： .demo {background: lime/9;} 
               
 6.移动设备（只做简单介绍）                         
 @media screen and (max-device-width: 480px) { .iphone-or-mobile-s-webkit{property:value;} }              
