@@ -18,7 +18,69 @@ Encoding.default_external = Encoding.find('utf-8')
 2.编译extend的时候问题
 extend是我们经常用到的写法，对于它的好处这里就不说了。直接进入主题。
 @extend %class;这样的命令行和koala编译都没有问题。      
-但是@extend .class;的时候，koala就好像不认识一样的跳过。  
+但是@extend .class;的时候，koala就好像不认识一样的跳过。
+                             
+<!--3.css3加前缀问题              -->
+<!--@include prefixer($property, $value, $prefixes);                  -->
+<!--大家应该很熟悉吧，最常用的css3兼容写法。但是编译也是有问题的。          -->
+<!--例子:             -->
+<!--@include prefixer(border-radius, 3px, webkit moz o ms);           -->
+<!--1.9命令行编译结果：        -->
+<!---webkit-border-radius: 3px;         -->
+<!---moz-border-radius: 3px;            -->
+<!---o-border-radius: 3px;        -->
+<!---ms-border-radius: 3px;       -->
+<!--border-radius: 3px;           -->
+<!--koala的结果：           -->
+<!---webkit-border-radius: 3px;         -->
+<!---moz-border-radius: 3px;            -->
+<!---ms-border-radius: 3px;       -->
+<!--border-radius: 3px;           -->
+<!--大家看一下就知道不通了吧。不知道koala为什么会没有-o-，是提前知道Opera新版用了webkit的内核吗？这个大家可以了解一下具体原因。-->
+            
+3.compass自己的问题
+不知道是为了规范自己的代码，还是对浏览器的解析问题，1.9和2.0的在解析上有发现了一下事情。
+<table>
+<tr>
+	<td>定义</td>
+	<td>1.9</td>
+	<td><2.0/td>
+</tr>
+<tr>
+	<td>#333 !default</td>
+	<td>#333333;</td>
+	<td>#333</td>
+</tr>
+<tr>
+	<td>#fff !default</td>
+	<td>white</td>
+	<td>#fff</td>
+</tr>
+<tr>
+	<td>#08c !default</td>
+	<td>#0088cc;</td>
+	<td>#08c</td>
+</tr>
+<tr>
+	<td>#FCFCFC</td>
+	<td>#fcfcfc</td>
+	<td>#FCFCFC</td>
+</tr>
+<tr>
+	<td>
+	.progressListBar{       
+	      &.investRights{}        
+	}           
+	</td>
+	<td>.investRights.progressListBar{}</td>
+	<td>.progressListBar.investRights{}</td>
+</tr>
+<tr>
+	<td>#f5f5f5 !default</td>
+	<td>whitesmoke</td>
+	<td>#f5f5f5</td>
+</tr>
+</table>
 
 
     
