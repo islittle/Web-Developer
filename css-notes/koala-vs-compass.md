@@ -39,7 +39,7 @@ border-radius: 3px;
 border-radius: 3px;           
 现在Opera新版用了webkit的内核，这个o的前缀可以省略了。但为了项目编码的一致性，你需要和项目人员共同设置。
             
-3.compass自己的问题
+4.compass自己的问题
 不知道是为了规范自己的代码，还是对浏览器的解析问题，1.9和2.0的在解析上有发现了一下事情。
 <table>
 <tr>
