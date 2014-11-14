@@ -20,23 +20,24 @@ extend是我们经常用到的写法，对于它的好处这里就不说了。�
 @extend %class;这样的命令行和koala编译都没有问题。      
 但是@extend .class;的时候，koala就好像不认识一样的跳过。
                              
-<!--3.css3加前缀问题              -->
-<!--@include prefixer($property, $value, $prefixes);                  -->
-<!--大家应该很熟悉吧，最常用的css3兼容写法。但是编译也是有问题的。          -->
-<!--例子:             -->
-<!--@include prefixer(border-radius, 3px, webkit moz o ms);           -->
-<!--1.9命令行编译结果：        -->
-<!---webkit-border-radius: 3px;         -->
-<!---moz-border-radius: 3px;            -->
-<!---o-border-radius: 3px;        -->
-<!---ms-border-radius: 3px;       -->
-<!--border-radius: 3px;           -->
-<!--koala的结果：           -->
-<!---webkit-border-radius: 3px;         -->
-<!---moz-border-radius: 3px;            -->
-<!---ms-border-radius: 3px;       -->
-<!--border-radius: 3px;           -->
-<!--大家看一下就知道不通了吧。不知道koala为什么会没有-o-，是提前知道Opera新版用了webkit的内核吗？这个大家可以了解一下具体原因。-->
+3.css3加前缀问题              
+@include prefixer($property, $value, $prefixes);                  
+大家应该很熟悉吧，最常用的css3兼容写法。但是编译也是有问题的。  
+找到_css3.scss文件
+$prefixForOpera:              false !default; //opera从版本15开始转向webkit，所以默认为false，不输出o前缀
+@include prefixer(border-radius, 3px, webkit moz o ms);     
+编译结果：           
+-webkit-border-radius: 3px;         
+-moz-border-radius: 3px;            
+-ms-border-radius: 3px;       
+border-radius: 3px;               
+改为ture后编译结果：        
+-webkit-border-radius: 3px;         
+-moz-border-radius: 3px;            
+-o-border-radius: 3px;        
+-ms-border-radius: 3px;       
+border-radius: 3px;           
+现在Opera新版用了webkit的内核，这个o的前缀可以省略了。但为了项目编码的一致性，你需要和项目人员共同设置。
             
 3.compass自己的问题
 不知道是为了规范自己的代码，还是对浏览器的解析问题，1.9和2.0的在解析上有发现了一下事情。
@@ -44,7 +45,7 @@ extend是我们经常用到的写法，对于它的好处这里就不说了。�
 <tr>
 	<td>定义</td>
 	<td>1.9</td>
-	<td><2.0/td>
+	<td>2.0</td>
 </tr>
 <tr>
 	<td>#333 !default</td>
