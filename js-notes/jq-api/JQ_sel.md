@@ -1,10 +1,10 @@
 jQuery 选择器   wangfeng 创建
 <table>
-		<th>
-			<td>选择器</td>
-			<td>实例</td>
-			<td>选取</td>
-		</th>
+		<tr>
+			<th>选择器</th>
+			<th>实例</th>
+			<th>选取</th>
+		</tr>
 		<tr>
 			<td>*</td>
 			<td>$("*")</td>
