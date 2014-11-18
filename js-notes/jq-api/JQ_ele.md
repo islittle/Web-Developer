@@ -1,4 +1,4 @@
-注释：jQuery事件API wangfeng创建        
+注释：jQuery 事件   wangfeng创建        
       
 一：bind()	向匹配元素附加一个或更多事件处理器     unbind()	从匹配元素移除一个被添加的事件处理器
 $(selector).bind(event,data,function)                 
