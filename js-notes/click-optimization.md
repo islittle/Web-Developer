@@ -11,7 +11,7 @@
 &lt;head&gt;
 	&lt;meta charset="UTF-8"&gt;
 	&lt;title&gt;Document&lt;/title&gt;
-	&lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.js"&gt;&lt;/script&gt;
+	&lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.js"&gt; &lt;/script&gt;
 	&lt;script type="text/javascript"&gt;			
 		$(function(){			
 			function abc(){				
