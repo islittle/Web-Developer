@@ -26,8 +26,8 @@
 	&lt;button id="click"&gt;click&lt;/button&gt;				
 &lt;/body&gt;				
 &lt;/html&gt;				
-2.优化客户体现给用户一个提示事件
-function abc(){
+2.优化客户体现给用户一个提示事件										
+function abc(){					
 	$('#click').off('click',abc); //解绑事件				
 	//下面设置一个5秒的倒计时比上面的体现更好				
 	var tmp = 5,				
