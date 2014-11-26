@@ -15,8 +15,8 @@
 	&lt;script type="text/javascript"&gt;
 		$(function(){
 			function abc(){
-				$('#click').off('click',abc); //解绑清除事件
-				setTimeout(function(){$('#click').on('click',abc);},5000); //5秒后再绑定触发事件，5秒内用户点击无效
+				$('#click').off('click',abc); 解绑清除事件
+				setTimeout(function(){$('#click').on('click',abc);},5000); 5秒后再绑定触发事件，5秒内用户点击无效
 				};
 
 				$('#click').on('click',abc);
@@ -29,18 +29,18 @@
 &lt;/html&gt;
 2.优化客户体现给用户一个提示事件
 function abc(){
-		$('#click').off('click',abc); //解绑事件
-		//下面设置一个5秒的倒计时比上面的体现更好
-		var tmp = 5,
-		interval = setInterval(function(){
-			$("#click").html(''+tmp.toString()+'后再点击');
-			tmp--;
-			if(tmp===0){
-				clearInterval(interval,$('#click').on('click',abc));
-				$("#click").html('click');
-			}else{}
-			
-		},1000);
+	$('#click').off('click',abc); //解绑事件
+	下面设置一个5秒的倒计时比上面的体现更好
+	var tmp = 5,
+	interval = setInterval(function(){
+		$("#click").html(''+tmp.toString()+'后再点击');
+		tmp--;
+		if(tmp===0){
+			clearInterval(interval,$('#click').on('click',abc));
+			$("#click").html('click');
+		}else{}
+		
+	},1000);
 
-	};
-	$('#click').on('click',abc);
+};
+$('#click').on('click',abc);
