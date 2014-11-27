@@ -4,20 +4,21 @@
 
 注释：转载 标注 wangfeng 创建
 
-1.防止用户短时间内多次点击多次触发事件
-举例如下：点击一次后，5秒内点击不触发被绑事件
-&lt;!doctype html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-	&lt;meta charset="UTF-8"&gt;
-	&lt;title&gt;Document&lt;/title&gt;
-	&lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.js"&gt; &lt;/script&gt;		
-	&lt;script type="text/javascript"&gt;					
-		$(function(){			
-			function abc(){				
-				$('#click').off('click',abc); //解绑清除事件			
-				setTimeout(function(){$('#click').on('click',abc);},5000); 								              //5秒后再绑定触发事件，5秒内用户点击无效				
-				};				
+1.防止用户短时间内多次点击多次触发事件								
+举例如下：点击一次后，5秒内点击不触发被绑事件										
+&lt;!doctype html&gt;											
+&lt;html lang="en"&gt;							
+&lt;head&gt;											
+	&lt;meta charset="UTF-8"&gt;								
+	&lt;title&gt;Document&lt;/title&gt;										
+	&lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.js"&gt; &lt;/script&gt;					
+	&lt;script type="text/javascript"&gt;								
+		$(function(){				
+			function abc(){							
+				$('#click').off('click',abc); //解绑清除事件						
+				setTimeout(function(){$('#click').on('click',abc);},5000); 			            
+				//5秒后再绑定触发事件，5秒内用户点击无效				
+				};							
 				$('#click').on('click',abc);				
 		})				
 	&lt;/script&gt;				
