@@ -10,7 +10,7 @@ sass 需要运行在Ruby环境下，下载好最新版本rubyinstaller，我的�
 
 开始 -> Ruby200-x64 ->  Start Command Prompt with Ruby
 
-输入以下命令：npm install compass或者全局安装npm install compass（这是已经安装好了npm）
+输入以下命令：npm install compass或者全局安装npm install -g compass（这是已经安装好了npm）
 也可以：gem install compass
 
 然后等待自动下载安装compass及其依赖模块（包括sass）。
