@@ -1,6 +1,6 @@
 注释：sass的编译有很多可以用sass --watch sass：./css直接编译，可以用koala图形界面编译，也可以用compass。但是都是有前提的，下
-面看一下compass。具体你选择哪个看自己的爱好。
-注意：转载 wangfeng 创建
+面看一下compass。具体你选择哪个看自己的爱好。                             
+注意：转载 wangfeng 创建                                                                                                                                                                                                                         
 <h2>compass的安装和使用</h2>
 1.rubyinstaller安装
 
