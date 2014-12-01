@@ -45,32 +45,32 @@ E:\mywork\test\sass>
 
 
 5.config.rb的说明
+注意：文件中的井号这里用//代替了
+require 'compass/import-once/activate'                  
+//Require any additional compass plugins here. （额外的插件存放的地方）                         
 
-require 'compass/import-once/activate'
-//Require any additional compass plugins here. （额外的插件存放的地方）
-
-//Set this to the root of your project when deployed:（这个设置你的项目的根当部署）
-http_path = "/"
-css_dir = "css"
-sass_dir = "sass"
-images_dir = "images"
-javascripts_dir = "javascripts"
-
-//You can select your preferred output style here (can be overridden via the command line):
+//Set this to the root of your project when deployed:（这个设置你的项目的根当部署）                   
+http_path = "/"                               
+css_dir = "css"                           
+sass_dir = "sass"                                 
+images_dir = "images"                                 
+javascripts_dir = "javascripts"                                         
+                                                          
+//You can select your preferred output style here (can be overridden via the command line):                                 
 output_style = :nested   （编译输出的类型，expanded（扩展式）nested （嵌套式）compact（紧凑式）compressed（压缩式））
-//To enable relative paths to assets via compass helper functions. Uncomment:
-//relative_assets = true （相对路径关闭）
+                          
+//To enable relative paths to assets via compass helper functions. Uncomment:                                               //relative_assets = true （相对路径关闭）                                                                      
+                                        
+//To disable debugging comments that display the original location of your selectors. Uncomment:                            
+line_comments = false （取消line的说明）                              
 
-//To disable debugging comments that display the original location of your selectors. Uncomment:
-line_comments = false （取消line的说明）
 
-
-//If you prefer the indented syntax, you might want to regenerate this
-//project again passing --syntax sass, or you can uncomment this:
-//preferred_syntax = :sass
-//and then run:
-//sass-convert -R --from scss --to sass sass scss && rm -rf sass && mv scss sass
-（这里是自定义语法）
+//If you prefer the indented syntax, you might want to regenerate this                          
+//project again passing --syntax sass, or you can uncomment this:                             
+//preferred_syntax = :sass                                
+//and then run:                               
+//sass-convert -R --from scss --to sass sass scss && rm -rf sass && mv scss sass                                
+（这里是自定义语法）                                      
 
 6.其他
 
