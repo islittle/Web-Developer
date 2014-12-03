@@ -1,15 +1,15 @@
 (本文根据w3school改编 wangfeng)											
-第一：创建对象
-var xmlhttp;
-if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-  
+第一：创建对象													
+var xmlhttp;						
+if (window.XMLHttpRequest)									
+  {// code for IE7+, Firefox, Chrome, Opera, Safari										
+  xmlhttp=new XMLHttpRequest();					
+  }				
+else							
+  {// code for IE6, IE5								
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");							
+  }							
+										  
 第二：请求
 <table class="dataintable">
 <tbody><tr>
@@ -39,13 +39,13 @@ else
 </td>
 </tr>
 </tbody></table>
-
-与 POST 相比，GET 更简单也更快，并且在大部分情况下都能用。
-在以下情况中，请使用 POST 请求：
-1.无法使用缓存文件（更新服务器上的文件或数据库）
-2.向服务器发送大量数据（POST 没有数据量限制）
-3.发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠
-
+											
+与 POST 相比，GET 更简单也更快，并且在大部分情况下都能用。						
+在以下情况中，请使用 POST 请求：							
+1.无法使用缓存文件（更新服务器上的文件或数据库）						
+2.向服务器发送大量数据（POST 没有数据量限制）				
+3.发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠						
+									
 GET请求                            
 上面open中的url                   
 1.加?t=" + Math.random()是避免访问缓存                    
@@ -83,6 +83,6 @@ FORM元素的enctype属性指定了表单数据向服务器提交时所采用的
 “application/x-www-form-urlencoded”。                       
 然而，在向服务器发送大量的文本、包含非ASCII字符的文本或二进制数据时这种编码方式效率很低。           
 在文件上载时，所使用的编码类型应当是“multipart/form-data”，它既可以发送文本数据，也支持二进制数据上载。     
-Browser端<form>表单的ENCTYPE属性值为multipart/form-data，它告诉我们传输的数据要用到多媒体传输协议，由于多媒体传输
-的都是大量的数据，所以规定上传文件必须是post方法，<input>的type属性必须是file。                     
+Browser端&lt;form&gt;表单的ENCTYPE属性值为multipart/form-data，它告诉我们传输的数据要用到多媒体传输协议，由于多媒体传输
+的都是大量的数据，所以规定上传文件必须是post方法，&lt;input&gt;的type属性必须是file。                     
 
