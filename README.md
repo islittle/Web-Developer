@@ -533,39 +533,39 @@ ep： .demo {background: lime/9;}
 
 <h3>4.2 Reset.css 部分代码(参考)</h3>
 
-Html,body{padding:0;margin:0;font:12px/normal SunSin;color:#666; background:#ffffff; }     
-html {-webkit-text-size-adjust:none;}     
-h1, h2, h3, h4, h5, h6, form, div, p, i, img, ul, li, ol, table, tr, td,th, fieldset, label, legend,button,input { margin:0;padding:0;} 
-ul,li { list-style:none;}   
-img{border:none; vertical-align:middle; } 
-table{border-collapse:collapse;}   
-hr{clear:both;border-width:0;border-top:1px solid #ccc;border-bottom:1px solid #FFF;height:2px;overflow:hidden;} 
-下面两种方法自己可以选择
-.cl{zoom:1;}
-.cl:after{display:block;clear:both;height:0;visibility:hidden;content:".";} 
-(这是一种流行的方法)
-.cl {zoom:1} 
-.cl:after { content: '\20'; display: block; clear: both;  }
-（这是一种简洁有效的方法）
-
-/*link*/
+Html,body{padding:0;margin:0;font:12px/normal SunSin;color:#666; background:#ffffff; }                                   
+html {-webkit-text-size-adjust:none;}                                        
+h1, h2, h3, h4, h5, h6, form, div, p, i, img, ul, li, ol, table, tr, td,th, fieldset, label, legend,button,input { margin:0;padding:0;}                                                         
+ul,li { list-style:none;}                                                    
+img{border:none; vertical-align:middle; }                                                  
+table{border-collapse:collapse;}                                                                                       
+hr{clear:both;border-width:0;border-top:1px solid #ccc;border-bottom:1px solid #FFF;height:2px;overflow:hidden;}       
+下面两种方法自己可以选择                                       
+.cl{zoom:1;}                                                     
+.cl:after{display:block;clear:both;height:0;visibility:hidden;content:".";}                                            
+(这是一种流行的方法)                                                         
+.cl {zoom:1}                                                   
+.cl:after { content: '\20'; display: block; clear: both;  }                                                            
+（这是一种简洁有效的方法）                                     
+                                                               
+/*link*/                                                       
 a { text-decoration:none; outline:none; color:#666;cursor:pointer;}   
 a:link {color:#333;} 
 a:visited {color:#333;}     
 a:hover {color:#bc2931;}    
 a:active {color:#bc2931;}   
-
-/*font*/
-.f12{font-size:12px;}       
-.f14{font-size:14px;}       
-.fb{font-weight:800;}       
-.fi{font-style:italic;}     
-.dn{display:none;}   
-.db{display:block;}  
-.fl{float:left;}     
-.fr{float:right}     
-.dele{text-decoration:line-through;}      
-.ful {text-decoration:underline;}  
+                            
+/*font*/                                         
+.f12{font-size:12px;}               
+.f14{font-size:14px;}                
+.fb{font-weight:800;}               
+.fi{font-style:italic;}                    
+.dn{display:none;}                 
+.db{display:block;}         
+.fl{float:left;}                     
+.fr{float:right}            
+.dele{text-decoration:line-through;}                    
+.ful {text-decoration:underline;}                                     
 
 
 其他
