@@ -1,4 +1,4 @@
-(本文根据w3school改编 wangfeng)
+(本文根据w3school改编 wangfeng)											
 第一：创建对象
 var xmlhttp;
 if (window.XMLHttpRequest)
