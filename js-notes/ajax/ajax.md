@@ -1,5 +1,5 @@
 (本文根据w3school改编 wangfeng)											
-第一：创建对象													
+<h3>第一：创建对象</h3>													
 var xmlhttp;						
 if (window.XMLHttpRequest)									
   {// code for IE7+, Firefox, Chrome, Opera, Safari										
@@ -10,7 +10,7 @@ else
   xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");							
   }							
 										  
-第二：请求
+<h3>第二：请求</h3>
 <table class="dataintable">
 <tbody><tr>
 <th style="width:40%;">方法</th>
@@ -86,3 +86,58 @@ FORM元素的enctype属性指定了表单数据向服务器提交时所采用的
 Browser端&lt;form&gt;表单的ENCTYPE属性值为multipart/form-data，它告诉我们传输的数据要用到多媒体传输协议，由于多媒体传输
 的都是大量的数据，所以规定上传文件必须是post方法，&lt;input&gt;的type属性必须是file。                     
 
+url - 服务器上的文件						
+open() 方法的 url 参数是服务器上文件的地址：						
+xmlhttp.open("GET","ajax_test.asp",true);									
+该文件可以是任何类型的文件，比如 .txt 和 .xml，或者服务器脚本文件，比如 .asp 和 .php					 （在传回响应之前，能够在服务器上执行任务）。				
+											
+异步 - True 或 False？												
+XMLHttpRequest 对象如果要用于 AJAX 的话，其 open() 方法的 async 参数必须设置为 true。				
+对于 web 开发人员来说，发送异步请求是一个巨大的进步。很多在服务器执行的任务都相当费时，AJAX出现之前，这可能会引起应用程序挂起或停止。							
+通过 AJAX，JavaScript 无需等待服务器的响应，而是：					
+在等待服务器响应时执行其他脚本					
+当响应就绪后对响应进行处理						
+
+Async = true
+当使用 async=true 时，请规定在响应处于 onreadystatechange 事件中的就绪状态时执行的函数：
+写法如下：										
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","test1.txt",true);
+xmlhttp.send();
+
+您将在稍后学习更多有关 onreadystatechange 的内容。
+Async = false
+如需使用 async=false，请将 open() 方法中的第三个参数改为 false：
+xmlhttp.open("GET","test1.txt",false);
+(不推荐使用 async=false，但是对于一些小型的请求，也是可以的。)
+请记住:JavaScript 会等到服务器响应就绪才继续执行。如果服务器繁忙或缓慢，应用程序会挂起或停止。
+注释：当您使用 async=false 时，请不要编写 onreadystatechange 函数 - 把代码放到 send() 语句后面即可。
+写法如下：						
+xmlhttp.open("GET","test1.txt",false);			
+xmlhttp.send();				
+document.getElementById("myDiv").innerHTML=xmlhttp.responseText;			
+				
+<h3>服务器响应</h3>
+如需获得来自服务器的响应，请使用 XMLHttpRequest 对象的 responseText 或 responseXML 属性。
+<table class="dataintable">
+<tbody><tr>
+<th style="width:25%;">属性</th>
+<th>描述</th>
+</tr>
+
+<tr>
+<td>responseText</td>
+<td>获得字符串形式的响应数据。</td>
+</tr>
+
+<tr>
+<td>responseXML</td>
+<td>获得 XML 形式的响应数据。</td>
+</tr>
+</tbody></table>
