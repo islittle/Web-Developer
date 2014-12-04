@@ -115,10 +115,10 @@ xmlhttp.send();
 				
 Async = false										
 如需使用 async=false，请将 open() 方法中的第三个参数改为 false：								
-xmlhttp.open("GET","test1.txt",false);						
-(不推荐使用 async=false，但是对于一些小型的请求，也是可以的。)							
-请记住:JavaScript 会等到服务器响应就绪才继续执行。如果服务器繁忙或缓慢，应用程序会挂起或停止。
-注释：当您使用 async=false 时，请不要编写 onreadystatechange 函数 - 把代码放到 send() 语句后面即可。		
+xmlhttp.open("GET","test1.txt",false);												
+(不推荐使用 async=false，但是对于一些小型的请求，也是可以的。)								
+请记住:JavaScript 会等到服务器响应就绪才继续执行。如果服务器繁忙或缓慢，应用程序会挂起或停止。		
+注释：当您使用 async=false 时，请不要编写 onreadystatechange 函数 - 把代码放到 send() 语句后面即可。			
 写法如下：											
 xmlhttp.open("GET","test1.txt",false);			
 xmlhttp.send();				
@@ -144,13 +144,13 @@ document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
 </tbody>
 </table>
 responseText 属性
-如果来自服务器的响应并非 XML，请使用 responseText 属性。
-responseText 属性返回字符串形式的响应，因此您可以这样使用：
-document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+如果来自服务器的响应并非 XML，请使用 responseText 属性。					
+responseText 属性返回字符串形式的响应，因此您可以这样使用：				
+document.getElementById("myDiv").innerHTML=xmlhttp.responseText;				
 
 responseXML 属性
-如果来自服务器的响应是 XML，而且需要作为 XML 对象进行解析，请使用 responseXML 属性：
-请求 books.xml 文件，并解析响应：
+如果来自服务器的响应是 XML，而且需要作为 XML 对象进行解析，请使用 responseXML 属性：					
+请求 books.xml 文件，并解析响应：					
 xmlDoc=xmlhttp.responseXML;
 txt="";
 x=xmlDoc.getElementsByTagName("ARTIST");
@@ -159,10 +159,9 @@ for (i=0;i<x.length;i++)
   txt=txt + x[i].childNodes[0].nodeValue + "<br />";
   }
 document.getElementById("myDiv").innerHTML=txt;
-x.firstchild.data:获取元素第一个子节点的数据，
-x.childNodes[0]：:获取元素第一个子节点;
-x.childNodes[0].nodeValue.:也是获取元素第一个子节点值的意思
-另外
-在 DOM 处理中一个普遍的错误是，认为元素节点包含文本。
-在这里澄清一下文本总是存储在文本节点中
-不过，元素节点的文本是存储在文本节点中的。
+x.firstchild.data:获取元素第一个子节点的数据，							
+x.childNodes[0]：:获取元素第一个子节点;									
+x.childNodes[0].nodeValue.:也是获取元素第一个子节点值的意思							
+另外在 DOM 处理中一个普遍的错误是，认为元素节点包含文本。							
+在这里澄清一下文本总是存储在文本节点中						
+不过，元素节点的文本是存储在文本节点中的。							
