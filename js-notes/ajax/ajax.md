@@ -152,9 +152,9 @@ responseXML 属性<br/>
 xmlDoc=xmlhttp.responseXML;<br/>
 txt="";<br/>
 x=xmlDoc.getElementsByTagName("ARTIST");<br/>
-for (i=0;i < x.length; i++)<br/>
+for (var i=0;i<x.length;i++)<br/>
   {<br/>
-  txt=txt + x[i].childNodes[0].nodeValue + "<br />";<br/>
+  txt=txt + x[i].childNodes[0].nodeValue + "&lt;br /&gt;";<br/>
   }<br/>
 document.getElementById("myDiv").innerHTML=txt;<br/>
 <br/><br/>
