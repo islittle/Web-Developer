@@ -1,4 +1,4 @@
-(本文根据w3school改编 wangfeng)											
+注释：ajax现在已经被广泛的运用，它的好处也是有目共睹的，不对了解的小伙伴，我下面做了一个简单的总结，那我不多说，进入正题。(本文根据w3school改编 wangfeng)											
 <h3>第一：创建对象</h3>													
 var xmlhttp;						
 if (window.XMLHttpRequest)									
@@ -227,41 +227,41 @@ readyState 属性存有 XMLHttpRequest 的状态信息。<br>
 callback 函数是一种以参数形式传递给另一个函数的函数。<br/>
 如果网站上存在多个 AJAX 任务，那么您应该为创建 XMLHttpRequest 对象编写一个标准的函数，并为每个 AJAX 任务调用该函数。<br/>
 该函数调用应该包含 URL 以及发生 onreadystatechange 事件时执行的任务（每次调用可能不尽相同）<br/>
-var xmlhttp;
-function loadXMLDoc(url,cfunc)
-{
-if (window.XMLHttpRequest)
-  {// code for IE7+, Firefox, Chrome, Opera, Safari
-  xmlhttp=new XMLHttpRequest();
-  }
-else
-  {// code for IE6, IE5
-  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xmlhttp.onreadystatechange=cfunc;
-xmlhttp.open("GET",url,true);
-xmlhttp.send();
-}
-function myFunction()
-{
-loadXMLDoc("/ajax/test1.txt",function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
-    }
-  });
-}
-function otherFunction()
-{
-loadXMLDoc("/ajax/test2.txt",function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-    document.getElementById("otherDiv").innerHTML=xmlhttp.responseText;
-    }
-  });
-}
+var xmlhttp;<br/>
+function loadXMLDoc(url,cfunc)<br/>
+{<br/>
+if (window.XMLHttpRequest)<br/>
+  {// code for IE7+, Firefox, Chrome, Opera, Safari<br/>
+  xmlhttp=new XMLHttpRequest();<br/>
+  }<br/>
+else<br/>
+  {// code for IE6, IE5<br/>
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");<br/>
+  }<br/>
+xmlhttp.onreadystatechange=cfunc;<br/>
+xmlhttp.open("GET",url,true);<br/>
+xmlhttp.send();<br/>
+}<br/>
+function myFunction()<br/>
+{<br/>
+loadXMLDoc("/ajax/test1.txt",function()<br/>
+  {<br/>
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)<br/>
+    {<br/>
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;<br/>
+    }<br/>
+  });<br/>
+}<br/>
+function otherFunction()<br/>
+{<br/>
+loadXMLDoc("/ajax/test2.txt",function()<br/>
+  {<br/>
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)<br/>
+    {<br/>
+    document.getElementById("otherDiv").innerHTML=xmlhttp.responseText;<br/>
+    }<br/>
+  });<br/>
+}<br/>
+<br/>
 
-到这里一个ajax的流程就算走完了。不知道你是不是还有什么疑惑，有疑惑的可以先百度一下，以上有不同意见者可以随时联系
-本人。谢谢。
+注释：到这里一个ajax的流程就算走完了。不知道你是不是还有什么疑惑，有疑惑的可以先百度一下，以上有不同意见者可以随时联系本人。谢谢。
