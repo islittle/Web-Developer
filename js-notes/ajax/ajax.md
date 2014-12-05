@@ -185,7 +185,7 @@ function loadDoc(){<br/>
   console.log("输出的是“这是”两个字："+y.childNodes[0].nodeValue);<br/>
 }<br/>
 <br/>
-<h3>readyState</h3>
+<h3>第四：readyState</h3>
 当请求被发送到服务器时，我们需要执行一些基于响应的任务。
 每当 readyState 改变时，就会触发 onreadystatechange 事件。
 readyState 属性存有 XMLHttpRequest 的状态信息。<br>
