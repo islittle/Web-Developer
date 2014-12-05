@@ -99,15 +99,15 @@ XMLHttpRequest 对象如果要用于 AJAX 的话，其 open() 方法的 async �
 Async = true<br/>	
 当使用 async=true 时，请规定在响应处于 onreadystatechange 事件中的就绪状态时执行的函数：<br/>	
 写法如下：<br/>											
-xmlhttp.onreadystatechange=function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
-    }
-  }
-xmlhttp.open("GET","test1.txt",true);
-xmlhttp.send();
+xmlhttp.onreadystatechange=function()<br/>
+  {<br/>
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)<br/>
+    {<br/>
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;<br/>
+    }<br/>
+  }<br/>
+xmlhttp.open("GET","test1.txt",true);<br/>
+xmlhttp.send();<br/>
 
 您将在稍后学习更多有关 onreadystatechange 的内容。<br/>		
 				
@@ -118,9 +118,9 @@ xmlhttp.open("GET","test1.txt",false);<br/>
 请记住:JavaScript 会等到服务器响应就绪才继续执行。如果服务器繁忙或缓慢，应用程序会挂起或停止。<br/>		
 注释：当您使用 async=false 时，请不要编写 onreadystatechange 函数 - 把代码放到 send() 语句后面即可。<br/>			
 写法如下：<br/>												
-xmlhttp.open("GET","test1.txt",false);			
-xmlhttp.send();				
-document.getElementById("myDiv").innerHTML=xmlhttp.responseText;			
+xmlhttp.open("GET","test1.txt",false);<br/>
+xmlhttp.send();<br/>	
+document.getElementById("myDiv").innerHTML=xmlhttp.responseText;<br/>
 <br/>				
 <h3>第三：服务器响应</h3>
 如需获得来自服务器的响应，请使用 XMLHttpRequest 对象的 responseText 或 responseXML 属性。
@@ -152,7 +152,7 @@ responseXML 属性<br/>
 xmlDoc=xmlhttp.responseXML;<br/>
 txt="";<br/>
 x=xmlDoc.getElementsByTagName("ARTIST");<br/>
-for (i=0;i<x.length;i++)<br/>
+for (i=0;i < x.length; i++)<br/>
   {<br/>
   txt=txt + x[i].childNodes[0].nodeValue + "<br />";<br/>
   }<br/>
