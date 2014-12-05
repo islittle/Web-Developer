@@ -5,7 +5,7 @@
 <h3>第一：兼容ie7以下的hack没有编译出来</h3>
 下面举一个简单的例子，其他都一样：<br/>
 sass库中是这样定义的：<br/>
-<p style="background:#333;paddding:20px;">
+<p style="background-color:#333!important; color:#fff!important;padding:20px!important">
 @mixin clearfix ($extend:true) {<br/>
   @if $extend {<br/>
     @extend %clearfix;<br/>
@@ -28,7 +28,7 @@ sass库中是这样定义的：<br/>
 }<br/>
 </p>
 运用：<br/>
-<p style="background:#333;paddding:20px;">
+<p style="background-color:#333; color:#fff;padding:20px">
 .clearfix{<br/>
 	@extend %clearfix;<br/>
 }<br/>
@@ -43,7 +43,7 @@ sass库中是这样定义的：<br/>
 </p>
 但是我们发现少了，IE7的hasLayout属性；解决办法：<br/>
 加上“$lte7:true;”<br/>
-<p style="background:#333;paddding:20px;">
+<p style="background-color:#333; color:#fff;padding:20px">
 .clearfix {<br/>
   *zoom: 1; }<br/>
 .clearfix:before, .clearfix:after {<br/>
@@ -56,7 +56,7 @@ sass库中是这样定义的：<br/>
 
 <h3>第二：编译的时候伪类因为权重最低，所以会编译到最顶</h3>
 个人觉得不是很美观在reset下面会更好，所以运用时做了一下修改。<br/>
-<p style="background:#333;paddding:20px;">
+<p style="background-color:#333; color:#fff;padding:20px">
 .clearfix{<br/>
 	@include clearfix(false);<br/>
 }<br/>
