@@ -166,21 +166,22 @@ x.childNodes[0].nodeValue.:也是获取元素第一个子节点值的意思<br/>
 不过，元素节点的文本是存储在文本节点中的。<br/>
 <br/>
 说到了这里，那我举例几个取节点值的方法：<br/>
-&lt;p &gt;这是<span>little1</span>测试用的段落&lt;/p &gt;
-&lt;p &gt;这是<span id="thisout">little2</span>测试用的段落&lt;/p &gt;
-&lt;p id="little"&gt;这是<span>little3</span>测试用的段落&lt;/p &gt;
-&lt;button type="button" onclick="loadDoc()"&gt;取出节点值&lt;/button&gt;
-function loadDoc(){
-  var txt,x,y;
-  txt="";
-  x=document.getElementsByTagName("span");
-  y=document.getElementById("little");
-  console.log("第一个节点值"+x[0].firstChild.data)
-  for (var i = 0; i < x.length; i++) {
-    console.log("依次取出第"+i+"个节点值，一下三种方法都可以")
-    console.log(x[i].firstChild.data);
-    console.log(x[i].childNodes[0].nodeValue);
-    console.log(x[i].innerHTML);
-  };
-  console.log("输出的是“这是”两个字："+y.childNodes[0].nodeValue);
-}
+&lt;p &gt;这是<span>little1</span>测试用的段落&lt;/p &gt;<br/>
+&lt;p &gt;这是<span id="thisout">little2</span>测试用的段落&lt;/p &gt;<br/>
+&lt;p id="little"&gt;这是<span>little3</span>测试用的段落&lt;/p &gt;<br/>
+&lt;button type="button" onclick="loadDoc()"&gt;取出节点值&lt;/button&gt;<br/>
+function loadDoc(){<br/>
+  var txt,x,y;<br/>
+  txt="";<br/>
+  x=document.getElementsByTagName("span");<br/>
+  y=document.getElementById("little");<br/>
+  console.log("第一个节点值"+x[0].firstChild.data)<br/>
+  for (var i = 0; i < x.length; i++) {<br/>
+    console.log("依次取出第"+i+"个节点值，一下三种方法都可以")<br/>
+    console.log(x[i].firstChild.data);<br/>
+    console.log(x[i].childNodes[0].nodeValue);<br/>
+    console.log(x[i].innerHTML);<br/>
+  };<br/>
+  console.log("输出的是“这是”两个字："+y.childNodes[0].nodeValue);<br/>
+}<br/>
+<br/>
