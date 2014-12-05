@@ -141,14 +141,14 @@ document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
 </tr>
 </tbody>
 </table>
-responseText 属性<br/>	
-如果来自服务器的响应并非 XML，请使用 responseText 属性。<br/>						
-responseText 属性返回字符串形式的响应，因此您可以这样使用：<br/>					
-document.getElementById("myDiv").innerHTML=xmlhttp.responseText;				
+responseText 属性<br/>
+如果来自服务器的响应并非 XML，请使用 responseText 属性。<br/>
+responseText 属性返回字符串形式的响应，因此您可以这样使用：<br/>
+document.getElementById("myDiv").innerHTML=xmlhttp.responseText;<br/>
 <br/>
-responseXML 属性<br/>	
-如果来自服务器的响应是 XML，而且需要作为 XML 对象进行解析，请使用 responseXML 属性：<br/>						
-请求 books.xml 文件，并解析响应：<br/>						
+responseXML 属性<br/>
+如果来自服务器的响应是 XML，而且需要作为 XML 对象进行解析，请使用 responseXML 属性：<br/>
+请求 books.xml 文件，并解析响应：<br/>
 xmlDoc=xmlhttp.responseXML;
 txt="";
 x=xmlDoc.getElementsByTagName("ARTIST");
@@ -157,9 +157,9 @@ for (i=0;i<x.length;i++)
   txt=txt + x[i].childNodes[0].nodeValue + "<br />";
   }
 document.getElementById("myDiv").innerHTML=txt;
-x.firstchild.data:获取元素第一个子节点的数据，<br/>	
-x.childNodes[0]：:获取元素第一个子节点;<br/>								
-x.childNodes[0].nodeValue.:也是获取元素第一个子节点值的意思<br/>	
-另外在 DOM 处理中一个普遍的错误是，认为元素节点包含文本。<br/>	
+x.firstchild.data:获取元素第一个子节点的数据，<br/>
+x.childNodes[0]：:获取元素第一个子节点;<br/>
+x.childNodes[0].nodeValue.:也是获取元素第一个子节点值的意思<br/>
+另外在 DOM 处理中一个普遍的错误是，认为元素节点包含文本。<br/>
 在这里澄清一下文本总是存储在文本节点中	<br/>
 不过，元素节点的文本是存储在文本节点中的。<br/>
