@@ -534,7 +534,7 @@ ep： .demo {background: lime/9;}
 <h3>4.2 Reset.css 部分代码(参考)</h3>
 
 Html,body{padding:0;margin:0;font:12px/normal SunSin;color:#666; background:#ffffff; }                                   
-html {-webkit-text-size-adjust:none;}                                        
+html {  -ms-text-size-adjust: 100%;  -webkit-text-size-adjust: 100%;  overflow-y: scroll;  -webkit-overflow-scrolling: touch;}                                                            
 h1, h2, h3, h4, h5, h6, form, div, p, i, img, ul, li, ol, table, tr, td,th, fieldset, label, legend,button,input { margin:0;padding:0;}                                                         
 ul,li { list-style:none;}                                                    
 img{border:none; vertical-align:middle; }                                                  
