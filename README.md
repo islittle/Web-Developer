@@ -549,9 +549,9 @@ hr{clear:both;border-width:0;border-top:1px solid #ccc;border-bottom:1px solid #
 .cl:after { content: '\20'; display: block; clear: both;  }                                                  
 （这是一种简洁的方法）<br/>
 
-.cl{ *zoom: 1;}
-.cl:before, .cl:after {  content: "";  display: table; }
-.cl:after {  clear: both; }
+.cl{ *zoom: 1;}<br/>
+.cl:before, .cl:after {  content: "";  display: table; }<br/>
+.cl:after {  clear: both; }<br/>
 (这是sass库的定义)
                                                                
 /*link*/                                                       
