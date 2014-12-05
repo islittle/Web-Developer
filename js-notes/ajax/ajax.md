@@ -47,7 +47,7 @@ else
 3.发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠<br/>							
 <br/>	<br/>										
 GET请求 <br/>	                           
-上面open中的url <br/>	            
+上面open中的url (一下url么有跨域，既在同一个域之内)<br/>	            
 1.加?t=" + Math.random()是避免访问缓存<br/>	                    
 2.加?fname=Little&lname=Wang" 向 URL 添加信息 对应字段添加对象<br/>	
 <br/><br/>	                   
@@ -122,7 +122,7 @@ xmlhttp.open("GET","test1.txt",false);
 xmlhttp.send();				
 document.getElementById("myDiv").innerHTML=xmlhttp.responseText;			
 <br/>				
-<h3>服务器响应</h3>
+<h3>第三：服务器响应</h3>
 如需获得来自服务器的响应，请使用 XMLHttpRequest 对象的 responseText 或 responseXML 属性。
 <table class="dataintable">
 <tbody><tr>
@@ -157,7 +157,7 @@ for (i=0;i<x.length;i++)
   txt=txt + x[i].childNodes[0].nodeValue + "<br />";
   }
 document.getElementById("myDiv").innerHTML=txt;
-<br/>
+<br/><br/>
 x.firstchild.data:获取元素第一个子节点的数据，<br/>
 x.childNodes[0]：:获取元素第一个子节点;<br/>
 x.childNodes[0].nodeValue.:也是获取元素第一个子节点值的意思<br/>
@@ -185,3 +185,85 @@ function loadDoc(){<br/>
   console.log("输出的是“这是”两个字："+y.childNodes[0].nodeValue);<br/>
 }<br/>
 <br/>
+<h3>readyState</h3>
+当请求被发送到服务器时，我们需要执行一些基于响应的任务。
+每当 readyState 改变时，就会触发 onreadystatechange 事件。
+readyState 属性存有 XMLHttpRequest 的状态信息。<br>
+下面是 XMLHttpRequest 对象的三个重要的属性：<br>
+<table class="dataintable">
+<tbody><tr>
+<th style="width:25%;">属性</th>
+<th>描述</th>
+</tr>
+
+<tr>
+<td>onreadystatechange</td>
+<td>存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。</td>
+</tr>
+
+<tr>
+<td>readyState</td>
+<td>
+	<p>存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。</p>
+	<ul class="listintable">
+	<li>0: 请求未初始化</li>
+	<li>1: 服务器连接已建立</li>
+	<li>2: 请求已接收</li>
+	<li>3: 请求处理中</li>
+	<li>4: 请求已完成，且响应已就绪</li>
+	</ul>
+</td>
+</tr>
+
+<tr>
+<td>status</td>
+<td><p>200: "OK"</p><p>404: 未找到页面</p></td>
+</tr>
+</tbody></table>
+在 onreadystatechange 事件中，我们规定当服务器响应已做好被处理的准备时所执行的任务。<br/>
+注释：onreadystatechange 事件被触发 5 次（0 - 4），对应着 readyState 的每个变化。<br/>
+
+使用 Callback 函数<br/>
+callback 函数是一种以参数形式传递给另一个函数的函数。<br/>
+如果网站上存在多个 AJAX 任务，那么您应该为创建 XMLHttpRequest 对象编写一个标准的函数，并为每个 AJAX 任务调用该函数。<br/>
+该函数调用应该包含 URL 以及发生 onreadystatechange 事件时执行的任务（每次调用可能不尽相同）<br/>
+<script type="text/javascript">
+var xmlhttp;
+function loadXMLDoc(url,cfunc)
+{
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=cfunc;
+xmlhttp.open("GET",url,true);
+xmlhttp.send();
+}
+function myFunction()
+{
+loadXMLDoc("/ajax/test1.txt",function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+    }
+  });
+}
+function otherFunction()
+{
+loadXMLDoc("/ajax/test2.txt",function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("otherDiv").innerHTML=xmlhttp.responseText;
+    }
+  });
+}
+</script>
+
+到这里一个ajax的流程就算走完了。不知道你是不是还有什么疑惑，有疑惑的可以先百度一下，以上有不同意见者可以随时联系
+本人。谢谢。
