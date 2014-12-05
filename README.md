@@ -540,13 +540,19 @@ ul,li { list-style:none;}
 img{border:none; vertical-align:middle; }                                                  
 table{border-collapse:collapse;}                                                                                       
 hr{clear:both;border-width:0;border-top:1px solid #ccc;border-bottom:1px solid #FFF;height:2px;overflow:hidden;}       
-下面两种方法自己可以选择                                       
-.cl{zoom:1;}                                                     
-.cl:after{display:block;clear:both;height:0;visibility:hidden;content:".";}                                            
-(这是一种流行的方法)                                                         
-.cl {zoom:1}                                                   
-.cl:after { content: '\20'; display: block; clear: both;  }                                                            
-（这是一种简洁有效的方法）                                     
+下面方法自己可以选择                                       
+.cl{*zoom:1;}                                                     
+.cl:after{display:block;clear:both;height:0;visibility:hidden;content:".";}                                   
+(这是一种流行的方法)
+
+.cl {*zoom:1}                                                   
+.cl:after { content: '\20'; display: block; clear: both;  }                                                  
+（这是一种简洁的方法）<br/>
+
+.cl{ *zoom: 1;}
+.cl:before, .cl:after {  content: "";  display: table; }
+.cl:after {  clear: both; }
+(这是sass库的定义)
                                                                
 /*link*/                                                       
 a { text-decoration:none; outline:none; color:#666;cursor:pointer;}   
