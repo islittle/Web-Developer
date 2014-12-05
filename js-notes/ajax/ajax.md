@@ -152,7 +152,7 @@ responseXML 属性<br/>
 xmlDoc=xmlhttp.responseXML;<br/>
 txt="";<br/>
 x=xmlDoc.getElementsByTagName("ARTIST");<br/>
-for (var i=0;i<x.length;i++)<br/>
+for (var i=0;i&lt;x.length;i++)<br/>
   {<br/>
   txt=txt + x[i].childNodes[0].nodeValue + "&lt;br /&gt;";<br/>
   }<br/>
@@ -176,7 +176,7 @@ function loadDoc(){<br/>
   x=document.getElementsByTagName("span");<br/>
   y=document.getElementById("little");<br/>
   console.log("第一个节点值"+x[0].firstChild.data)<br/>
-  for (var i = 0; i < x.length; i++) {<br/>
+  for (var i = 0; i &lt; x.length; i++) {<br/>
     console.log("依次取出第"+i+"个节点值，一下三种方法都可以")<br/>
     console.log(x[i].firstChild.data);<br/>
     console.log(x[i].childNodes[0].nodeValue);<br/>
