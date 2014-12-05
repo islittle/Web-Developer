@@ -149,14 +149,14 @@ document.getElementById("myDiv").innerHTML=xmlhttp.responseText;<br/>
 responseXML 属性<br/>
 如果来自服务器的响应是 XML，而且需要作为 XML 对象进行解析，请使用 responseXML 属性：<br/>
 请求 books.xml 文件，并解析响应：<br/>
-xmlDoc=xmlhttp.responseXML;
-txt="";
-x=xmlDoc.getElementsByTagName("ARTIST");
-for (i=0;i<x.length;i++)
-  {
-  txt=txt + x[i].childNodes[0].nodeValue + "<br />";
-  }
-document.getElementById("myDiv").innerHTML=txt;
+xmlDoc=xmlhttp.responseXML;<br/>
+txt="";<br/>
+x=xmlDoc.getElementsByTagName("ARTIST");<br/>
+for (i=0;i<x.length;i++)<br/>
+  {<br/>
+  txt=txt + x[i].childNodes[0].nodeValue + "<br />";<br/>
+  }<br/>
+document.getElementById("myDiv").innerHTML=txt;<br/>
 <br/><br/>
 x.firstchild.data:获取元素第一个子节点的数据，<br/>
 x.childNodes[0]：:获取元素第一个子节点;<br/>
