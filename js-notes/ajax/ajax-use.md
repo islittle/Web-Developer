@@ -101,3 +101,126 @@ else<br/>
 echo $response;<br/>
 ?&gt;<br/>
 </p>
+
+<h3>第二：和数据库的交互</h3>
+前台文件：
+<p>
+<html><br/>
+<meta charset="utf-8"><br/>
+<head><br/>
+</head><br/>
+<body><br/>
+<br/>
+<form> 
+Select a User:<br/>
+<select name="users" onchange="showUser(this.value)"><br/>
+<option value="1">Peter Griffin</option><br/>
+<option value="2">Lois Griffin</option><br/>
+<option value="3">Glenn Quagmire</option><br/>
+<option value="4">Joseph Swanson</option><br/>
+</select><br/>
+</form><br/>
+<br/>
+<p><br/>
+<div id="txtHint"><b>User info will be listed here.</b></div><br/>
+</p><br/>
+<br/>
+</body><br/>
+</html><br/>
+<script type="text/javascript"><br/>
+var xmlHttp;<br/>
+function showUser(str)<br/>
+{ <br/>
+xmlHttp=GetXmlHttpObject();<br/>
+if (xmlHttp==null)<br/>
+ {<br/>
+ alert ("Browser does not support HTTP Request");<br/>
+ return;<br/>
+ }<br/>
+var url="ajax-php-sql.php";<br/>
+//参数传递<br/>
+url=url+"?q="+str;<br/>
+//避免访问缓存<br/>
+url=url+"&sid="+Math.random();<br/>
+//存储函数<br/>
+xmlHttp.onreadystatechange=stateChanged ;<br/>
+xmlHttp.open("GET",url,true);<br/>
+xmlHttp.send(null);<br/>
+}<br/>
+//存储函数<br/>
+function stateChanged() <br/>
+{ <br/>
+if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")<br/>
+ { <br/>
+ document.getElementById("txtHint").innerHTML=xmlHttp.responseText;<br/>
+ } <br/>
+}<br/>
+<br/>
+function GetXmlHttpObject()<br/>
+{<br/>
+var xmlHttp=null;<br/>
+try<br/>
+ {<br/>
+ // Firefox, Opera 8.0+, Safari<br/>
+ xmlHttp=new XMLHttpRequest();<br/>
+ }<br/>
+catch (e)<br/>
+ {<br/>
+ //Internet Explorer<br/>
+ try<br/>
+  {<br/>
+  xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");<br/>
+  }<br/>
+ catch (e)<br/>
+  {<br/>
+  xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");<br/>
+  }<br/>
+ }<br/>
+return xmlHttp;<br/>
+}<br/>
+</script><br/>
+</p>
+
+后台文件：
+<p>
+<?php<br/>
+//参数传递<br/>
+$q=$_GET["q"];<br/>
+//链接数据库服务器<br/>
+$con = mysql_connect('localhost', 'peter', 'abc123');<br/>
+//判断是否链接成功<br/>
+if (!$con)<br/>
+ {<br/>
+ die('Could not connect: ' . mysql_error());<br/>
+ }<br/>
+//选择数据库<br/>
+mysql_select_db("ajax_demo", $con);<br/>
+//执行查询语句<br/>
+$sql="SELECT * FROM user WHERE id = '".$q."'";<br/>
+<br/>
+$result = mysql_query($sql);<br/>
+//从查询返回的结果集中提取数据<br/>
+echo "<table border='1'><br/>
+<tr><br/>
+<th>Firstname</th><br/>
+<th>Lastname</th><br/>
+<th>Age</th><br/>
+<th>Hometown</th><br/>
+<th>Job</th><br/>
+</tr>";<br/>
+
+while($row = mysql_fetch_array($result))<br/>
+ {<br/>
+ echo "<tr>";<br/>
+ echo "<td>" . $row['FirstName'] . "</td>";<br/>
+ echo "<td>" . $row['LastName'] . "</td>";<br/>
+ echo "<td>" . $row['Age'] . "</td>";<br/>
+ echo "<td>" . $row['Hometown'] . "</td>";<br/>
+ echo "<td>" . $row['Job'] . "</td>";<br/>
+ echo "</tr>";<br/>
+ }<br/>
+echo "</table>";<br/>
+//释放结果对象以及断开连接<br/>
+mysql_close($con);<br/>
+?><br/>
+</p><br/>
