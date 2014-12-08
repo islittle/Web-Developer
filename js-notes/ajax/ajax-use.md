@@ -105,29 +105,29 @@ echo $response;<br/>
 <h3>第二：和数据库的交互</h3>
 前台文件：
 <p>
-<html><br/>
-<meta charset="utf-8"><br/>
-<head><br/>
-</head><br/>
-<body><br/>
-<br/>
-<form> 
+&lt;html&gt;<br/>
+&lt;meta charset="utf-8"&gt;<br/>
+&lt;head&gt;<br/>
+&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+
+&lt;form&gt; <br/>
 Select a User:<br/>
-<select name="users" onchange="showUser(this.value)"><br/>
-<option value="1">Peter Griffin</option><br/>
-<option value="2">Lois Griffin</option><br/>
-<option value="3">Glenn Quagmire</option><br/>
-<option value="4">Joseph Swanson</option><br/>
-</select><br/>
-</form><br/>
-<br/>
-<p><br/>
-<div id="txtHint"><b>User info will be listed here.</b></div><br/>
-</p><br/>
-<br/>
-</body><br/>
-</html><br/>
-<script type="text/javascript"><br/>
+&lt;select name="users" onchange="showUser(this.value)"&gt;<br/>
+&lt;option value="1"&gt;Peter Griffin&lt;/option&gt;<br/>
+&lt;option value="2"&gt;Lois Griffin&lt;/option&gt;<br/>
+&lt;option value="3"&gt;Glenn Quagmire&lt;/option&gt;<br/>
+&lt;option value="4"&gt;Joseph Swanson&lt;/option&gt;<br/>
+&lt;/select&gt;<br/>
+&lt;/form&gt;<br/>
+
+&lt;p&gt;<br/>
+&lt;div id="txtHint"&gt;&lt;b&gt;User info will be listed here.&lt;/b&gt;&lt;/div&gt;<br/>
+&lt;/p&gt;<br/>
+
+&lt;/body&gt;<br/>
+&lt;/html&gt;<br/>
+&lt;script type="text/javascript"&gt;<br/>
 var xmlHttp;<br/>
 function showUser(str)<br/>
 { <br/>
@@ -151,9 +151,9 @@ xmlHttp.send(null);<br/>
 function stateChanged() <br/>
 { <br/>
 if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete")<br/>
- { <br/>
+ {<br/> 
  document.getElementById("txtHint").innerHTML=xmlHttp.responseText;<br/>
- } <br/>
+ }<br/> 
 }<br/>
 <br/>
 function GetXmlHttpObject()<br/>
@@ -178,12 +178,12 @@ catch (e)<br/>
  }<br/>
 return xmlHttp;<br/>
 }<br/>
-</script><br/>
+&lt;/script&gt;<br/>
 </p>
 
 后台文件：
 <p>
-<?php<br/>
+&lt;?php<br/>
 //参数传递<br/>
 $q=$_GET["q"];<br/>
 //链接数据库服务器<br/>
@@ -200,27 +200,29 @@ $sql="SELECT * FROM user WHERE id = '".$q."'";<br/>
 <br/>
 $result = mysql_query($sql);<br/>
 //从查询返回的结果集中提取数据<br/>
-echo "<table border='1'><br/>
-<tr><br/>
-<th>Firstname</th><br/>
-<th>Lastname</th><br/>
-<th>Age</th><br/>
-<th>Hometown</th><br/>
-<th>Job</th><br/>
-</tr>";<br/>
-
+echo "&lt;table border='1'&gt;<br/>
+&lt;tr&gt;<br/>
+&lt;th&gt;Firstname&lt;/th&gt;<br/>
+&lt;th&gt;Lastname&lt;/th&gt;<br/>
+&lt;th&gt;Age&lt;/th&gt;<br/>
+&lt;th&gt;Hometown&lt;/th&gt;<br/>
+&lt;th&gt;Job&lt;/th&gt;<br/>
+&lt;/tr&gt;";<br/>
+<br/>
 while($row = mysql_fetch_array($result))<br/>
  {<br/>
- echo "<tr>";<br/>
- echo "<td>" . $row['FirstName'] . "</td>";<br/>
- echo "<td>" . $row['LastName'] . "</td>";<br/>
- echo "<td>" . $row['Age'] . "</td>";<br/>
- echo "<td>" . $row['Hometown'] . "</td>";<br/>
- echo "<td>" . $row['Job'] . "</td>";<br/>
- echo "</tr>";<br/>
+ echo "&lt;tr&gt;";<br/>
+ echo "&lt;td&gt;" . $row['FirstName'] . "&lt;/td&gt;";<br/>
+ echo "&lt;td&gt;" . $row['LastName'] . "&lt;/td&gt;";<br/>
+ echo "&lt;td&gt;" . $row['Age'] . "&lt;/td&gt;";<br/>
+ echo "&lt;td&gt;" . $row['Hometown'] . "&lt;/td&gt;";<br/>
+ echo "&lt;td&gt;" . $row['Job'] . "&lt;/td&gt;";<br/>
+ echo "&lt;/tr&gt;";<br/>
  }<br/>
-echo "</table>";<br/>
+echo "&lt;/table&gt;";<br/>
 //释放结果对象以及断开连接<br/>
 mysql_close($con);<br/>
-?><br/>
+?&gt;<br/>
 </p><br/>
+
+
