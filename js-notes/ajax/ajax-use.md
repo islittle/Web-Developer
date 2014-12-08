@@ -224,5 +224,98 @@ echo "&lt;/table&gt;";<br/>
 mysql_close($con);<br/>
 ?&gt;<br/>
 </p><br/>
+<h3>第三：和XML交互</h3>
+前台文件：
+<p>
+&lt;html&gt;<br/>
+&lt;meta charset="utf-8"&gt;<br/>
+&lt;head&gt;<br/>
 
+&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
 
+&lt;div id="txtCDInfo"&gt;<br/>
+&lt;button onclick="loadXMLDoc('xmltest.xml')"&gt;获得 CD 信息&lt;/button&gt;<br/>
+&lt;/div&gt;<br/>
+
+&lt;/body&gt;<br/>
+&lt;/html&gt;<br/>
+&lt;script type="text/javascript"&gt;<br/>
+function loadXMLDoc(url)<br/>
+{<br/>
+var xmlhttp;<br/>
+var txt,x,xx,i;<br/>
+if (window.XMLHttpRequest)<br/>
+  {// code for IE7+, Firefox, Chrome, Opera, Safari<br/>
+  xmlhttp=new XMLHttpRequest();<br/>
+  }<br/>
+else<br/>
+  {// code for IE6, IE5<br/>
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");<br/>
+  }<br/>
+xmlhttp.onreadystatechange=function()<br/>
+  {<br/>
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)<br/>
+    {<br/>
+    txt="&lt;table border='1'&gt;&lt;tr&gt;&lt;th&gt;Title&lt;/th&gt;&lt;th&gt;Artist&lt;/th&gt;&lt;/tr&gt;";<br/>
+    x=xmlhttp.responseXML.documentElement.getElementsByTagName("CD");<br/>
+    for (i=0;i&lt;x.length;i++)<br/>
+      {<br/>
+      txt=txt + "&lt;tr&gt;";<br/>
+      xx=x[i].getElementsByTagName("TITLE");<br/>
+        {<br/>
+        try<br/>
+          {<br/>
+          txt=txt + "&lt;td&gt;" + xx[0].firstChild.nodeValue + "&lt;/td&gt;";<br/>
+          }<br/>
+        catch (er)<br/>
+          {<br/>
+          txt=txt + "&lt;td&gt; &lt;/td&gt;";<br/>
+          }<br/>
+        }<br/>
+      xx=x[i].getElementsByTagName("ARTIST");<br/>
+        {<br/>
+        try<br/>
+          {<br/>
+          txt=txt + "&lt;td&gt;" + xx[0].firstChild.nodeValue + "&lt;/td&gt;";<br/>
+          }<br/>
+        catch (er)<br/>
+          {<br/>
+          txt=txt + "&lt;td&gt; &lt;/td&gt;";<br/>
+          }<br/>
+        }<br/>
+      txt=txt + "&lt;/tr&gt;";<br/>
+      }<br/>
+    txt=txt + "&lt;/table&gt;";<br/>
+    document.getElementById('txtCDInfo').innerHTML=txt;<br/>
+    }<br/>
+  }<br/>
+xmlhttp.open("GET",url,true);<br/>
+xmlhttp.send();<br/>
+}<br/>
+&lt;/script&gt;<br/>
+</p>
+
+xml文件：
+<p>
+&lt;CATALOG&gt;<br/>
+	&lt;CD&gt;<br/>
+	&lt;TITLE&gt;Empire Burlesque&lt;/TITLE&gt;<br/>
+	&lt;ARTIST&gt;Bob Dylan&lt;/ARTIST&gt;<br/>
+	&lt;COUNTRY&gt;USA&lt;/COUNTRY&gt;<br/>
+	&lt;COMPANY&gt;Columbia&lt;/COMPANY&gt;<br/>
+	&lt;PRICE&gt;10.90&lt;/PRICE&gt;<br/>
+	&lt;YEAR&gt;1985&lt;/YEAR&gt;<br/>
+	&lt;/CD&gt;<br/>
+	&lt;CD&gt;<br/>
+	&lt;TITLE&gt;Hide your heart&lt;/TITLE&gt;<br/>
+	&lt;ARTIST&gt;Bonnie Tyler&lt;/ARTIST&gt;<br/>
+	&lt;COUNTRY&gt;UK&lt;/COUNTRY&gt;<br/>
+	&lt;COMPANY&gt;CBS Records&lt;/COMPANY&gt;<br/>
+	&lt;PRICE&gt;9.90&lt;/PRICE&gt;<br/>
+	&lt;YEAR&gt;1988&lt;/YEAR&gt;<br/>
+	&lt;/CD&gt;<br/>
+&lt;/CATALOG&gt;<br/>
+</p>
+
+以上是在运用中的情况，如有错误或者问题，请联系，谢谢
