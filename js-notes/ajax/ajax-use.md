@@ -23,7 +23,7 @@
 function showHint(str)<br/>
 {<br/>
 var xmlhttp;<br/>
-//判断字符串为空，则返回为空
+//判断字符串为空，则返回为空<br/>
 if (str.length==0)<br/>
   {<br/>
   document.getElementById("txtHint").innerHTML="";<br/>
@@ -52,52 +52,52 @@ xmlhttp.send();<br/>
 </p>
 后台文件(php)：
 <p>
-&lt;?php
-$a[]="我";
-$a[]="我在";
-$a[]="我在测";
-$a[]="我在测试";
-$a[]="我在测试php";
-$a[]="我在测试php！";
-
-//获得来自 URL 的 q 参数
-$q=$_GET["q"];
-
-//如果 q 大于 0，则查找数组中的所有提示
-if (strlen($q) > 0)
-  {
-  //定义初始化变量
-  $hint="";
-  //循环数组
-  for($i=0; $i<count($a); $i++)
-    {
-      //对比
-    if ($q ==substr($a[$i],0,strlen($q)))
-      {
-      if ($hint=="")
-        {
-        $hint=$a[$i];
-        }
-      else
-        {
-        $hint=$hint." , ".$a[$i];
-        }
-      }
-    }
-  }
-
-// 如果未找到提示，则把输出设置为 "no suggestion"
-// 否则设置为正确的值
-if ($hint == "")
-  {
-  $response="未找到你需要的信息";
-  }
-else
-  {
-  $response=$hint;
-  }
-
-//输出响应
-echo $response;
-?&gt;
+&lt;?php<br/>
+$a[]="我";<br/>
+$a[]="我在";<br/>
+$a[]="我在测";<br/>
+$a[]="我在测试";<br/>
+$a[]="我在测试php";<br/>
+$a[]="我在测试php！";<br/>
+<br/>
+//获得来自 URL 的 q 参数<br/>
+$q=$_GET["q"];<br/>
+<br/>
+//如果 q 大于 0，则查找数组中的所有提示<br/>
+if (strlen($q) > 0)<br/>
+  {<br/>
+  //定义初始化变量<br/>
+  $hint="";<br/>
+  //循环数组<br/>
+  for($i=0; $i<count($a); $i++)<br/>
+    {<br/>
+      //对比<br/>
+    if ($q ==substr($a[$i],0,strlen($q)))<br/>
+      {<br/>
+      if ($hint=="")<br/>
+        {<br/>
+        $hint=$a[$i];<br/>
+        }<br/>
+      else<br/>
+        {<br/>
+        $hint=$hint." , ".$a[$i];<br/>
+        }<br/>
+      }<br/>
+    }<br/>
+  }<br/>
+<br/>
+// 如果未找到提示，则把输出设置为 "no suggestion"<br/>
+// 否则设置为正确的值<br/>
+if ($hint == "")<br/>
+  {<br/>
+  $response="未找到你需要的信息";<br/>
+  }<br/>
+else<br/>
+  {<br/>
+  $response=$hint;<br/>
+  }<br/>
+<br/>
+//输出响应<br/>
+echo $response;<br/>
+?&gt;<br/>
 </p>
