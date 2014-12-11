@@ -62,7 +62,7 @@ vertical-align: middle;
 *display: inline;
 *zoom: 1;
 }<br/>
-# extra {
+/#extra {
 height: 100%;
 *width: 1px;
 }<br/>
