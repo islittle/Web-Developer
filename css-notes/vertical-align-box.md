@@ -62,7 +62,7 @@ vertical-align: middle;
 *display: inline;
 *zoom: 1;
 }<br/>
-#extra {
+# extra {
 height: 100%;
 *width: 1px;
 }<br/>
@@ -71,7 +71,7 @@ height: 100%;
 &lt;div class="ver-external-box cl"&gt;<br/>
     &lt;div class="ver-parent-box tac"&gt;<br/>
 		&lt;span class="ver-content-box"&gt;<br/>
-			&lt;img src="images/0.png" alt=""&gt;<br/>
+			&lt;img src="images/0.png" alt=""&gt;<br/>（这里可以是文字）
 		&lt;/span&gt;<br/>
       	&lt;div id="extra"&gt;&lt;!-- ie comment --&gt;&lt;/div&gt;<br/>
     &lt;/div&gt;<br/>
