@@ -4,51 +4,50 @@
 
 <h1>逐行显示内容</h1>
 
-&lt;html&gt;
-&lt;head&gt;
-    &lt;meta charset="utf-8"&gt;
-&lt;title&gt;逐行显示&lt;/title&gt;
-&lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.js"&gt;&lt;/script&gt;
-&lt;script language="javascript"&gt;
-//auth:little
-//date:2014/12/24
-$(function(){
-    var showC_li=$('#txt li');
-    var showC_li_Num=showC_li.length-1;
-    var showC_Nav_Num =0;
-    function showC_M(Num){
-             showC_li.eq(Num).css('visibility', 'visible ').siblings('li').css('visibility', 'hidden ');
-             if ( showC_li.eq(Num).is(':visible ')) {
-                for (var i = 0; i &lt;= Num; i++) {
-                   showC_li.eq(i).css('visibility', 'visible ');
-                };
-             };
-        }
-    showC_M(showC_Nav_Num);        
-    showC_Ter=setInterval(showC_Auto,1000);
-    function showC_Auto(){
-            showC_Nav_Num=(showC_Nav_Num==showC_li_Num)?showC_li_Num:++showC_Nav_Num; 
-            showC_M(showC_Nav_Num);
-            }
-    })
-//--&gt;
-&lt;/script&gt;
-&lt;style type="text/css"&gt;
-    *{ padding: 0; margin: 0;}
-    ul,li{list-style: none; width: 100%; float: left;}
-    li{visibility:hidden; height: 30px; line-height: 30px; background-color: #666666; color: #ffffff; text-align: center; border-bottom: 1px solid #999999;}
-&lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-&lt;ul id="txt"&gt;
-     &lt;li&gt;scrollpaginationdemo1&lt;/li&gt;
-     &lt;li&gt;scrollpaginationdemo2&lt;/li&gt;
-     &lt;li&gt;scrollpaginationdemo3&lt;/li&gt;
-     &lt;li&gt;scrollpaginationdemo4&lt;/li&gt;
-     &lt;li&gt;scrollpaginationdemo5&lt;/li&gt;
-     &lt;li&gt;scrollpaginationdemo6&lt;/li&gt;
-     &lt;li&gt;scrollpaginationdemo7&lt;/li&gt;
-     &lt;li&gt;scrollpaginationdemo8&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/body&gt;
-&lt;/html&
+&lt;html&gt;<br/>
+&lt;head&gt;<br/>
+    &lt;meta charset="utf-8"&gt;<br/>
+&lt;title&gt;逐行显示&lt;/title&gt;<br/>
+&lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.js"&gt;&lt;/script&gt;<br/>
+&lt;script language="javascript"&gt;<br/>
+//auth:little<br/>
+//date:2014/12/24<br/>
+$(function(){<br/>
+    var showC_li=$('#txt li');<br/>
+    var showC_li_Num=showC_li.length-1;<br/>
+    var showC_Nav_Num =0;<br/>
+    function showC_M(Num){<br/>
+             showC_li.eq(Num).css('visibility', 'visible ').siblings('li').css('visibility', 'hidden ');<br/>
+             if ( showC_li.eq(Num).is(':visible ')) {<br/>
+                for (var i = 0; i &lt;= Num; i++) {<br/>
+                   showC_li.eq(i).css('visibility', 'visible ');<br/>
+                };<br/>
+             };<br/>
+        }<br/>
+    showC_M(showC_Nav_Num); <br/>       
+    showC_Ter=setInterval(showC_Auto,1000);<br/>
+    function showC_Auto(){<br/>
+            showC_Nav_Num=(showC_Nav_Num==showC_li_Num)?showC_li_Num:++showC_Nav_Num; <br/>
+            showC_M(showC_Nav_Num);<br/>
+            }<br/>
+    })<br/>
+&lt;/script&gt;<br/>
+&lt;style type="text/css"&gt;<br/>
+    *{ padding: 0; margin: 0;}<br/>
+    ul,li{list-style: none; width:<br/> 100%; float: left;}<br/>
+    li{visibility:hidden; height: 30px; line-height: 30px; background-color: #666666; color: #ffffff; text-align: center; border-bottom: 1px solid #999999;}<br/>
+&lt;/style&gt;<br/>
+&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+&lt;ul id="txt"&gt;<br/>
+     &lt;li&gt;scrollpaginationdemo1&lt;/li&gt;<br/>
+     &lt;li&gt;scrollpaginationdemo2&lt;/li&gt;<br/>
+     &lt;li&gt;scrollpaginationdemo3&lt;/li&gt;<br/>
+     &lt;li&gt;scrollpaginationdemo4&lt;/li&gt;<br/>
+     &lt;li&gt;scrollpaginationdemo5&lt;/li&gt;<br/>
+     &lt;li&gt;scrollpaginationdemo6&lt;/li&gt;<br/>
+     &lt;li&gt;scrollpaginationdemo7&lt;/li&gt;<br/>
+     &lt;li&gt;scrollpaginationdemo8&lt;/li&gt;<br/>
+&lt;/ul&gt;<br/>
+&lt;/body&gt;<br/>
+&lt;/html&gt;<br/>
