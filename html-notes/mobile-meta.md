@@ -6,29 +6,29 @@
 
 第一：针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓（虽然黑莓在国内的市场占有率很低，但是多家一行有
 好处）<br/>
-&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;<br/>
+&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"/&gt;<br/>
 <br/>
 第二：微软的老式浏览器（这个可以不用，比较基本没有了。）<br/>
-&lt;meta name="MobileOptimized" content="320"&gt;<br/>
+&lt;meta name="MobileOptimized" content="320"/&gt;<br/>
 <br/>
 第三：UC浏览器(市场占有很强势的一个moblie浏览器)<br/>
 强制竖屏：<br/>
-&lt;meta name="screen-orientation" content="portrait"&gt;<br/>
+&lt;meta name="screen-orientation" content="portrait"/&gt;<br/>
 强制全屏：<br/>
-&lt;meta name="full-screen" content="yes"&gt;<br/>
+&lt;meta name="full-screen" content="yes"/&gt;<br/>
 应用模式：<br/>
-&lt;meta name="browsermode" content="application"&gt;<br/>
+&lt;meta name="browsermode" content="application"/&gt;<br/>
 <br/>
 QQ浏览器（腾讯的就不多说了，用户群体在那）<br/>
 强制竖屏：<br/>
-&lt;meta name="x5-orientation" content="portrait"&gt;<br/>
+&lt;meta name="x5-orientation" content="portrait"/&gt;<br/>
 强制全屏：<br/>
-&lt;meta name="x5-fullscreen" content="true"&gt;<br/>
+&lt;meta name="x5-fullscreen" content="true"/&gt;<br/>
 应用模式：<br/>
-&lt;meta name="x5-page-mode" content="app"&gt;<br/>
+&lt;meta name="x5-page-mode" content="app"/&gt;<br/>
 <br/>
 第四：windows phone 点击无高光<br/>
-&lt;meta name="msapplication-tap-highlight" content="no"&gt;<br/>
+&lt;meta name="msapplication-tap-highlight" content="no"/&gt;<br/>
 <br/>
 第五：解析：<br/>
 &lt;meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/
