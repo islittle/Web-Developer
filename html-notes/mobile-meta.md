@@ -9,7 +9,7 @@
 &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;<br/>
 <br/>
 第二：微软的老式浏览器（这个可以不用，比较基本没有了。）<br/>
-&ltmeta name="MobileOptimized" content="320"&gt;<br/>
+&lt;meta name="MobileOptimized" content="320"&gt;<br/>
 <br/>
 第三：UC浏览器(市场占有很强势的一个moblie浏览器)<br/>
 强制竖屏：<br/>
