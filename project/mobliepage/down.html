@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,minimal-ui">
+    <meta name="keywords" content="html5,css3,canvas,mobile,transform,transition,translate">
+    <meta name="description" content="原生JavaScript结合CSS3实现的移动端单页面应用效果，蒙层涂抹利用HTML5中的Canvas实现，兼容移动设备和PC高级浏览器。">
+    <meta name="author" content="wangfeng.email@qq.com">
+    <title>鑫合汇官方移动客户端下载</title>
+    <link rel="stylesheet" type="text/css" href="down.css">
+    <script>
+        if (/Android (\d+\.\d+)/.test(navigator.userAgent)) {
+            var version = parseFloat(RegExp.$1);
+            if (version > 2.3) {
+                var phoneScale = parseInt(window.screen.width) / 640;
+                document.write('<meta name="viewport" content="width=640,minimum-scale=' + phoneScale + ',maximum-scale=' + phoneScale + ',target-densitydpi=device-dpi">');
+            } else {
+                document.write('<meta name="viewport" content="width=640,target-densitydpi=device-dpi">');
+            }
+        } else {
+            document.write('<meta name="viewport" content="width=640,user-scalable=no,target-densitydpi=device-dpi,minimal-ui">');
+        }
+    </script>
+</head>
+<body>
+<style>
+</style>
+
+<div id="J_Orientation" class="orientation">
+    <div class="J_WarnPhone warn-phone"></div>
+    <div class="friendly-words">为了您更好体验，请使用竖屏</div>
+</div>
+
+    <div id="J_opaPage" class="page">
+        <div class="J_opaPannel pannels scene-1">
+            <div class="stage" style="background-color:#3488bc;">
+                <div class="thx-you"></div>
+                <div class="thx-you1"></div>
+                <div class="thx-you2">
+                    <a href="javascript:;" class="downclient downclient1 bounceInLeft">
+                        <div class="iphoneIcon iphoneIcon1"></div>
+                        <div class="maskdiv"></div>
+                        <p class="scene-1p1">iPhone客户端</p>
+                        <p class="scene-1p2">立即下载</p>
+                    </a>
+                    <a href="javascript:;" class="downclient downclient2 bounceInRight">
+                        <div class="iphoneIcon iphoneIcon2"></div>
+                        <div class="maskdiv"></div>
+                        <p class="scene-1p1">Andriod客户端</p>
+                        <p class="scene-1p2">立即下载</p>
+                    </a>
+                </div>
+                <div class="scene-1big bounceIn"></div>
+                <div class="scene-yun"></div>
+                <div class="tansfromxz tansfromxz1"></div>
+                <div class="tansfromxz tansfromxz2"></div>
+                <div class="tansfromxz tansfromxz3"></div>
+                <div class="tansfromxz tansfromxz4"></div>
+                 <div class="tansfromxz tansfromxz5"></div>
+                <div class="pointer-anim"></div>
+                <div class="roundPages clearfix">
+                    <div class="rounddot cur"></div>
+                    <div class="rounddot"></div>
+                    <div class="rounddot"></div>
+                    <div class="rounddot"></div>
+                    <div class="rounddot"></div>
+                    <div class="rounddot"></div>
+                </div>
+            </div>
+        </div>
+        <div class="J_opaPannel pannels scene-2">
+        <script class="J_MiLazyLoad" type="text/template">
+            <div class="stage" style="background-color:#2bb8bf;">
+                <div class="thx-tit">资金账户安全由<span class="yelcolor">平安保险</span>承保</div>
+                <div class="scene-2big bounceIn"></div>
+                <div class="pointer-anim"></div>
+                <div class="roundPages clearfix">
+                    <div class="rounddot"></div>
+                    <div class="rounddot cur"></div>
+                    <div class="rounddot"></div>
+                    <div class="rounddot"></div>
+                    <div class="rounddot"></div>
+                    <div class="rounddot"></div>
+                </div>
+            </div>
+        </script>
+        </div>
+        <div class="J_opaPannel pannels scene-3">
+        <script class="J_MiLazyLoad" type="text/template">
+            <div class="stage" style="background-color:#4ac4ab;">
+                <div class="thx-tit">项目都由<span class="yelcolor">顶级担保公司</span>承保<br/><span class="yelcolor">全牌照</span>承销机构资质</div>
+                <div class="scene-3big bounceIn"></div>
+                <div class="pointer-anim"></div>
+                 <div class="roundPages clearfix">
+                    <div class="rounddot"></div>
+                    <div class="rounddot"></div>
+                    <div class="rounddot cur"></div>
+                    <div class="rounddot"></div>
+                    <div class="rounddot"></div>
+                    <div class="rounddot"></div>
+                </div>
+            </div>
+        </script>
+        </div>
+        <div class="J_opaPannel pannels scene-4">
+        <script class="J_MiLazyLoad" type="text/template">
+            <div class="stage" style="background-color:#81c67a;">
+                 <div class="thx-tit"><span class="yelcolor">银行级</span>系统安全防范措施<br/>投资<span class="yelcolor">更安全</span></div>
+                <div class="scene-4big bounceIn"></div>
+                <div class="pointer-anim"></div>
+                 <div class="roundPages clearfix">
+                    <div class="rounddot"></div>
+                    <div class="rounddot"></div>
+                    <div class="rounddot"></div>
+                    <div class="rounddot cur"></div>
+                    <div class="rounddot"></div>
+                    <div class="rounddot"></div>
+                </div>
+            </div>
+        </script>
+        </div>
+        <div class="J_opaPannel pannels scene-5">
+        <script class="J_MiLazyLoad" type="text/template">
+            <div class="stage" style="background-color:#fed35c;">
+                 <div class="thx-tit"><span class="yelcolor">分享</span>理财经验<br/>结交<span class="yelcolor">志同好友</span></div>
+                <div class="scene-5big bounceIn"></div>
+                <div class="pointer-anim"></div>
+                 <div class="roundPages clearfix">
+                    <div class="rounddot"></div>
+                    <div class="rounddot"></div>
+                    <div class="rounddot"></div>
+                    <div class="rounddot"></div>
+                    <div class="rounddot cur"></div>
+                    <div class="rounddot"></div>
+                </div>
+            </div>
+        </script>
+        </div>
+        <div class="J_opaPannel pannels scene-6">
+        <script class="J_MiLazyLoad" type="text/template">
+           <div class="stage" style="background-color:#3488bc;">
+                <div class="thx-tit">根据您的手机选择下载</div>
+                <div class="thx-you clearfix">
+                    <a href="javascript:;" class="downclient downclient3 bounceInLeft clearfix">
+                        <div class="iphoneIcon iphoneIcon3"></div>
+                        <p class="scene-6p1">iPhone客户端下载</p>
+                    </a>
+                    <a href="javascript:;" class="downclient downclient4 bounceInRight clearfix">
+                        <div class="iphoneIcon iphoneIcon4"></div>
+                        <p class="scene-6p1">Andriod客户端下载</p>
+                    </a>
+                     <div class="scene-6big  bounceIn"><img src="down/codepng_02.png"/></div>
+                </div>
+                <div class="scene-yun"></div>
+                <div class="tansfromxz tansfromxz1"></div>
+                <div class="tansfromxz tansfromxz2"></div>
+                <div class="tansfromxz tansfromxz3"></div>
+                <div class="tansfromxz tansfromxz4"></div>
+                <div class="tansfromxz tansfromxz5"></div>
+                <div class="roundPages clearfix">
+                    <div class="rounddot"></div>
+                    <div class="rounddot"></div>
+                    <div class="rounddot"></div>
+                    <div class="rounddot"></div>
+                    <div class="rounddot"></div>
+                    <div class="rounddot cur"></div>
+                </div>
+            </div>
+        </script>
+        </div>
+    </div>
+<script src="down/app.utils.min.js"></script>
+<script src="down/fade.min.js"></script>
+<script>
+var delem = document.documentElement,
+    size = {
+        width: delem.clientWidth > 640 ? 640 : delem.clientWidth,
+        height: delem.clientHeight
+    },
+    touchdown = 'ontouchstart' in window ? 'touchstart' : 'mousedown',
+    touchmove = 'ontouchmove' in window ? 'touchmove' : 'mousemove',
+    touchup = 'ontouchend' in window ? 'touchend' : 'mouseup';
+
+var page = document.querySelector('#J_opaPage'),
+    wb = document.querySelector('#J_MusicWords'),
+    audio = document.querySelector('audio');
+
+window.onload = function() {
+
+   
+
+    app = new App.Opa({
+        size: size,
+        transEnd: function() {
+            var util = App.Utils,
+                page = this.get('pageNode'),
+                aNode = page.querySelector('.start-animate'),
+                cNode = page.querySelector('.current');
+            util.removeClass(aNode, 'start-animate');
+            util.addClass(cNode, 'start-animate');
+        }
+    });
+
+    var getpos = function(node) {
+        return node.getBoundingClientRect();
+    };
+
+    var evt = "onorientationchange" in window ? "orientationchange" : "resize",
+        ort = document.querySelector("#J_Orientation");
+    window.addEventListener(evt, function(ev){
+        if (evt === "resize") {
+            window.orientation = 0;
+        }
+        switch(window.orientation) {
+            case 90:
+            case -90:
+                ort.style['display'] = "block";
+                break;
+            default:
+                ort.style['display'] = 'none';
+                break;
+        }
+
+    }, false);
+
+};
+</script>
+</body>
+</html>
