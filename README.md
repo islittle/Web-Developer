@@ -457,7 +457,7 @@ sass -> CSS 编译ruby+compass、koala
 通用 Hack
 <table id="tipTable">
               <tbody><tr  >
-                <th>标记</th><th>IE6</th><th>IE7</th><th>IE8</th><th>FF</th><th>Opera</th><th>Sarari</th>
+                <th>标记</th><th>IE6</th><th>IE7</th><th>IE8</th><th>FF</th><th>Opera</th><th>Safari</th>
               </tr>
               <tr  >
                 <td>[*+&gt;&lt;]</td><td>√</td><td>√</td><td>X</td><td>X</td><td>X</td><td>X</td>
