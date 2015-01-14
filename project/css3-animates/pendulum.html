@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>pendulum钟摆</title>
+	<meta name="author" content="islittle@outlook.com wangfeng">
+	<style type="text/css">
+		@-moz-keyframes pendulum{
+			0%{ -webkit-transform:rotate(-15deg); }
+			100% { -webkit-transform:rotate(15deg);}
+		}
+		@-ms-keyframes pendulum{
+			0%{ -webkit-transform:rotate(-15deg); }
+			100% { -webkit-transform:rotate(15deg);}
+		}
+		@-o-keyframes pendulum{
+			0%{ -webkit-transform:rotate(-15deg); }
+			100% { -webkit-transform:rotate(15deg);}
+		}
+		@-webkit-keyframes pendulum{
+			0%{ -webkit-transform:rotate(-15deg); }
+			100% { -webkit-transform:rotate(15deg);}
+		}
+		@keyframes pendulum{
+			0%{ -webkit-transform:rotate(-15deg); }
+			100% { -webkit-transform:rotate(15deg);}
+		}
+		.pendulum1{
+			-webkit-transform-origin: center top;
+			-moz-transform-origin: center top;
+			-ms-transform-origin: center top;
+			-o-transform-origin: center top;
+			transform-origin: center top;
+			-webkit-animation: pendulum 1.2s ease-in-out -0.5s infinite alternate;
+			-moz-animation: pendulum 1.2s ease-in-out -0.5s  infinite alternate;
+			-ms-animation: pendulum 1.2s ease-in-out -0.5s infinite alternate;
+			-o-animation: pendulum 1.2s ease-in-out -0.5s infinite alternate;
+			animation: pendulum 1.2s ease-in-out -0.5s infinite alternate;
+		}
+		.pendulum2{
+			-webkit-transform-origin: center bottom;
+			-moz-transform-origin: center bottom;
+			-ms-transform-origin: center bottom;
+			-o-transform-origin: center bottom;
+			transform-origin: center bottom;
+			-webkit-animation: pendulum 1.2s ease-in-out infinite alternate;
+			-moz-animation: pendulum 1.2s ease-in-out infinite alternate;
+			-ms-animation: pendulum 1.2s ease-in-out infinite alternate;
+			-o-animation: pendulum 1.2s ease-in-out infinite alternate;
+			animation: pendulum 1.2s ease-in-out infinite alternate;
+		}
+		.pendulum3{
+			-webkit-transform-origin: center center;
+			-moz-transform-origin:  center center;
+			-ms-transform-origin:  center center;
+			-o-transform-origin:  center center;
+			transform-origin:  center center;
+			-webkit-animation: pendulum 1.2s ease-in-out 0.5s infinite alternate;
+			-moz-animation: pendulum 1.2s ease-in-out 0.5s infinite alternate;
+			-ms-animation: pendulum 1.2s ease-in-out 0.5s infinite alternate;
+			-o-animation: pendulum 1.2s ease-in-out 0.5s infinite alternate;
+			animation: pendulum 1.2s ease-in-out 0.5s infinite alternate;
+		}
+		.pendulum4{
+			-webkit-transform-origin: left bottom;
+			-moz-transform-origin:  left bottom;
+			-ms-transform-origin:  left bottom;
+			-o-transform-origin:  left bottom;
+			transform-origin:  left bottom;
+			-webkit-animation: pendulum 1.2s ease-in-out 1.0s infinite alternate;
+			-moz-animation: pendulum 1.2s ease-in-out 1.0s infinite alternate;
+			-ms-animation: pendulum 1.2s ease-in-out 1.0s infinite alternate;
+			-o-animation: pendulum 1.2s ease-in-out 1.0s infinite alternate;
+			animation: pendulum 1.2s ease-in-out 1.0s infinite alternate;
+		}
+		.pendulum{
+			width: 400px;
+			margin: 0 auto;
+			position: relative;
+			overflow: visible;
+			white-space: nowrap;
+		}
+		.pendulum1{
+			position: absolute;
+			left: 0;
+			height: 200px;
+		}
+		.pendulum2{
+			position: absolute;
+			left: 100px;
+			top: 20px;
+			height: 300px;
+		}
+		.pendulum3{
+			position: absolute;
+			left: 200px;
+			top: 0px;
+			height: 200px;
+		}
+		.pendulum4{
+			position: absolute;
+			left: 300px;
+			top: 20px;
+			height: 300px;
+		}
+		h3{
+			font-size: 30px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<h3>pendulum钟摆</h3>
+	<div class="pendulum">
+		<div class="pendulum1">pendulum1钟摆1</div>
+		<div class="pendulum2">pendulum2钟摆2</div>
+		<div class="pendulum3">pendulum3钟摆3</div>
+		<div class="pendulum4">pendulum4钟摆4</div>
+	</div>
+</body>
+</html>

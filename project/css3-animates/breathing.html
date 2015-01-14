@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>breathing呼吸</title>
+	<meta name="author" content="islittle@outlook.com wangfeng">
+	<style type="text/css">
+		@-moz-keyframes breathing{
+			0%{ -webkit-transform:rotate(-15deg); }
+			100% { -webkit-transform:rotate(15deg);}
+		}
+		@-ms-keyframes breathing{
+			0%{ -webkit-transform:rotate(-15deg); }
+			100% { -webkit-transform:rotate(15deg);}
+		}
+		@-o-keyframes breathing{
+			0%{ -webkit-transform:rotate(-15deg); }
+			100% { -webkit-transform:rotate(15deg);}
+		}
+		@-webkit-keyframes breathing{
+			0%{ -webkit-transform:scale(0.6); }
+			100% { -webkit-transform:scale(1.0);}
+		}
+		@keyframes breathing{
+			0%{ -webkit-transform:scale(0.6); }
+			100% { -webkit-transform:scale(1.0);}
+		}
+		.breathing1{
+			-webkit-animation: breathing 1.2s ease-in-out -0.5s infinite alternate;
+			-moz-animation: breathing 1.2s ease-in-out -0.5s  infinite alternate;
+			-ms-animation: breathing 1.2s ease-in-out -0.5s infinite alternate;
+			-o-animation: breathing 1.2s ease-in-out -0.5s infinite alternate;
+			animation: breathing 1.2s ease-in-out -0.5s infinite alternate;
+		}
+		.breathing2{
+			-webkit-animation: breathing 1.2s ease-in-out infinite alternate;
+			-moz-animation: breathing 1.2s ease-in-out infinite alternate;
+			-ms-animation: breathing 1.2s ease-in-out infinite alternate;
+			-o-animation: breathing 1.2s ease-in-out infinite alternate;
+			animation: breathing 1.2s ease-in-out infinite alternate;
+		}
+		.breathing3{
+			-webkit-animation: breathing 1.2s ease-in-out 0.5s infinite alternate;
+			-moz-animation: breathing 1.2s ease-in-out 0.5s infinite alternate;
+			-ms-animation: breathing 1.2s ease-in-out 0.5s infinite alternate;
+			-o-animation: breathing 1.2s ease-in-out 0.5s infinite alternate;
+			animation: breathing 1.2s ease-in-out 0.5s infinite alternate;
+		}
+		.breathing4{
+			-webkit-animation: breathing 1.2s ease-in-out 1.0s infinite alternate;
+			-moz-animation: breathing 1.2s ease-in-out 1.0s infinite alternate;
+			-ms-animation: breathing 1.2s ease-in-out 1.0s infinite alternate;
+			-o-animation: breathing 1.2s ease-in-out 1.0s infinite alternate;
+			animation: breathing 1.2s ease-in-out 1.0s infinite alternate;
+		}
+		.breathing{
+			width: 400px;
+			margin: 0 auto;
+			position: relative;
+			overflow: visible;
+			white-space: nowrap;
+		}
+		.breathing1{
+			position: absolute;
+			left: 0;
+		}
+		.breathing2{
+			position: absolute;
+			left: 100px;
+			top: 20px;
+		}
+		.breathing3{
+			position: absolute;
+			left: 200px;
+			top: 0px;
+		}
+		.breathing4{
+			position: absolute;
+			left: 300px;
+			top: 20px;
+		}
+		h3{
+			font-size: 30px;
+			text-align: center;
+		}
+		p{
+			padding-top: 40px;
+			text-align: center;
+			margin-left: -200px;
+		}
+	</style>
+</head>
+<body>
+	<h3>breathing呼吸</h3>
+	<div class="breathing">
+		<div class="breathing1">Oo1</div>
+		<div class="breathing2">Oo2</div>
+		<div class="breathing3">Oo3</div>
+		<div class="breathing4">Oo4</div>
+	</div>
+	<p>分别有四个出气口。这是第一个，这是第二个，这是第三个，这是第四个</p>
+</body>
+</html>
