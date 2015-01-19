@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>js代码iPhone手机触屏网页TouchScroll插件网页开发</title>
+	<meta name="description" content="islitte@outlook.com wangfeng">
+	<style type="text/css">
+	*{margin:0;padding:0;list-style-type:none;}
+	a,img{border:0;}
+	body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
+
+	/* swipe */
+	.swipe{width:100%;height:235px;overflow:hidden;position:relative;}
+	.swipe ul{
+		-webkit-transition:left 800ms ease-in 0;
+		-moz-transition:left 800ms ease-in 0;
+		-o-transition:left 800ms ease-in 0;
+		-ms-transition:left 800ms ease-in 0;
+		transition:left 800ms ease-in 0;
+	}
+	#pagenavi{text-align:center;width:100%;}
+	#pagenavi a{ font-size:16px;height:14px; line-height:16px; color:#000000;overflow:hidden;cursor:pointer;display:block; width:20%; float:left;}
+	.swipe #pagenavi a.active{background:#C80002;}
+	</style>
+</head>
+<body>
+    <div class="swipe" id="slider">
+        <ul id="slider">
+            <li>
+            	1
+			</li>
+            <li>
+            	2
+			</li>
+           <li>
+         	 	3
+			</li>
+            <li>
+            	4
+			</li>
+        </ul>
+    </div>
+    <div id="pagenavi">
+        <a href="javascript:void(0);" class="active">1</a>
+        <a class="" href="javascript:void(0);">2</a>
+        <a class="" href="javascript:void(0);">3</a>
+        <a class="" href="javascript:void(0);">4</a>
+    </div>
+<script type="text/javascript" src="images/touchslider.js"></script>
+<script type="text/javascript">
+	var active=0,
+		as=document.getElementById('pagenavi').getElementsByTagName('a');
+		
+	for(var i=0;i<as.length;i++){
+		(function(){
+			var j=i;
+			as[i].onclick=function(){
+				t2.slide(j);
+				return false;
+			}
+		})();
+	}
+	var t2=new TouchSlider({id:'slider', speed:600, before:function(index){
+			as[active].className='';
+			active=index;
+			as[active].className='active';
+		}});
+</script>
+</body>
+</html>
