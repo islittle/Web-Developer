@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>carrousel旋转木马</title>
+	<meta name="author" content="islittle@outlook.com wangfeng">
+	<style type="text/css">
+		@-moz-keyframes carrousel{
+			0%{ -moz-transform:translateY(-15px); }
+			100% { -moz-transform:translateY(15px);}
+		}
+		@-ms-keyframes carrousel{
+			0%{ -ms-transform:translateY(-15px); }
+			100% { -ms-transform:translateY(15px);}
+		}
+		@-o-keyframes carrousel{
+			0%{ -o-transform:translateY(-15px); }
+			100% { -o-transform:translateY(15px);}
+		}
+		@-webkit-keyframes carrousel{
+			0%{ -webkit-transform:translateY(-15px); }
+			100% { -webkit-transform:translateY(15px);}
+		}
+		@keyframes carrousel{
+			0%{ transform:translateY(-15px); }
+			100% { transform:translateY(15px);}
+		}
+		.carrousel1{
+			-webkit-animation: carrousel 1.2s ease-in-out -0.5s infinite alternate;
+			-moz-animation: carrousel 1.2s ease-in-out -0.5s  infinite alternate;
+			-ms-animation: carrousel 1.2s ease-in-out -0.5s infinite alternate;
+			-o-animation: carrousel 1.2s ease-in-out -0.5s infinite alternate;
+			animation: carrousel 1.2s ease-in-out -0.5s infinite alternate;
+		}
+		.carrousel2{
+			-webkit-animation: carrousel 1.2s ease-in-out infinite alternate;
+			-moz-animation: carrousel 1.2s ease-in-out infinite alternate;
+			-ms-animation: carrousel 1.2s ease-in-out infinite alternate;
+			-o-animation: carrousel 1.2s ease-in-out infinite alternate;
+			animation: carrousel 1.2s ease-in-out infinite alternate;
+		}
+		.carrousel3{
+			-webkit-animation: carrousel 1.2s ease-in-out 0.5s infinite alternate;
+			-moz-animation: carrousel 1.2s ease-in-out 0.5s infinite alternate;
+			-ms-animation: carrousel 1.2s ease-in-out 0.5s infinite alternate;
+			-o-animation: carrousel 1.2s ease-in-out 0.5s infinite alternate;
+			animation: carrousel 1.2s ease-in-out 0.5s infinite alternate;
+		}
+		.carrousel4{
+			-webkit-animation: carrousel 1.2s ease-in-out 1.0s infinite alternate;
+			-moz-animation: carrousel 1.2s ease-in-out 1.0s infinite alternate;
+			-ms-animation: carrousel 1.2s ease-in-out 1.0s infinite alternate;
+			-o-animation: carrousel 1.2s ease-in-out 1.0s infinite alternate;
+			animation: carrousel 1.2s ease-in-out 1.0s infinite alternate;
+		}
+		.carrousel{
+			width: 400px;
+			margin: 0 auto;
+			position: relative;
+			overflow: visible;
+			white-space: nowrap;
+		}
+		.carrousel2{
+			position: absolute;
+			left: 100px;
+			top: 20px;
+		}
+		.carrousel3{
+			position: absolute;
+			left: 200px;
+			top: 0px;
+		}
+		.carrousel4{
+			position: absolute;
+			left: 300px;
+			top: 20px;
+		}
+		h3{
+			font-size: 30px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<h3>carrousel旋转木马</h3>
+	<div class="carrousel">
+		<div class="carrousel1">carrousel1旋转木马1</div>
+		<div class="carrousel2">carrousel2旋转木马2</div>
+		<div class="carrousel3">carrousel3旋转木马3</div>
+		<div class="carrousel4">carrousel4旋转木马4</div>
+	</div>
+</body>
+</html>

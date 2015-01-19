@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>add-remove</title>
+	<meta name="author" content="islittle@outlook.com wangfeng">
+</head>
+<style type="text/css">
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	body{
+		font-size: 12px;
+	}
+	.cloneDiv{
+		height: 30px;
+		line-height: 30px;
+		position: relative;
+	}
+	.closeDiv{
+		position: absolute;
+		width: 16px;
+		height: 16px;
+		line-height: 16px;
+		background-color: #eee;
+		color: #fff;
+		text-align: center;
+		right: 0;
+		top: 7px;
+		display: none;
+		cursor: pointer;
+	}
+	.cloneDiv:hover{
+		background-color: #ddd;
+	}
+	.cloneDiv:hover .closeDiv{
+		display: block;
+	}
+</style>
+<body>
+	<div class="cloneOut">
+		<div class="cloneDiv">这是一个克隆的盒子<div class="closeDiv">x</div></div>
+	</div>
+	<button class="addClone">点击此处添加</button>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.js"></script>
+	<script type="text/javascript">
+		var $addClone = $('.addClone');
+		var $cloneDiv = $('.cloneDiv');
+		var $closeDiv = $('.closeDiv');
+		$addClone.on('click', function(event) {
+			$('.cloneOut').append($cloneDiv.clone());
+		});
+		$('.cloneOut').on('click','.closeDiv',function(event){
+			$(this).parent('.cloneDiv').remove();
+		});
+	</script>
+</body>
+</html>

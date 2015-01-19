@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>runLights跑灯</title>
+	<meta name="author" content="islittle@outlook.com wangfeng">
+	<style type="text/css">
+		@-moz-keyframes runLights{
+			0%,33%{ background-color: red; }
+			34%,66%{ background-color: green; }
+			67%,100% {background-color: yellow;}
+		}
+		@-ms-keyframes runLights{
+			0%,33%{ background-color: red; }
+			34%,66%{ background-color: green; }
+			67%,100% {background-color: yellow;}
+		}
+		@-o-keyframes runLights{
+			0%,33%{ background-color: red; }
+			34%,66%{ background-color: green; }
+			67%,100% {background-color: yellow;}
+		}
+		@-webkit-keyframes runLights{
+			0%,33%{ background-color: red; }
+			34%,66%{ background-color: green; }
+			67%,100% {background-color: yellow;}
+		}
+		@keyframes runLights{
+			0%,33%{ background-color: red; }
+			34%,66%{ background-color: green; }
+			67%,100% {background-color: yellow;}
+		}
+		.runLights{
+			width: 800px;
+			margin: 0 auto;
+			position: relative;
+			overflow: visible;
+			white-space: nowrap;
+		}
+		.runLights div{
+			width: 20px;
+			height: 20px;
+			font-size: 0;
+			-webkit-border-radius: 10px;
+			-moz-border-radius: 10px;
+			border-radius: 10px;
+			position: absolute;
+		}
+		.runLights2{
+			left: 100px;
+			top: 20px;
+		}
+		.runLights3{
+			left: 200px;
+			top: 0px;
+		}
+		.runLights4{
+			left:300px;
+		}
+		.runLights5{
+			left:400px;
+			top: 20px;
+		}
+		.runLights6{
+			left:500px;
+		}
+		h3{
+			font-size: 30px;
+			text-align: center;
+		}
+		.runLights1,.runLights4{
+			-webkit-animation: runLights 1.2s ease-in-out -0.4s infinite;
+			-moz-animation: runLights 1.2s ease-in-out -0.4s  infinite;
+			-ms-animation: runLights 1.2s ease-in-out -0.4s infinite;
+			-o-animation: runLights 1.2s ease-in-out -0.4s infinite;
+			animation: runLights 1.2s ease-in-out -0.4s infinite;
+		}
+		.runLights2,.runLights5{
+			-webkit-animation: runLights 1.2s ease-in-out infinite;
+			-moz-animation: runLights 1.2s ease-in-out infinite;
+			-ms-animation: runLights 1.2s ease-in-out infinite;
+			-o-animation: runLights 1.2s ease-in-out infinite;
+			animation: runLights 1.2s ease-in-out infinite;
+		}
+		.runLights3,.runLights6{
+			-webkit-animation: runLights 1.2s ease-in-out 0.4s infinite;
+			-moz-animation: runLights 1.2s ease-in-out 0.4s infinite;
+			-ms-animation: runLights 1.2s ease-in-out 0.4s infinite;
+			-o-animation: runLights 1.2s ease-in-out 0.4s infinite;
+			animation: runLights 1.2s ease-in-out 0.4s infinite;
+		}
+	</style>
+</head>
+<body>
+	<h3>runLights跑灯</h3>
+	<div class="runLights">
+		<div class="runLights1">runLights1跑灯1</div>
+		<div class="runLights2">runLights2跑灯2</div>
+		<div class="runLights3">runLights3跑灯3</div>
+		<div class="runLights4">runLights4跑灯4</div>
+		<div class="runLights5">runLights5跑灯5</div>
+		<div class="runLights6">runLights6跑灯6</div>
+	</div>
+</body>
+</html>
