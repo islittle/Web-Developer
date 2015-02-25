@@ -2,14 +2,14 @@
 
 注意：转载需加 wangfeng 创建
 
-例子：h1的支持ie8以及更高版本和主流浏览器，h2的支持所有常用浏览器包括IE7。
-&lt;!doctype html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;标题形式&lt;/title&gt;
-&lt;/head&gt;
-&lt;style type="text/css"&gt;
+例子：h1的支持ie8以及更高版本和主流浏览器(标签少)，h2的支持所有常用浏览器包括IE7（全兼容）。<br/>
+&lt;!doctype html&gt;<br/>
+&lt;html lang="en"&gt;<br/>
+&lt;head&gt;<br/>
+  &lt;meta charset="UTF-8"&gt;<br/>
+  &lt;title&gt;<br/>标题形式&lt;/title&gt;<br/>
+&lt;/head&gt;<br/>
+&lt;style type="text/css"&gt;<br/>
   h1,h2{
     width: 1000px;
     margin: 0 auto;
@@ -33,10 +33,10 @@
     top: 0;
     left: 0;
     background-color: red;
-  }
-&lt;/style&gt;
-&lt;body&gt;
-  &lt;h1&gt;测试标题&lt;/h1&gt;
-  &lt;h2&gt;&lt;a href="" class="ie7"&gt;&lt;/a&gt;ling一个&lt;/h2&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+  }<br/>
+&lt;/style&gt;<br/>
+&lt;body&gt;<br/>
+  &lt;h1&gt;测试标题&lt;/h1&gt;<br/>
+  &lt;h2&gt;&lt;a href="" class="ie7"&gt;&lt;/a&gt;ling一个&lt;/h2&gt;<br/>
+&lt;/body&gt;<br/>
+&lt;/html&gt;<br/>
