@@ -3,13 +3,13 @@
 注意：转载需加 wangfeng 创建
 
 例子：h1的支持ie8以及更高版本和主流浏览器，h2的支持所有常用浏览器包括IE7。
-&gt;!doctype html&lt;
-&gt;html lang="en"&lt;
-&gt;head&lt;
-  &gt;meta charset="UTF-8"&lt;
-  &gt;title&lt;标题形式&gt;/title&lt;
-&gt;/head&lt;
-&gt;style type="text/css"&lt;
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;标题形式&lt;/title&gt;
+&lt;/head&gt;
+&lt;style type="text/css"&gt;
   h1,h2{
     width: 1000px;
     margin: 0 auto;
@@ -34,9 +34,9 @@
     left: 0;
     background-color: red;
   }
-&gt;/style&lt;
-&gt;body&lt;
-  &gt;h1&lt;测试标题&gt;/h1&lt;
-  &gt;h2&lt;&gt;a href="" class="ie7"&lt;&gt;/a&lt;ling一个&gt;/h2&lt;
-&gt;/body&lt;
-&gt;/html&lt;
+&lt;/style&gt;
+&lt;body&gt;
+  &lt;h1&gt;测试标题&lt;/h1&gt;
+  &lt;h2&gt;&lt;a href="" class="ie7"&gt;&lt;/a&gt;ling一个&lt;/h2&gt;
+&lt;/body&gt;
+&lt;/html&gt;
