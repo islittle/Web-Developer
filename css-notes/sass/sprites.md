@@ -9,7 +9,7 @@
 <br/>
 第一：首先导入scss文件 @import "browsers/*.png"; browsers为images下存放小icon的文件夹<br/>
 <br/>
-第二：分icon编译对应的类名 @include  all-browsers-sprites; <br/>
+第二：分icon编译对应的类名输出 @include  all-browsers-sprites; <br/>
 <br/>
 第三：定义icon大小<br/>
 全部获取就用$browsers-sprite-dimensions: true;（默认是flase）
@@ -55,4 +55,14 @@ $browsers-iconNew-repeat: no-repeat/repeat-x;//<br/> 配置单个sprite的重复
 $browsers-position: 0px;// 配置所有sprite的位置，默认为0px<br/>
 $browsers-iconNew-position: 0px;// 配置单个sprite的位置，默认继承$browsers-position的值，iconNew为其中一个精灵图片<br/>
 <br/>
+以上在pc运用这些就可以了。但是wap上缩放50%的图片为了高清图或者高清屏幕，这是我们需要做的一下几步<br/>
+1.分icon编译对应的类名输出去掉；<br/>
+2.定义合成图的background-size;<br/>
+3.循环位置<br/>
+@for $i from 0 through 28 {<br/>
+    .position-#{$i} {<br/>
+        background-position: 0 -36px*$i;<br/>
+    }<br/>
+}<br/>
+28为总个数减一，也可以1开始计算。36为在总方向单个子集缩放以后应该的尺寸<br/>
 注意：配置选项要放在输出命令的上面，以上内容仅供参考<br/>
