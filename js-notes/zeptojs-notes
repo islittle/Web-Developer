@@ -1,0 +1,59 @@
+说明：随着手机市场的不断扩大，wap开发比重也在加重比例。手机中的jq，我们需要熟练的掌握，本节我们来总结一下zepto在实际项
+目常用中的用法和说明。
+
+转载：需加 wangfeng 创建
+
+1.对不支持zepto的IE10以下可以有以下写法（这个可以不考虑因为wap端没有）
+&lt;script&gt;<br/>
+    document.write('&lt;script src=' +<br/>
+    ('__proto__' in {} ? 'http://zeptojs.com/zepto' : 'http://code.jquery.com/jquery-1.11.2') +<br/>
+    '.js&gt;&lt;\/script&gt;')<br/>
+ &lt;/script&gt;<br/>
+ <br/>
+2.加载完成<br/>
+ Zepto(function($){<br/>
+        alert（'page is over');<br/>
+  })<br/>
+  当然$还是可以用的，比较zepto是jq的精简版
+<br/>
+3.驼峰式转化<br/>
+$.camelCase('https://github.com/islittle/Web-Developer/new/master/js-notes')<br/>
+结果为：https://github.com/islittle/WebDeveloper/new/master/jsNotes <br/>
+<br/>
+4.检查父节点是否包含给定的dom节点
+例如：&lt;h2&gt;&lt;span class="children"&gt;icon&lt;/span&gt;文字&lt;/h2&gt;<br/>
+console.log($.contains($('h2')[0], $('.children')[0]));--》ture<br/>
+<br/>
+5.遍历数组元素或以key-value值对方式遍历对象（常用的遍历方法，返回 false 时停止遍历）
+$.each(['a', 'b', 'c'], function(key, value){<br/>
+	console.log(key);<br/>
+	console.log(value);<br/>
+	console.log('key is %s，value is: %s', key, value);<br/>
+	console.log('key is %i，value is: %s', key, value);<br/>
+	console.log('key is %i，value is: %o', key, value);<br/>
+})<br/>
+这里的%s（占位符），%i（整数还可以是%d），%o（ 对象的链接），还有%f（浮点数），%c（ CSS格式字符串）都是console的<br/> 
+<br/>
+6.$.fn添加方法<br/>
+empty() 例子：<br/>
+$.fn.empty = function(){<br/>
+  return this.each(function(){ this.innerHTML = '' })<br/>
+}<br/>
+7.获取数组：$.grep(items, function(item){ ... }) ⇒ array<br/>
+例如：$.grep([1,2,3], function(item){<br/>
+  return item >= 2;<br/>
+})==》[2,3]<br/>
+<br/>
+8.搜索数组中指定值并返回它的索引（如果没有找到则返回-1）<br/>
+$.inArray(element, array, [fromIndex(可选)]) ⇒ number;<br/>
+(多个的时候第一个找到的索引)<br/>
+9.$.isArray $.isArray(object) ⇒ boolean  如果object是array，则返回ture。<br/>
+$.isFunction  $.isFunction(object) ⇒ boolean  如果object是function，则返回ture。<br/>
+$.isPlainObject(object) ⇒ boolean  测试对象是否是纯粹的对象（通过 "{}" 或者 "new Object" 创建的），如果是，则返回true
+<br/>
+(1)$.isPlainObject({})         // => true<br/>
+(2)$.isPlainObject(new Object) // => true<br/>
+(3)$.isPlainObject(new Date)   // => false<br/>
+(4)$.isPlainObject(window)     // => false<br/>
+$.isWindow(object) ⇒ boolean   确定参数是否为一个窗口（window对象），如果是则返回true。<br/>
+这在处理iframe时非常有用，因为每个iframe都有它们自己的window对象，使用常规方法obj==window校验这些objects的时候会失败。
