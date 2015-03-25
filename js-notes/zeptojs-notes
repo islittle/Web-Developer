@@ -6,11 +6,11 @@
 转载：需加 wangfeng 创建
 
 1.对不支持zepto的IE10以下可以有以下写法（这个可以不考虑因为wap端没有）
-&lt;script&gt; 
-    document.write('&lt;script src=' + 
+<script> 
+    document.write('<script src=' + 
     ('__proto__' in {} ? 'http://zeptojs.com/zepto' : 'http://code.jquery.com/jquery-1.11.2') + 
-    '.js&gt;&lt;\/script&gt;') 
- &lt;/script&gt; 
+    '.js><\/script>') 
+ </script> 
   
 2.加载完成 
  Zepto(function($){ 
@@ -23,7 +23,7 @@ $.camelCase('https://github.com/islittle/Web-Developer/new/master/js-notes')
 结果为：https://github.com/islittle/WebDeveloper/new/master/jsNotes  
  
 4.检查父节点是否包含给定的dom节点
-例如：&lt;h2&gt;&lt;span class="children"&gt;icon&lt;/span&gt;文字&lt;/h2&gt; 
+例如：<h2><span class="children">icon</span>文字</h2> 
 console.log($.contains($('h2')[0], $('.children')[0]));--》ture 
  
 5.遍历数组元素或以key-value值对方式遍历对象（常用的遍历方法，返回 false 时停止遍历）
