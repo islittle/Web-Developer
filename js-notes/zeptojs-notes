@@ -52,10 +52,43 @@ $.inArray(element, array, [fromIndex(可选)]) ⇒ number;
 9.$.isArray $.isArray(object) ⇒ boolean  如果object是array，则返回ture。 
 $.isFunction  $.isFunction(object) ⇒ boolean  如果object是function，则返回ture。 
 $.isPlainObject(object) ⇒ boolean  测试对象是否是纯粹的对象（通过 "{}" 或者 "new Object" 创建的），如果是，则返回true
- 
 (1)$.isPlainObject({})         // => true 
 (2)$.isPlainObject(new Object) // => true 
 (3)$.isPlainObject(new Date)   // => false 
 (4)$.isPlainObject(window)     // => false 
 $.isWindow(object) ⇒ boolean   确定参数是否为一个窗口（window对象），如果是则返回true。 
 这在处理iframe时非常有用，因为每个iframe都有它们自己的window对象，使用常规方法obj==window校验这些objects的时候会失败。
+$.map(collection, function(item, index){ ... }) ⇒ collection
+通过遍历集合中的元素，通过函数返回一个新的数组，null and undefined 将被过滤掉。
+console.log($.map({"ce":1,"shi":2,"a":3},function(value,key){
+     if(value>0){return key;}
+}));==>["ce", "shi", "a"]
+$.parseJSON(string) ⇒ object
+类似本地JSON.parse 方法，接受一个标准格式的 JSON 字符串，并返回解析后的 JavaScript 对象。
+$.trim(string) ⇒ string
+删除字符串开始和末尾的空白符。类似String.prototype.trim()。
+$.type(object) ⇒ string
+获取JavaScript 对象的类型。可能的类型有： null undefined boolean number string function array date regexp object error
+
+10.doc-list文档方法
+add(selector, [context]) ⇒ self
+添加元素到匹配的元素集合。如果content参数存在，只在content中进行查找，否则在document中查找。
+addClass(name) ⇒ self
+addClass(function(index, oldClassName){ ... }) ⇒ self
+eq:<ul>
+	<li class="this">1</li>
+	<li class="is">2</li>
+  </ul>
+  $('ul li').on({
+	mouseenter:function(){
+		$(this).addClass(function(index, oldClass){
+			return 'li' +  index;
+		});
+	}
+});
+==>
+<ul>
+	<li class="this li0">1</li>
+	<li class="is li0">2</li>
+</ul>
+为每个匹配的元素添加指定的class类名。多个class类名通过空格f分隔。
