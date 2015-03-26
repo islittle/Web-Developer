@@ -91,4 +91,6 @@ eq:<ul>
 	<li class="this li0">1</li>
 	<li class="is li0">2</li>
 </ul>
-为每个匹配的元素添加指定的class类名。多个class类名通过空格f分隔。
+为每个匹配的元素添加指定的class类名。多个class类名通过空格分隔。
+
+after,append,appendTo,attr,before,children,clone,closest
