@@ -93,4 +93,57 @@ eq:<ul>
 </ul>
 为每个匹配的元素添加指定的class类名。多个class类名通过空格分隔。
 
-after,append,appendTo,attr,before,children,clone,closest
+after,append,appendTo,attr,before,children,clone,closest,css,each,empty,eq,filter,not,find,first,has,hasClass,height,
+hide,html,index,insertAfter,insertBefore
+这些简单的用法都不作说明了。
+contents() ⇒ collection
+获得每个匹配元素集合元素的子元素，包括文字和注释节点。.contents()和.children()方法类似，只不过前者包括文本节点以及
+jQuery对象中产生的HTML元素。
+concat(nodes, [node2, ...]) ⇒ self(这是一个Zepto提供的方法，不是jquey的API 。)
+concat() 方法用于连接两个或多个数组。
+该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。
+var arr = new Array(3)
+arr[0] = "used"
+arr[1] = "fo"
+arr[2] = "test"
+var arr2 = new Array(3)
+arr2[0] = "append"
+arr2[1] = "to"
+arr2[2] = "here"
+var a = [1,2,3];
+var b =[4,5] 
+document.write(arr.concat(arr2));==>used,fo,test,append,to,here
+document.write(a.concat(4,5));==>1,2,3,4,5
+document.write(a.concat(a,b,b));==>1,2,3,1,2,3,4,5,4,5
+forEach(function(item, index, array){ ... }, [context])(这是一个Zepto提供的方法，不是jquery的API。)
+遍历当前Zepto集合对象的买个元素，有点类似 each，但是遍历函数的参数不一样，当函数返回 false 的时候，遍历不会停止。
+[].forEach(function(value, index, array) {
+    // ...
+});
+对比jQuery中的$.each方法：
+$.each([], function(index, value, array) {
+    // ...
+});
+eq:(依次弹出数组里的数字)
+var a = [1, 2 ,3, 4];
+a.forEach(alert);
+$.each(a,function(index,value){alert(value)})
+get() ⇒ array
+get(index) ⇒ DOM node
+从当前Zepto对象集合中获取所有元素或单个元素。当index参数不存在的时候，以普通数组的方式返回所有的元素。当指定index时，
+只返回该置的元素。这点与与eq不同，该方法返回的不是Zepto集合对象。
+indexOf(element, [fromIndex]) ⇒ number(这是一个Zepto的方法，不是jquer的api。)
+在当前Zepto中获取一个元素的位置。如果formindex参数给出，从该位置往后查找，返回基于0的位置，如果没找到，则返回-1。index
+方法是基于这个方法实现的。
+eq:
+<ul>
+	<li class="this">1</li>
+	<li class="is">2</li>
+</ul>
+console.log($('li').indexOf($('.is')[0]));==>1
+js中还可以用来查找数组和字符串的位置
+a = [1,2,4,5,3];
+var b = 'This is used for test'
+console.log(a.indexOf(4));==>2
+console.log(a.indexOf(4,3));==>-1
+console.log(b.indexOf('e',3));==>10
