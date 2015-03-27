@@ -94,7 +94,8 @@ eq:<ul>
 为每个匹配的元素添加指定的class类名。多个class类名通过空格分隔。
 
 after,append,appendTo,attr,before,children,clone,closest,css,each,empty,eq,filter,not,find,first,has,hasClass,height,
-hide,html,index,insertAfter,insertBefore
+hide,html,index,insertAfter,insertBefore,last,map,next,position(返回top，left值),prepend(插入到前面和append相反),
+prependTo,prev(每一个元素的前一个兄弟节点)
 这些简单的用法都不作说明了。
 contents() ⇒ collection
 获得每个匹配元素集合元素的子元素，包括文字和注释节点。.contents()和.children()方法类似，只不过前者包括文本节点以及
@@ -147,3 +148,11 @@ var b = 'This is used for test'
 console.log(a.indexOf(4));==>2
 console.log(a.indexOf(4,3));==>-1
 console.log(b.indexOf('e',3));==>10
+is(selector) ⇒ boolean（$('#demo').is(':visible')就会报错，这里不能用伪类，需用的话需要下selector模块）
+判断当前Zepto元素集合中的第一个元素是否符css选择器。对于基础支持jquery的非标准选择器类似： :visible包含在可选的“
+selector”模块中。jQuery CSS extensions 不被支持。 选择“selector”模块仅仅能支持有限几个最常用的方式。
+offsetParent() ⇒ collection(从下向上查找，如都没有，就为body)
+找到第一个定位过的祖先元素，在ccs中意味着它的position 值为“relative”, “absolute” or “fixed”
+pluck(property) ⇒ array（这是一个Zepto的方法，不是jquery的api）
+获取Zepto对象集合中每一个元素的属性值。返回值为 null或undefined值得过滤掉。
+eq :console.info($('div > *').pluck('nodeName'))
