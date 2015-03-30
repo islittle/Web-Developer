@@ -95,7 +95,7 @@ eq:<ul>
 
 after,append,appendTo,attr,before,children,clone,closest,css,each,empty,eq,filter,not,find,first,has,hasClass,height,
 hide,html,index,insertAfter,insertBefore,last,map,next,position(返回top，left值),prepend(插入到前面和append相反),
-prependTo,prev(每一个元素的前一个兄弟节点)
+prependTo,prev(每一个元素的前一个兄弟节点),ready
 这些简单的用法都不作说明了。
 contents() ⇒ collection
 获得每个匹配元素集合元素的子元素，包括文字和注释节点。.contents()和.children()方法类似，只不过前者包括文本节点以及
@@ -156,3 +156,20 @@ offsetParent() ⇒ collection(从下向上查找，如都没有，就为body)
 pluck(property) ⇒ array（这是一个Zepto的方法，不是jquery的api）
 获取Zepto对象集合中每一个元素的属性值。返回值为 null或undefined值得过滤掉。
 eq :console.info($('div > *').pluck('nodeName'))
+prop（这个在jq中有些区别,可以分为对于HTML元素自有属性处理用prop（例如：href，target，class，checked，selected），
+自定义的DOM属性用attr（例如：active））
+{
+这里为从其他人那听到的结论：
+1.添加属性名称该属性就会生效应该使用prop();
+2.是有true,false两个属性使用prop();
+3.其他则使用attr();
+}
+读取或设置dom元素的属性值。它在读取属性值的情况下优先于 attr，因为这些属性值会因为用户的交互发生改变，
+如checked，selected
+push(这是一个zepto的方法，不是jquery的api)
+添加元素到当前Zepto对象的最后。
+可以用一下方法理解：
+function push(a) {
+	arr.push(a);
+	return arr.length;
+}
