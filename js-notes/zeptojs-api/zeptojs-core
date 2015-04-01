@@ -5,6 +5,11 @@
 
 转载：需加 wangfeng 创建
 
+首先给一个快速查看库中方法的函数
+for(var k in $) {
+	console.log(k)
+}
+
 1.对不支持zepto的IE10以下可以有以下写法（这个可以不考虑因为wap端没有）
 <script> 
     document.write('<script src=' + 
@@ -95,7 +100,9 @@ eq:<ul>
 
 after,append,appendTo,attr,before,children,clone,closest,css,each,empty,eq,filter,not,find,first,has,hasClass,height,
 hide,html,index,insertAfter,insertBefore,last,map,next,position(返回top，left值),prepend(插入到前面和append相反),
-prependTo,prev(每一个元素的前一个兄弟节点),ready,remove,removeAttr,removeClass,replaceWith,scrollTop,show
+prependTo,prev(每一个元素的前一个兄弟节点),ready,remove,removeAttr,removeClass,replaceWith,scrollTop,show,siblings,
+size,slice(start, [end,不包含end位置的元素]),text,toggle([setting(true相当于show,false相当于hide)]),unwrap,val(大多用于
+表单),width,wrap(新的元素上，然后再将结果插入到document中,可以先appendTo进去),wrapAll,wrapInner
 这些简单的用法都不作说明了。
 contents() ⇒ collection
 获得每个匹配元素集合元素的子元素，包括文字和注释节点。.contents()和.children()方法类似，只不过前者包括文本节点以及
@@ -205,3 +212,4 @@ function Process(a, b) {
     return Arraynext;
 }
 [2,-1,3,,11,4].reduce(Process,[])==>[2, 3, 4] 
+
