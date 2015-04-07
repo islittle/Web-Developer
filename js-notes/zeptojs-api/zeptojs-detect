@@ -1,0 +1,39 @@
+说明：该检测方法可以再不同的环境中微调你的站点或者应用程序，并帮助你识别手机和平板；以及不同的浏览器和操作系统（这个可以判定
+chrome是一个强大的浏览器）。
+
+注释：转载需加 wangfeng 创建
+
+// 如果有，下面的访问返回布尔值ture，如果没有，则返回`false` or `undefined`,建议前缀`！！`访问来进行强迫类型转换
+
+        // 一般设备类型
+        $.os.phone
+        $.os.tablet
+
+        // 具体的操作系统
+        $.os.ios
+        $.os.android
+        $.os.webos
+        $.os.blackberry
+        $.os.bb10
+        $.os.rimtabletos
+
+        // 具体的设备类型
+        $.os.iphone
+        $.os.ipad
+        $.os.touchpad
+        $.os.kindle
+
+        // 特定的浏览器
+        $.browser.chrome
+        $.browser.firefox
+        $.browser.silk
+        $.browser.playbook
+
+        // 此外，版本信息也是可以用的，这里返回的是一个iphone6.1的版本
+        !!$.os.phone         // => true
+        !!$.os.iphone        // => true
+        !!$.os.ios           // => true
+        !!$.os.version       // => "6.1"
+        !!$.browser.version  // => "536.26"
+        
+        
