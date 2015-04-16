@@ -1,0 +1,88 @@
+
+说明：事件基本和jq相同。不详说。
+
+转载：需加 wangfeng 创建
+
+1.$.Event(type, [properties]) 创建并初始化一个指定的dom事件
+
+2.$.proxy(fn, context) ⇒ function
+  $.proxy(context, property) ⇒ function
+  
+  eq1：接受一个函数，然后返回一个新函数，并且这个新函数始终保持了特定的上下文语境，新函数中this指向context参数：
+  var obj = {name: 'Zepto'};
+  function handler(){ console.log("hello + ", this.name) }
+  // 确保handler在obj的context中执行：
+  $('#demo').on('click', $.proxy(handler, obj));
+  
+  eq2：：：：：另外一种形式，原始的function是context对像的方法：：：：：：：：：：：：
+  var obj = {name: "only one time", executed: function() {
+                  console.log( this.name );      
+                  $("#demo").unbind("click", obj.test); 
+              }
+          };    
+  $("#demo").click( $.proxy( obj, "executed" ));
+  
+3.bind(type, function(e){ ... })     bind({ type: handler, type2: handler2, ... }) 为一个元素绑定一个处理事件 以及unbind
+
+4.on(type, [selector], function(e){ ... })      on({ type: handler, type2: handler2, ... }, [selector]) 
+添加事件到Zepto对象集合上。多个事件可以通过空格的字符串方式添加。或者以事件类型、函数对象的 方式。如果css选择器给出，
+事件的对象满足选择器条件时。事件才会被触发。事件处理程序在触发事件元素或者css选择器匹配的元素的上下文中执行(this指向触发事件
+的元素)。当事件处理程序返回false, 或调用preventDefault()，浏览器的默认事件将会被阻止。
+
+on(type, [selector], function(e){ ... }) ⇒ self
+
+如果selector存在，则相当于delegate。
+$("ul").on("click","li",function(){alert("yaotaiyang")});
+以上代码相当于将li的事件冒泡到ul上。后续添加的其他盒子ul中li也能拥此方法。
+该事件可以通过undelegate来移除。$("ul").undelegate();
+或者off事件:$("ul").off();
+
+如果selector参数不存在。则相当于bind。
+$("li").on("click",function(){console.log("zepto")});
+该事件可以通过unbind来移除。
+$("li").unbind("click");
+或者off()来移除:$("li").off();
+
+on方法继集成bind和delegate方法。
+
+off和on的用法基本相同，只不过多了以下两个写法。
+off(type, [selector]) 禁止（某个选择器代理的）某个类型事件
+off() 禁止所有绑定
+
+所以delegate(selector, type, function(e){ ... })和 delegate(selector, { type: handler, type2: handler2, ... })，undelegate就
+不多写了。对live和die就不多说了。
+
+
+5.one
+one(type, function(e){ ... }) 
+one({ type: handler, type2: handler2, ... }) 
+添加一个处理事件到元素。处理函数在每个元素上最多执行一次。（相当于执行一次，加了一个解绑或禁止函数）
+
+6.trigger(event, [data]) 在Zepto对象集合的元素上触发指定的事件。事件可以是一个字符串，也可以是一个 $.Event 对象。如果data参数
+存在，它会作为参数传递给事件函数。（下面是从别人博客找的比较合适的介绍）
+eq：：：
+$("p").bind("myEvent", function (event, message1, message2) {
+  alert(message1 + ' ' + message2);
+});
+$("p").trigger("myEvent", ["Hello","World!"]);
+triggerHandler和trigger的区别：
+这个方法的行为表现与trigger类似，但有以下三个主要区别：
+第一，他不会触发浏览器默认事件。
+第二，只触发jQuery对象集合中第一个元素的事件处理函数。
+第三，这个方法的返回的是事件处理函数的返回值，而不是据有可链性的jQuery对象。此外，如果最开始的jQuery对象集合为空，则这个方法
+返回 undefined 。
+HTML 代码:
+<button id="old">.trigger("focus")</button>
+<button id="new">.triggerHandler("focus")</button><br/><br/>
+<input type="text" value="To Be Focused"/>
+zepto 代码:
+$("#old").click(function(){
+  $("input").trigger("focus");
+});
+$("#new").click(function(){
+  $("input").triggerHandler("focus");
+});
+$("input").focus(function(){
+  $("body").append("<div>Focused!</div>");
+});
+
