@@ -1,0 +1,32 @@
+
+说明：ajax用法很多就不细说了。举例一下。
+
+注释：转载需加 wangfeng 创建
+
+eq：：需要登陆获取其他接口
+$(function(){
+    $.ajax({
+         type: "get",
+         // async: false,(默认ture为异步)
+         url: "http://XXX.xxx.com/Account/User/login",
+         //登录传值
+         data: {username:'xxx',password:'xxx'},
+         dataType: "json",
+         success: function(data){
+            //console.log(data.message);（登录的状态）
+            if(data.require_login == 0) {//登录成功0为登录成功状态或者其他写法
+                $.get('http://XXX.xxx.com/Account/User/getUserCorpStatus', function(datauser) {
+                    var result = datauser.data; //获取datauser对象的data
+                    var $html = result.corp_name.substr(0,10).concat('...');//超过截取
+                    $('#demo').html($html);//插入html中
+                    console.log(result);//对比一下
+                }, 'json')
+            }            
+         },
+         error: function(){
+            console.log('fail');
+         }
+    });
+    
+});
+
