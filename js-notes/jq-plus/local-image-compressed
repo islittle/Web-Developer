@@ -1,0 +1,12 @@
+
+说明：现在手机页面的需求越来越多了，储存啊，加载啊，上传啊。。。下面列举一下，手机图片常用的插件。
+
+注释：转载需加 wangfeng 创建
+
+1.手机预览插件photoswipe   http://photoswipe.com/
+
+2.megapix-image插件 使用Canvas压缩图片上传 解决手机端图片上传功能的问题 http://www.bubuko.com/infodetail-488590.html
+
+3.plupload-2.1.2 js、html压缩图片上传图片神器，手机微信网页上传图片必备神器
+
+4.LocalResizeIMG.js和mobileBUGFix.js再加上jq库可以直接兼容pc和移动
