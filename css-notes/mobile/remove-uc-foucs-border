@@ -1,0 +1,8 @@
+
+说明：uc浏览器是去边框焦点这个是一个很不怎么好解决的问题。
+
+注释：转载需加 wangfeng 创建
+
+解决办法是：给body或者input标签加：
+-webkit-tap-highlight-color: transparent;
+tap-highlight-color: transparent;
