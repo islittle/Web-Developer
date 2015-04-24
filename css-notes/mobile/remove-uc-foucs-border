@@ -6,3 +6,5 @@
 解决办法是：给body或者input标签加：
 -webkit-tap-highlight-color: transparent;
 tap-highlight-color: transparent;
+
+
