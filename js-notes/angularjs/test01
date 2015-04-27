@@ -12,7 +12,9 @@
     <script src="angular.js"></script>
 </head>
 <body ng-controller="Textcontroller">
-    <p>{{someText.message}}</p>
+    <p>{{someText.message}}</p>（这种加载的时候可能会有为渲染好的页面）
+    （当然上面的可以换成：<p ng-bind="someText.message"></p> class中为追加一个ng-binding类名，这种不会出现上面的问题，加载未
+    完成之前是看不任何内容的）
     <script>
         var testCtrl = angular.module('testCtrl', []);
         testCtrl.controller('Textcontroller',function($scope){（把控制器函数传递给controller函数）
