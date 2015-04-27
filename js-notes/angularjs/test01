@@ -1,0 +1,25 @@
+
+说明：angularjs的简单使用方法
+
+注释：转载需加 wangfeng 创建
+
+<!doctype html>
+<html lang="en" ng-app="testCtrl">（自定义模块）
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>test1</title>
+    <script src="angular.js"></script>
+</head>
+<body ng-controller="Textcontroller">
+    <p>{{someText.message}}</p>
+    <script>
+        var testCtrl = angular.module('testCtrl', []);
+        testCtrl.controller('Textcontroller',function($scope){（把控制器函数传递给controller函数）
+            var someText={};（模型对象）
+            someText.message="123456";
+            $scope.someText=someText;
+        })
+    </script>    
+</body>
+</html>
