@@ -1,0 +1,78 @@
+
+说明：这个demo是描述表单简单的验证
+
+<!doctype html>
+<html lang="en" ng-app="testCtrl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>test</title>
+    <script src="angular.js"></script>
+</head>
+<body ng-controller="Textcontroller">
+    <form ng-submit="requestFunding()">
+        <!-- ng-change实时监控变化 -->
+        数字:<input type="text" ng-change="computeNeeded()" ng-model="validateDigital" pleceholer="输入数字"><br/>
+        <p ng-bind="popinfo.num"></p>
+        数字的10倍输出: {{needed}}<br/><br/>
+        <input type="text" placeholder="输入邮箱" ng-model="validateEmail" ng-change="computeEmail()">
+        <p ng-bind="popinfo.email"></p>
+        <button>提交</button>
+    </form>
+    <script>
+        var testCtrl = angular.module('testCtrl', []);
+        testCtrl.controller('Textcontroller',function($scope){
+            // 初始化值
+            $scope.validateDigital = '';
+            $scope.validateEmail = '';
+            var popinfo ={};
+            $scope.popinfo = popinfo;
+            // 正则：为数字切最多两位小数点
+            var valNum = /^\d+(.\d{0,2})?$/g;
+            // 正则：邮箱验证
+            var valEmail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+            $scope.computeNeeded=function(){
+                $scope.needed = $scope.validateDigital*10;
+                if($scope.validateDigital.length == 0){
+                    popinfo.num = '请继续填写';
+                    $scope.needed = 'false';
+                }else if($scope.validateDigital.length != 0){
+                    if(!$scope.validateDigital.match(valNum)){
+                        popinfo.num = '只能为数字并且小数点后最多两位';
+                        $scope.needed = 'false';
+                    }else if($scope.validateDigital == 0 || 0.0 || 0.00){
+                        popinfo.num = '数字不能为0';
+                        $scope.needed = 'false';
+                    }else{
+                        // 精度转化，解除0.33计算精度的问题
+                        $scope.needed = $scope.needed.toFixed(2);
+                         popinfo.num = '';
+                    }  
+                }
+            };
+            $scope.computeEmail=function(){
+                console.log(1);
+                if(!$scope.validateEmail.match(valEmail)){
+                    popinfo.email = '邮箱格式不正确';
+                }else if($scope.validateEmail.match(valEmail)){
+                    popinfo.email = '';
+                }
+            };
+            $scope.requestFunding=function(){
+                if($scope.validateDigital.length == 0 ){
+                    popinfo.num = '数字不能为空';
+                }else{
+                    popinfo.num = '';
+                }
+                if($scope.validateEmail.length == 0 ){
+                    popinfo.email = '邮箱不能为空';
+                }else{
+                    popinfo.email= '';
+                }
+            }
+
+
+        })
+    </script>    
+</body>
+</html>
