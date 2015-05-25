@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="wangfeng https://github.com/islittle">
+    <title>倒计时-原生js显示时间-作者王峰</title>
+</head>
+<body>
+<script type="text/javascript">
+    // 循环倒计时
+    var interval = 1000; 
+    function showCountDown(year,month,day,hour,minute,second) 
+    { 
+        var now = new Date(); 
+        var endDate = new Date(year, month-1, day);
+         //时间差 
+        var leftTime=endDate.getTime()-now.getTime();
+        var leftsecond = parseInt(leftTime/1000);
+        // 设定的时间差
+        var leftseconds =  leftsecond+hour*3600+minute*60+second;
+        // 计算天，小时，分钟，秒
+        var day = Math.floor(leftseconds/(60*60*24)); 
+        var hour = Math.floor((leftseconds-day*24*60*60)/3600); 
+        var minute = Math.floor((leftseconds-day*24*60*60-hour*3600)/60); 
+        var second = Math.floor(leftseconds-day*24*60*60-hour*3600-minute*60); 
+        // 获取容器
+        var days = document.getElementById('day');
+        var hours = document.getElementById('hour');
+        var minutes = document.getElementById('minute');
+        var seconds = document.getElementById('second');
+        // 调用判断函数
+        function addJudge(date,dates){
+            // 如果设置的时间天数小于0，全部显示00
+            if(leftseconds<0){
+                dates['innerHTML']='00';
+            }else{
+                // 参数小于0，显示00
+                 if(date <= 0){
+                    dates['innerHTML']='00';
+                // 参数大于0小于10，显示0+参数
+                }else if(date > 0 && date < 10){
+                   dates['innerHTML']='0'+date;
+                // 参数正常显示
+                }else{
+                    dates['innerHTML'] = date;
+                }
+            }
+        }
+        // 函数调用
+        addJudge(day,days);
+        addJudge(hour,hours);
+        addJudge(minute,minutes);
+        addJudge(second,seconds);
+    }
+    // 执行函数
+    window.setInterval(function(){showCountDown(2015,05,30,10,26,00);}, interval); 
+</script> 
+</head> 
+<div id="showCountDown">
+    <span id="day"></span>:
+    <span id="hour"></span>:
+    <span id="minute"></span>:
+    <span id="second"></span>
+</div>  
+</body>
+</html>
