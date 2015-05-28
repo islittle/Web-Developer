@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="wangfeng https://github.com/islittle">
+    <title>原生js每秒点击次数统计-作者王峰</title>
+</head>
+<body>
+<div id="count"></div>
+<script type="text/javascript">
+var html = document.getElementsByTagName("html")[0];
+var now = new Date(); 
+var count = 0;
+var msNow = now.getTime();
+var msEnd = msNow+1000;
+document.getElementById("count").innerHTML = "您点击了"+count+"次！";
+html.onclick = function(){
+	var now2 = new Date();
+	var msNow2 = now2.getTime(); 
+	if(msNow2<=msEnd){
+		count++;
+		document.getElementById("count").innerHTML = "您点击了"+count+"次！";
+	}else{
+		document.getElementById("count").innerHTML = "您点击了"+count+"次！,已经结束";
+	}
+}
+</script>
+</body>
+</html>
