@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,6 +18,43 @@ document.getElementById("count").innerHTML = "您点击了"+count+"次！";
 html.onclick = function(){
 	var now2 = new Date();
 	var msNow2 = now2.getTime(); 
+	if(msNow2<=msEnd){
+		count++;
+		document.getElementById("count").innerHTML = "您点击了"+count+"次！";
+	}else{
+		document.getElementById("count").innerHTML = "您点击了"+count+"次！,已经结束";
+	}
+}
+</script>
+</body>
+</html>
+
+在这时要求虽然达到了，但触发的时间不对。触发时间我们得按照第一次点击计时。故优化如下
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="wangfeng https://github.com/islittle">
+    <title>原生js每秒点击次数统计-作者王峰</title>
+</head>
+<body>
+<button id="count" onclick="clickStart1();this.onclick=function(){clickStart2()}"></button>
+<script type="text/javascript">
+var button = document.getElementsByTagName("button");
+document.getElementById("count").innerHTML = "您点击了0次！";
+var count = 1;
+function clickStart1(){
+	var now = new Date(); 
+	msNow = now.getTime();
+	msEnd = msNow+1000;
+	document.getElementById("count").innerHTML = "您点击了"+count+"次！";
+	console.log(now,'yi:',msNow,msEnd);
+}
+function clickStart2(){
+	var now2 = new Date();
+	msNow2 = now2.getTime();
+	console.log(now2,'er:',msNow2,msEnd); 
 	if(msNow2<=msEnd){
 		count++;
 		document.getElementById("count").innerHTML = "您点击了"+count+"次！";
