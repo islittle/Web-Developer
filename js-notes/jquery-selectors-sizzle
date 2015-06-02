@@ -1,0 +1,111 @@
+
+注释：jq的选择的速度问题，这个我以前很少考虑的问题，都是想到什么用什么，这篇文章根据阮一峰博客和其他文章总结如下：
+
+转载：需加 wangfeng 创建
+
+在jQuery中，可以用多种选择器。每种选择器的性能是不一样的，你应该了解它们的性能差异。
+
+（1）最快的选择器：id选择器和元素标签选择器
+举例来说，下面的语句性能最佳：
+　　$('#id')
+　　$('form')
+　　$('input')
+这些选择器，jQuery内部会自动调用浏览器的原生方法（比如getElementById()），所以它们的执行速度快。
+
+（2）较慢的选择器：class选择器
+$('.className')的性能，取决于不同的浏览器。
+Firefox、Safari、Chrome、Opera浏览器，都有原生方法getElementByClassName()，所以速度并不慢。但是，IE5-IE8都没有部署这个方法，所以这个选择器在IE中会相当慢。
+
+（3）最慢的选择器：伪类选择器和属性选择器
+先来看例子。找出网页中所有的隐藏元素，就要用到伪类选择器：
+　　$(':hidden')
+属性选择器的例子则是：
+　　$('[attribute=value]')
+这两种语句是最慢的，因为浏览器没有针对它们的原生方法。但是，一些浏览器的新版本，增加了querySelector()和querySelectorAll()方法，性能有大幅提高。
+
+所以，ID选择器遥遥领先，然后是标签选择器，第三是Class选择器，其他选择器都非常慢
+
+
+下面看以下选择器的速度：
+    $parent.find('.child')
+　  $('.child', $parent)
+    $('.child', $('#parent'))
+　　$parent.children('.child')
+　　$('#parent > .child')
+　　$('#parent .child')
+
+(1) $parent.find('.child')
+这条是最快的语句。.find()方法会调用浏览器的原生方法（getElementById，getElementByName，getElementByTagName等等），所以速度较快
+
+(2) $('.child', $parent)
+这条语句的意思是，给定一个DOM对象，然后从中选择一个子元素。jQuery会自动把这条语句转成$.parent.find('child')，这会导致一定的性能损失。它比最快的形式慢了5%-10%。。
+
+(3) $('.child', $('#parent'))
+jQuery内部会将这条语句转成$('#parent').find('.child')，比最快的形式慢了23%。
+
+(4) $parent.children('.child')
+这条语句在jQuery内部，会使用$.sibling()和javascript的nextSibling()方法，一个个遍历节点。它比最快的形式大约慢50%。
+
+(5) $('#parent > .child')
+jQuery内部使用Sizzle引擎，处理各种选择器。Sizzle引擎的选择顺序是从右到左，所以这条语句是先选.child，然后再一个个过滤出父元素#parent，这导致它比最快的形式大约慢70%。
+
+(6) $('#parent .child')
+这条语句与上一条是同样的情况。但是，上一条只选择直接的子元素，这一条可以于选择多级子元素，所以它的速度更慢，大概比最快的形式慢了77%。
+
+
+最佳选择是$parent.find('.child')。还有由于$parent往往在前面的操作已经生成，jQuery会进行缓存，所以进一步加快了执行速度。
+
+
+jquery用的选择器的引擎是sizzle
+
+当你的selector里面不出现nth|eq|gt|lt|first|last|even|odd 这样的字符时候， 从右向左，所谓的从右向左，比如 $('div img')  首先会把所有的img 选出来，通过parent是div进行过滤 。 这
+
+样很高效的原因是只进行一次dom的查询！
+
+当你selector 出现了nth|eq|gt|lt|first|last|even|odd  这样的字符的时候，从左向右！ 所谓从左向右，比如 $('div img:eq(1)')  先把所有的div 选出来保存，在把img选出来通过eq（1）过滤
+
+保存， 在对结果集操作，进行多次选择了
+
+for example:     $('.test') 在jquery的流程是怎么走的呢？
+
+1.首先会做如下的判断
+
+/**
+*关于 querySelectorAll函数 
+*返回当前文档中匹配一个特定选择器的所有的元素
+*var nodelist = element.querySelectorAll("div.test");
+*支持浏览器  ie8+,Chrome,Firefox(3.5)
+* 如果你不清楚可以google 一下
+*/
+if ( document.querySelectorAll ) {
+    (function(){
+        var oldSizzle = Sizzle,
+            div = document.createElement("div"),
+            id = "__sizzle__";
+
+        div.innerHTML = "<p class='TEST'></p>";
+
+        // Safari怪癖模式无法处理大写或Unicode字符
+        if ( div.querySelectorAll && div.querySelectorAll(".TEST").length === 0 ) {
+            return;
+        }
+    
+        Sizzle = function( query, context, extra, seed ) {
+            //使用querySelectorAll 来查询
+        }
+}
+如果你的浏览器是ie8+ 或者 谷歌，直接通过内置的querySelectorAll(".test")返回dom结构。 如果你使用是ie6，那么下面事情发生了
+
+2. 不支持querySelectorAll 就会启动内部 sizzle。下面是流程
+
+/**
+1.sizzle 通过
+ chunker = /((?:\((?:\([^()]+\)|[^()]+)+\)|\[(?:\[[^\[\]]*\]|['"][^'"]*['"]|[^\[\]'"]+)+\]|\\.|[^ >+~,(\[\\]+)+|[>+~])(\s*,\s*)?((?:.|\r|\n)*)/g
+这个正则进行匹配，
+
+2.把我们传来的参数'.test'，匹配成'.test' 放到数组
+
+3.检测浏览器是否支持getElementsByClassName 如果支持，则通过此函数返回dom，如果不支持此函数则 context.getElementsByTagName( "*" ) ,通过上下文把所有的元素选出来，在通过循环，选
+
+择className = 'test' 的元素，放入数组返回dom。
+*/
