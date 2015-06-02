@@ -41,14 +41,14 @@ html.onclick = function(){
 <body>
 <button id="count" onclick="clickStart1();this.onclick=function(){clickStart2()}"></button>
 <script type="text/javascript">
-var button = document.getElementsByTagName("button");
-document.getElementById("count").innerHTML = "您点击了0次！";
+var countBtn = document.getElementById("count");
+countBtn.innerHTML = "您点击了0次！";
 var count = 1;
 function clickStart1(){
 	var now = new Date(); 
 	msNow = now.getTime();
 	msEnd = msNow+1000;
-	document.getElementById("count").innerHTML = "您点击了"+count+"次！";
+	countBtn.innerHTML = "您点击了"+count+"次！";
 	console.log(now,'yi:',msNow,msEnd);
 }
 function clickStart2(){
@@ -57,9 +57,9 @@ function clickStart2(){
 	console.log(now2,'er:',msNow2,msEnd); 
 	if(msNow2<=msEnd){
 		count++;
-		document.getElementById("count").innerHTML = "您点击了"+count+"次！";
+		countBtn.innerHTML = "您点击了"+count+"次！";
 	}else{
-		document.getElementById("count").innerHTML = "您点击了"+count+"次！,已经结束";
+		countBtn.innerHTML = "您点击了"+count+"次！,已经结束";
 	}
 }
 </script>
