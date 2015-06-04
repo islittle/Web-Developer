@@ -1,0 +1,75 @@
+
+注释：我们在写判断的时候用到最多就if else，但是当很多的时候，性能会有折扣，故此总结一了一下优化的方法，有错误的还请指出。
+
+转载：需加 wangfeng 创建
+
+Jquery性能：
+谨慎的使用 $(“*”)  ，如果一个方法里面包含  $jqueryObject.each() 并且该方法频繁调用的时候应该要特别注意each内部代码的执行效率
+，这是影响性能的关键，这种情况通常发生在做页面动画特效的情况中，当然还有多种状态的业务逻辑中。
+
+条件分支里 布尔变量：
+If(foo()){                 
+         return true; 
+}else{                      
+         return false;
+}                                
+可直接简化为
+return foo();
+
+下面只写优化的结构优化前的没有写：
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="auth" content="wangfeng@outlook.com https://github.com/islittle">
+	<title>if-else-优化</title>
+</head>
+<body>
+<p id="status-p1"></p>
+<p id="status-p2"></p>
+<p id="status-p3"></p>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<div id="div4"></div>
+<div id="div5"></div>
+<div id="div6"></div>
+<div id="div7"></div>
+<input type="text" value="123" id="test">
+<script type="text/javascript">
+	//在status值可以确定为0-5时，使用数组表避免多个判断
+	var statusLabel = ["状态0", "状态1", "状态2", "状态3", "状态4", "状态5","错误状态"];
+	//这里我们设置一下状态为4
+	document.getElementById('status-p1').innerHTML = statusLabel[4];
+	//使用diapath table
+	//这里为了方便下面全部打印出，定义为全局变量
+	labelMap = {
+		status_0: "状态0",
+		status_1: "状态1",
+		status_2: "状态2",
+		status_3: "状态3",
+		status_4: "状态4",
+		status_5: "状态5",
+		other: "错误状态"
+	};
+	//设置一下status_5的状态
+	document.getElementById('status-p2').innerHTML = labelMap['status_5'] || labelMap.other;
+	//这里设置一个没有的状态
+	document.getElementById('status-p3').innerHTML = labelMap['status_6'] || labelMap.other;
+	// 全部打印出来
+	for(var status=0;status<=6;status++){
+		document.getElementsByTagName('div')[status].innerHTML = labelMap[status] || labelMap.other;	
+	}
+	var idLength = document.getElementById('test');
+	idLength.value = !(idLength.value.length === 0);
+	// 这样下面的这个判断就不用写了，大大优化了。
+	// if(!idLength.value) {
+	//   idLength.value = false;
+	// } else {
+	//   idLength.value = true;
+	// }
+</script>
+</body>
+</html>
+
