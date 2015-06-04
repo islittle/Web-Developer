@@ -1,7 +1,7 @@
 
 注释：我们公司在使用angular的时候遇到的坑，大家踩到的话可以看看，如有不合理的地方还请指出，谢谢
 
-1.	label内的ng-click失效.(fanzhichao)
+1.label内的ng-click失效.(fanzhichao)
 解决方法: a) 改成别的tag
 
 2.select里加ng-model=“params”如果第一个option的value属性不存在||value值存在||不存在option,则会在最前面自动加一个空的option. 
@@ -25,3 +25,5 @@
 
 8.用“ion-infinite-scroll”无线加载时。初始化会请求两次
 解决方法: 添加immediate-check="false" 设置
+
+
