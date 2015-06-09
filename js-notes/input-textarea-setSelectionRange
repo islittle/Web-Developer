@@ -1,0 +1,41 @@
+
+说明：今天被光标打败了，最后我选择了投降换一个方式来解决。我们知道设置光标位置我们在开发中多多少少都会用到，但是今天被低版本的
+部分安卓彻底的无语了，花了一天的时候都在弄这个东西。问题下面描述。
+
+转载：需加 wangfeng 创建
+
+例子：输入银行卡号每四个空一格。
+<input type="text" id="bank_no" value="" placeholder="请输入银行卡号"  autocomplete="off">
+ $('#bank_no').on('keyup', function(event) {
+        var value = $(this).val().replace(/\s/g,'').replace(/(\d{4})(?=\d)/g,"$1 ");    
+        $(this).val(value);
+	});
+	
+这个代码对于大部分手机是没有问题的输入的时候，每超过四个数字都会空一格。但是部分低版本安卓，版本就不细说了，都会出现，每次
+超过四个的时候，光标都会移到空格和第五个之间的问题。当然有知道setCaretPosition函数的说可以解决，我的结论是不可以，这个函数
+是执行但是光标还是那么顽固。
+	
+	下面这个就是设置光标的函数：
+function setCaretPosition(ctrl, pos){
+    if(ctrl.setSelectionRange)
+    {
+        ctrl.focus();
+        ctrl.setSelectionRange(pos,pos);
+    }
+    else if (ctrl.createTextRange) {
+        var range = ctrl.createTextRange();
+        range.collapse(true);
+        range.moveEnd('character', pos);
+        range.moveStart('character', pos);
+        range.select();
+    }
+}
+
+最后我选择了，下面的方法（当然你可以列举一行单独显示，例如银行输入放大的效果）
+ $('#bank_no').on('keyup', function(event) {
+        var value = $(this).val().replace(/\s/g,'').replace(/(\d{4})(?=\d)/g,"$1 ");    
+        $(this).val(value);
+	});
+	
+以上是自己意见，仅供参考
+
