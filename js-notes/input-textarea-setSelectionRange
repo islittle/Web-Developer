@@ -32,7 +32,7 @@ function setCaretPosition(ctrl, pos){
 }
 
 最后我选择了，下面的方法（当然你可以列举一行单独显示，例如银行输入放大的效果）
- $('#bank_no').on('keyup', function(event) {
+ $('#bank_no').on('blur', function(event) {
         var value = $(this).val().replace(/\s/g,'').replace(/(\d{4})(?=\d)/g,"$1 ");    
         $(this).val(value);
 	});
