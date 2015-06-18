@@ -14,3 +14,6 @@
 取父级下面第3个到第8个：:nth-child(n+3):nth-child(-n+8)
 
 同理取同元素： :nth-of-type(n+3):nth-of-type(-n+8)
+
+
+
