@@ -1,0 +1,16 @@
+
+说明：大家对:nth-child(n)使用都不陌生，里面的n可以是数字也可以是计算式（例如：2n+1,3n+2）不过n都是从0计算，只是0不显示，
+但是nth-child（2）是第二个元素。下面这些你知道吗？
+
+转载：需加 wangfeng 创建
+
+1.nth-child为同一个父级下面所有子集，不然元素为何。
+
+例如： div p:nth-child（2n）和div :nth-child(2n)是一样的
+可用：nth-of-type
+
+2.取范围
+
+取父级下面第3个到第8个：:nth-child(n+3):nth-child(-n+8)
+
+同理取同元素： :nth-of-type(n+3):nth-of-type(-n+8)
