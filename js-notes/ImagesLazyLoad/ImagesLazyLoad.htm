@@ -1,0 +1,137 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="auth" content="wangfeng islittle@outlook.com github.com/islittle">
+	<title>Jqurey-lazyload-little</title>
+</head>
+<style type="text/css">
+	*{
+		padding: 0 ;
+		margin: 0 ;
+	}
+	body{
+		overflow-x:hidden 
+	}
+	div img{
+		/*要设置图片的宽度和高度的属性，否则插件不能使用*/
+		width: 320px;
+		height: 320px;
+		text-align: center;
+	}
+	/*为了防止占位符和实际图像同时显示，故隐藏CSS的占位符。*/
+	.lazy{
+		display: none;
+	}
+	div{
+		padding: 20px;
+		border-bottom: 1px solid #dddddd;
+		text-align: center;
+	}
+	.contentScroll{
+		padding: 0;
+		margin: 0px auto;
+		width: 75px;
+		height: 150px;
+		overflow-y: scroll;
+		overflow-x: hidden;
+	}
+	ul,li{ list-style: none;}
+	/*这个没有隐藏*/
+	.contentScroll p,.contentScroll p img{
+		width: 75px;
+		height: 75px;
+	}
+	h2,h3,p{
+		text-align: center;
+		padding: 10px;
+	}
+	.limeImages{
+		text-align: center;
+	}
+	.limeImages img{
+		width: 75px;
+		height: 75px;
+	}
+	.limeImages .lime-important{
+		margin-left: 3000px;
+	}
+	.novisible{display: none; width: 75px;height: 75px;}
+</style>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.lazyload.min.js"></script>
+<body>
+	<h2>平铺加载式</h2>
+	<div class="imgDiv1"><img class="lazy" src="images/loadding.gif" data-original="images/1.jpg" alt="">
+	</div>
+	<div class="imgDiv2"><img class="lazy" src="images/loadding.gif" data-original="images/2.jpg" alt="">
+	</div>
+	<div class="imgDiv3"><img class="lazy" src="images/loadding.gif" data-original="images/3.jpg" alt="">
+	</div>
+	<div class="imgDiv4"><img class="lazy" src="images/loadding.gif" data-original="images/4.jpg" alt="">
+	</div>
+	<div class="imgDiv5"><img class="lazy" src="images/loadding.gif" data-original="images/5.jpg" alt="">
+	</div>
+	<div class="imgDiv6"><img class="lazy" src="images/loadding.gif" data-original="images/6.jpg" alt="">
+	</div>
+	<h2>图片不在可视区域式</h2>
+	<p>应该显示10张，目前显示5张</p>
+	<div class="limeImages">
+		<img src="images/loadding.gif" data-original="images/scroll1.png">
+		<img src="images/loadding.gif" data-original="images/scroll2.png">
+		<img src="images/loadding.gif" data-original="images/scroll3.png">
+		<img src="images/loadding.gif" data-original="images/scroll1.png">
+		<img src="images/loadding.gif" data-original="images/scroll2.png">
+		<img class="lime-important" src="images/loadding.gif" data-original="images/scroll1.png">
+		<img class="lime-important" src="images/loadding.gif" data-original="images/scroll2.png">
+		<img class="lime-important" src="images/loadding.gif" data-original="images/scroll3.png">
+		<img src="images/loadding.gif" data-original="images/scroll1.png">
+		<img src="images/loadding.gif" data-original="images/scroll2.png">
+	</div>
+	<h2>图片不显示模式</h2>
+	<p>这里有张图片没有显示但是加载了novisible.png</p>
+	<div class="novisible"><img src="images/loadding.gif" data-original="images/novisible.png"></div>
+	<h2>滚动容器式</h2>
+	<p>这个要放在skip_invisible和failure_limit后面执行，不然有Uncaught TypeError: Cannot read property 'top' of undefined错误</p>
+	<div class="contentScroll" id="container">
+		<p><img src="images/loadding.gif" data-original="images/scroll1.png" alt=""></p>
+		<p><img src="images/loadding.gif" data-original="images/scroll2.png" alt=""></p>
+		<p><img src="images/loadding.gif" data-original="images/scroll3.png" alt=""></p>
+		<p><img src="images/loadding.gif" data-original="images/scroll4.png" alt=""></p>
+		<p><img src="images/loadding.gif" data-original="images/scroll5.png" alt=""></p>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	$(function() {
+	    //图片加载成功后展示出来
+		$("img.lazy").show().lazyload({
+			placeholder : "images/loadding.gif",
+			// 设置下张图片到达前200px加载,逐个加载
+		    // threshold : 200,
+		    // 有操作事件才可以出现，但是有占位。例如：click mouseover，这里用得下面定义的delayTimer
+		    // event : "delayTimer",
+		    //插件等图像完全加载和调用show()，当有图片有在窗口范围内的,逐个加载
+		    effect : "fadeIn"
+		});
+		//默认在找到第一张不在可见区域里的图片时则不再继续加载,但当HTML容器混乱的时候可能出现可见区域内图片并没加载出来的情况,failurelimit允许在加载N张可见区域外的图片,以避免出现这个问题.
+		$(".limeImages img").lazyload({
+			//默认情况下是1，设置是2张不在，其实是3张不在可视区域内，除这个三张外，下面2张无法加载
+			failure_limit : 2,
+		});
+		// 默认不加载隐藏的图片,下面设置为false是加载不显示的图片，不管在不是可视区域都加载。
+		$(".novisible img").lazyload({
+			skip_invisible : false
+		});
+		//容器懒加载
+		$(".contentScroll img").lazyload({
+			container: $(".contentScroll")
+		});
+	});
+	//延迟5s加载未在窗口图片，会加载剩余所有的
+	// $(window).bind("load", function() {
+	//     var timeout = setTimeout(function() {
+	//         $("img.lazy").trigger("delayTimer")
+	//     }, 5000);
+	// });
+</script>
