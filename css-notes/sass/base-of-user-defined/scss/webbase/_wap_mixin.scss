@@ -1,0 +1,103 @@
+@charset "UTF-8";
+//auth：wangfeng ;my pen name:little
+//my blog:https://github.com/islittle
+//If you have question ,please email to islittle@outlook.com
+//Description: the following is an example of text position and others
+@mixin font-size($size){
+  font-size: $size + px;
+}
+//up and down alignment
+@mixin vertical-align($direction:middle){
+	vertical-align:$direction;
+}
+%vam{
+	@include vertical-align(middle);
+}
+
+//Text left, middle and right alignment
+@mixin text-align($direction:center){
+	text-align:$direction;
+}
+%text-align {
+	@include text-align(center);
+}
+
+%float-right{
+  @include float(right);
+}
+// Text setting 
+@mixin fontStyle($size, $color, $family){
+	font-size: $size;
+	color: $color;
+	font-family: $family;
+}
+//Height and line-height configuration
+@mixin textheight($extend:true, $height:auto,$lineHight:auto){
+    @if($extend){
+        height:$height;
+        line-height: $height;
+    }@else{
+        height:$height;
+        line-height:$lineHight;
+    }
+}
+//max-width
+@mixin max-width{
+	width:100%;
+	max-width: 640px;
+}
+// position relative obsolute fixed 
+@mixin position($value:relative){
+ 	position: $value;
+}
+%relative{
+	@include position(relative);
+}
+%absolute{
+	@include position(absolute);
+}
+//Name: padding margin value base for reset
+@mixin box-value-site($value:20){
+  $attribute: padding, margin;
+  $direction: left, right, top, bottom;
+  @each $att in $attribute{
+    @each $dir in $direction{
+      .#{$att}-#{$dir}-#{$value}{
+        #{$att}-#{$dir}: $value + px;
+      }
+    }
+  }
+ }
+
+//base % setting
+@mixin width($value:10){
+  @for $i from 1 to $value{
+    .width-#{$i}{
+      width: $i * 10%;
+    }
+  }
+}
+
+// box-images-direction
+@mixin box-img-dir($direction, $width ,$max-width){
+  text-align: $direction;
+  img{
+    width:$width;
+    max-width: $max-width;
+  }
+}
+//image size value
+@mixin img-size-value($extend:true,$width:100%,$max-width:100%){
+  @if($extend){
+    width:$width;
+    max-width:$width;
+  }@else{
+    width:$width;
+    max-width:$max-width;
+  }
+}
+//border
+@mixin border-value($width:1px,$style:solid,$color:$grey-dd,$radius:50%){
+  border: $width $style $color;
+  @include border-radius($radius);
+}

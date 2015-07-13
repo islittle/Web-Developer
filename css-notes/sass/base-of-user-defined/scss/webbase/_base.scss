@@ -1,0 +1,187 @@
+@charset "UTF-8";
+//auth：wangfeng ;my pen name:little
+//my blog:https://github.com/islittle
+//If you have question ,please email to islittle@outlook.com
+//Description: the following is base reset
+
+html,body{
+	font-family:$fontHeiTi,"Helvetica Neue",Roboto,sans-serif;
+	background: $grey-fc;
+	color:$grey-light
+}
+.grey-dd{color: $grey-dd;} 
+.font-point{color: $grey-c0;}
+.font-normal{color: $grey-light;}
+.font-focus{color: $grey-dark;}
+.font-down{color: $grey-66;}
+.blue-dark{ color:$blue-dark;}
+.orange{color: $orange;}
+.orange-yellow-1{ color: $orange-yellow-1;}
+.orange-yellow-2{ color: $orange-yellow-2;}
+.red-light{color:$red-light;}
+
+.border{
+	@include border-value;
+}
+.green{
+	color:$green;
+}
+.red-light{
+	color: $red-light;
+}
+.font-arial{
+	font-family: $font-arial;
+}
+.center-block{
+	@include center-block(false);
+}
+//Define the font for input
+input[type=color], input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], textarea{
+	color: $grey-dark;
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: $grey-c0; }
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: $grey-c0; }
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: $grey-c0;
+  text-indent: 0; 
+}
+input[disabled], input[readonly]:not(.cloned-text-input), select[disabled], select[readonly], textarea[disabled], textarea[readonly]:not(.cloned-text-input){
+	background-color: transparent;
+}
+//chrome
+input:-webkit-autofill{-webkit-box-shadow: 0 0 0px 1000px white inset;color: $grey-c0!important;}
+input:-webkit-autofill, input:focus:-webkit-autofill {
+	-webkit-text-fill-color: $grey-c0;
+}
+//reset-0
+.reset{
+	padding:0;
+	margin: 0;
+	border:0; 
+}
+// padding margin base extend value
+@include box-value-site(0);
+@include box-value-site(10);
+@include box-value-site();
+@include box-value-site(30);
+@include box-value-site(40);
+
+//base width
+@include width;
+
+//float left right
+.left{
+	@include float;
+}
+.right{
+	@include float(right);
+}
+
+.clearfix{
+	@include clearfix(false);
+}
+
+//text-direction
+.t-center{
+	text-align:center;
+}
+.t-left{
+   text-align: left;
+}
+.t-right{
+	text-align:right;
+}
+
+.ovh{
+	overflow: hidden;
+}
+.vam{
+	vertical-align: middle;
+}
+//font-size
+.font9{
+	@include font-size(9);
+}
+//while
+$fontsize: 10;
+@while $fontsize < 44 {
+  .font#{$fontsize} { font-size: $fontsize + px; }
+  $fontsize: $fontsize + 2;
+}
+.relative{
+	@extend %relative;
+}
+.absolute{
+	@extend %absolute;
+}
+.lineheight-1{
+	line-height: 1;
+}
+
+.disabled{
+	@include disabled($grey-dd, $white);
+	border:none;
+}
+//mask
+.mask-box{
+	@include opacity;
+	@include textheight(false, 100%);
+	z-index: 5;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	&.font-normal-color{
+		background:rgba(0,0,0,.5);
+	}
+}
+//animation-show
+.animate-show{
+  @include prefixer(transform, rotateX(0deg), webkit moz o);
+}
+.ion-information-circled:before{
+	margin-right:5px;
+	@include prefixer(transform, rotate(180deg), webkit moz o);
+}
+
+// Switch
+.toggle input:disabled+.track{
+	opacity: inherit;
+}
+//add loading animation
+.loading-container{
+	text-align: center;
+}
+@include keyframes(ionloading, webkit moz o) {
+0% {
+	-webkit-transform: rotate(0deg);
+	transform: rotate(0deg);
+}
+100% {
+	-webkit-transform: rotate(360deg);
+	transform: rotate(360deg);
+}
+}
+.loading-container{
+	 .icon{
+		@include inline-block(false);
+		@extend %relative;
+		text-indent: -9999em;
+		border-top: 0.1em solid #ffffff;
+		border-right: 0.13em solid #ffffff;
+		border-bottom: 0.15em solid #ffffff;
+		@include prefixer(animation, ionloading 1.1s infinite linear, $prefixes: o webkit ms moz);
+		&:before,&:after{
+			content: '';
+			@extend %absolute;
+			top: 0;
+		}
+	}
+	.icon,.icon:after{
+		border-radius: 50%;
+		width: 2em;
+		height: 2em;
+	}
+}
+

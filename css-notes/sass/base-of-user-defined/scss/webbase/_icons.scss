@@ -1,0 +1,142 @@
+@charset "UTF-8";
+//auth：wangfeng ;my pen name:little
+//my blog:https://github.com/islittle
+//If you have question ,please email to islittle@outlook.com
+//Description:The following is based on my own project definition of the background picture icon collection traversal, not recommended copying,
+//please according to their own project to reset
+//Image corresponding to the icons value, and change, position is the corresponding, into the corresponding mobile version of the size
+//The background position is calculated from the beginning of 0. For example: you want to refer to the icons72 folder in the eighth picture, 
+//positon corresponds to position72-7
+@for $i from 0 through 28 {
+    .position72-#{$i} {
+        background-position: 0 -36px*$i;
+    }
+}
+@for $i from 0 through 13 {
+    .position36-#{$i} {
+        background-position: 0 -18px*$i;
+    }
+}
+@for $i from 0 through 34 {
+    .position3630-#{$i} {
+        background-position: 0 -15px*$i;
+    }
+}
+@for $i from 0 through 13 {
+    .position40-#{$i} {
+        background-position: 0 -20px*$i;
+    }
+}
+@for $i from 0 through 7 {
+    .position88-#{$i} {
+        background-position: 0 -44px*$i;
+    }
+} 
+.change88{
+	@extend %inline-block;
+	width: 44px;
+	height: 44px;
+	background-size: 44px 352px;
+} 
+.change36{
+	@extend %inline-block;
+	width: 18px;
+	height: 18px;
+	background-size: 18px 252px;
+}
+.change3630{
+	@extend %inline-block;
+	width: 18px;
+	height: 15px;
+	background-size: 18px 525px;
+}
+.change40{
+	@extend %inline-block;
+	width: 20px;
+	height: 20px;
+	background-size: 20px 280px; 
+}
+.change72{
+	@extend %inline-block;
+	width: 36px;
+	height: 36px;
+	background-size: 36px 1044px;
+}
+// The following is an irregular Icons Collection
+.icons-others{
+	background-image: url('/images/others.png');
+	background-repeat: no-repeat;
+	background-size: 132px 39px;
+}
+.others-look{
+	width: 18px;
+	height: 9px;
+	background-position: 0 -1px;
+	@extend .icons-others;
+}
+.others-tzjl{
+	width: 12px;
+	height: 12px;
+	background-position: -18px -1px;
+	@extend .icons-others;
+}
+.others-aqbz{
+	width: 12px;
+	height: 12px;
+	background-position: -30px -1px;
+	@extend .icons-others;
+}
+.others-xmxx{
+	width: 12px;
+	height: 12px;
+	background-position: -42px -1px;
+	@extend .icons-others;
+}
+.others-hkjh{
+	width: 12px;
+	height: 12px;
+	background-position: -54px -1px;
+	@extend .icons-others;
+}
+.others-green-checked{
+	width: 10px;
+	height: 14px;
+	background-position: -66px -1px;
+	@extend .icons-others;
+}
+.others-30cash{
+	width: 18px;
+	height: 15px;
+	background-position: -76px -1px;
+	@extend .icons-others;
+}
+.others-guarantee{
+	width: 13px;
+	height: 15px;
+	background-position: -94px -1px;
+	@extend .icons-others;
+}
+.others-back-button{
+	width: 22px;
+	height: 16px;
+	background-position: -107px 0px;
+	@extend .icons-others;
+}
+.others-logo{
+	width: 132px;
+	height: 23px;
+	background-position: 0px -16px;
+	@extend .icons-others;
+}
+//Below is the focus (no active).Must comply with the rules
+$position: 0;
+@while $position < 34 {
+  $active : $position+1;
+  .position3630-#{$active}.active{ @extend .position3630-#{$position}; }
+  $position: $position+2;
+}
+@while $position < 13{
+  $active : $position+1;
+  .position36-#{$active}.active{ @extend .position36-#{$position}; }
+  $position: $position+2;
+}

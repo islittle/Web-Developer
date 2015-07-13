@@ -1,0 +1,15 @@
+@charset "UTF-8";
+//auth：wangfeng ;my pen name:little
+//my blog:https://github.com/islittle
+//If you have question ,please email to islittle@outlook.com
+//Description: the following is an example of compass-sprite-image
+$icons72-layout: smart;
+$icons36-layout: smart;
+$icons3630-layout: smart;
+$icons40-layout: smart;
+$icons88-layout: smart;
+@import "icons/icons72/*.png";
+@import "icons/icons36/*.png";
+@import "icons/icons3630/*.png";
+@import "icons/icons40/*.png";
+@import "icons/icons88/*.png";
