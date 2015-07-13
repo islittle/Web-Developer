@@ -9,7 +9,7 @@ $lte7: ture !default; //ie6-7
 $filter:  ture !default; //ie6-8 css3 filter, commonly used in the gradient background 
 @import 'sassCore/base'; //sassCore Library file
 @import 'webbase/variable';// Custom site basic variable settings
-@import 'webbase/wap_mixin'; // Mixin sets used by web sites
+@import 'webbase/web_mixin'; // Mixin sets used by web sites
 @import 'webbase/base'; //Website basic settings
 //Compass sprite here is not a reference to the need to refer to.
 // @import 'webbase/create_img';//compass sprite
