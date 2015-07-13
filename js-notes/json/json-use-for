@@ -1,0 +1,52 @@
+
+注释：json在我们前端使用中很多，具体不多说下面举几个例子。
+
+注释：转载需加 wangfeng 创建
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>json-by-little</title>
+</head>
+<script>  
+var lt1 = "{'firstName': 'Little', 'lastName': 'Wang', 'address': { 'streetAddress': 'CaoHeJing', 'city': 'ShangHai', 'state': 'AAA', 'postalCode': 200000 },'phoneNumbers': [ '186********','021-3126-****' ] }";
+//通过eval() 函数可以将JSON字符串转化为对象  
+var jsonobj1 = eval('(' + lt1 + ')');
+console.log(jsonobj1.firstName, jsonobj1.phoneNumbers[0]);
+console.log(jsonobj1)
+
+
+var lt2 = "[{name:'zhangsan',age:'25'},{name:'lisi',age:'20'},{name:'wangwu',age:'16'},{name:'tianqi',age:'8'}] ";
+var jsonobj2 = eval(lt2);
+for (var i = 0; i < jsonobj2.length; i++) {
+	console.log(jsonobj2[i].name, jsonobj2[i].age);
+	console.log(jsonobj2[i])
+}
+  
+var lt3 = "[['<a href=javascript:; onclick=open(14113295100,漕河泾开发区,14113295100,d6d223892dc94f5bb501d4408a68333d,swjg_dm);>14113295100</a>','徐汇区','虹梅路']]";
+var jsonobj3 = eval(lt3);
+for (var i = 0; i < jsonobj3.length; i++) {
+	for (var j = 0; j < jsonobj3[i].length; j++) {
+		console.log(jsonobj3[i][j]);
+	}
+}
+
+//stringifier 函数的作用跟 parse 相反， 用来将一个js对象转换为 JSON 文本。  
+var jsonText = JSON.stringify(jsonobj1);  
+console.log(jsonText);  
+  
+//如果基于安全的考虑的话，最好是使用一个 JSON 解析器。一个 JSON 解析器将只接受 JSON 文本。所以是更安全的。
+//json转化为js对象
+var myObject = JSON.parse(jsonText);
+console.log(myObject)
+//可选的 filter 参数将遍历每一个value key 值对， 并进行相关的处理。如：  
+var myData = JSON.parse(jsonText, function(key, value) {
+	return key.indexOf('Date') >= 0 ? new Date(value) : value;
+});
+console.log(myData)
+</script>  
+<body>
+	
+</body>
+</html>
