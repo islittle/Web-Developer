@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>canvas-pie-by-little</title>
+  </head>
+  <body>
+    <canvas class="process" width="48px" height="48px">0%</canvas>
+    <canvas class="process process1" width="48px" height="48px">60%</canvas>
+    <canvas class="process" width="48px" height="48px">70%</canvas>
+    <canvas class="process" width="48px" height="48px">120%</canvas>
+  </body>
+</html>
+<script type="text/javascript">
+window.onload=function(){
+  processArr = document.getElementsByTagName('canvas');
+  for (var j = 0; j < processArr.length; j++) {
+    var name = processArr[j].className;
+    var state = /\bprocess\b/.test(name);
+    if (state)
+    {
+      getObj = processArr[j];
+      processValue = getObj.innerHTML;
+      num = processValue.substring(0,processValue.length-1) || 0;
+      if(num > 100){
+        num = 100;
+      }
+      //闭包传值
+      (function(getObj, num) {
+        getObj.i = 0;
+        getObj.times = setInterval(function() {
+          addNum(getObj, num);
+        }, 20)
+      }(getObj, num))
+    }
+  }
+}
+function addNum(getObj, num) {
+  var i = getObj.i;
+  if (i < num && i < 100) {
+      getObj.i++;
+      getObj.innerHTML = getObj.i + '%';
+      drawProcess();
+  }else{
+    clearInterval(getObj.times);
+  }
+}
+
+function drawProcess() {
+  for (var j = 0; j < processArr.length; j++) {
+    var name = processArr[j].className;
+    var state =  /process(\s|$)/.test(name);
+    if (state) {
+      var getObj = processArr[j];
+      var text =  getObj.innerHTML;
+      var process = getObj.innerHTML.substring(0,getObj.innerHTML.length-1);
+      var canvas = processArr[j];
+      var context = canvas.getContext('2d');
+      context.clearRect(0, 0, 48, 48);
+      context.beginPath();
+      context.moveTo(24, 24);
+      context.arc(24, 24, 24, 0, Math.PI * 2 * process / 100, false);
+      context.closePath();
+      context.fillStyle = '#ff9372';
+      context.fill();
+      context.beginPath();
+      context.moveTo(24, 24);
+      context.arc(24, 24, 21, 0, Math.PI * 2, true);
+      context.closePath();
+      context.fillStyle = 'rgba(255,255,255,1)';
+      context.fill();
+      context.beginPath();
+      context.arc(24, 24, 21, 0, Math.PI * 2, true);
+      context.closePath();
+      context.strokeStyle = '#ddd';
+      context.stroke();
+      context.font = "bold 0.9rem Arial";
+      context.fillStyle = '#ff9372';
+      context.textAlign = 'center';
+      context.textBaseline = 'middle';
+      context.moveTo(24, 24);
+      context.fillText(text, 24, 24);
+    }
+  }
+};
+
+</script>
