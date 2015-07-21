@@ -101,3 +101,35 @@ var symbols = getSymbols('𝌆');
 symbols.forEach(function(symbol) {
   // ...
 });
+
+4.对象和键，值
+
+对象的属性之间用逗号分隔，ECMAScript 5规定最后一个属性后面可以加逗号（trailing comma），也可以不加。
+
+var o = {
+  p: 123456,
+  s: function () { ... },
+}
+代码中m属性后面的那个逗号，有或没有都不算错。但是，ECMAScript 3不允许添加逗号，所以如果要兼容老式浏览器（比如IE 8），
+那就不能加这个逗号。
+
+对象生成三种方法：
+var o1 = {}; //常用
+var o2 = new Object(); //注意Object的首字母是大写的 
+var o3 = Object.create(null);//这个写法一般用在需要对象继承的场合
+用__proto__可以查看构成对象的原型。依次为：Object {},Object {},undefined。最后一个可以用 Object.create({})形式成为Object {}
+
+我们在读取的时候：
+
+if(window.a) {...} // 不报错
+if(window['a']) {...} // 不报错
+上面的后二种写法之所以不报错，是因为在浏览器环境，所有全局变量都是window对象的属性。window.a的含义就是读取window对象的a属性，
+如果该属性不存在，就返回undefined，并不会报错。
+
+需要注意的是，后二种写法有漏洞，如果a属性是一个空字符串（或其他对应的布尔值为false的情况），则无法起到检查变量是否声明的作用。
+正确的写法是使用in运算符。
+
+if('a' in window) {
+  ...
+}
+
