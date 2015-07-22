@@ -116,8 +116,9 @@ var o = {
 对象生成三种方法：
 var o1 = {}; //常用
 var o2 = new Object(); //注意Object的首字母是大写的 
-var o3 = Object.create(null);//这个写法一般用在需要对象继承的场合
-用__proto__可以查看构成对象的原型。依次为：Object {},Object {},undefined。最后一个可以用 Object.create({})形式成为Object {}
+var o3 = Object.create(null);//这个写法一般用在需要对象继承的场合，这是创建的一个空对象
+用__proto__可以查看构成对象的原型。依次为：Object {},Object {},undefined。最后一个可以用 Object.create({})形式成为
+Object {},第一个按照三个写法为var o1 = Object.create(Object.prototype);
 
 我们在读取的时候：
 
@@ -133,3 +134,10 @@ if('a' in window) {
   ...
 }
 
+但in运算符的一个问题是，它不能识别对象继承的属性。
+
+var o = new Object();
+o.hasOwnProperty('toString') // false
+'toString' in o // true
+上面代码中，toString方法不是对象o自身的属性，而是继承的属性，hasOwnProperty方法可以说明这一点。但是，in运算符不能识别，对继承
+的属性也返回true。
