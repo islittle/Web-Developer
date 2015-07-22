@@ -141,3 +141,71 @@ o.hasOwnProperty('toString') // false
 'toString' in o // true
 上面代码中，toString方法不是对象o自身的属性，而是继承的属性，hasOwnProperty方法可以说明这一点。但是，in运算符不能识别，对继承
 的属性也返回true。
+
+下面是类数组但不是数组：
+(1)类数组对象
+var a = {
+    0:'a',
+    1:'b',
+    2:'c',
+    length:3
+};
+a[0] // 'a'
+a[2] // 'c'
+a.length // 3
+a[3] = 'd';//为对象a添加了一个数字键，但是length属性没变
+a.length // 3
+
+(2)arguments对象（在函数体内，标识符arguments是指向实参对象的引用，实参对象是一个类数组对象 arguments[0]，arguments.length）
+function args() { return arguments }
+var arrayLike = args('a', 'b');
+arrayLike[0] // 'a'
+arrayLike.length // 2
+arrayLike instanceof Array // false
+
+(3)// DOM元素集
+var elts = document.getElementsByTagName('h3');
+elts.length // 3
+elts instanceof Array // false
+
+(4)// 字符串
+'abc'[1] // 'b'
+'abc'.length // 3
+'abc' instanceof Array // false
+
+不过以上几个形式都可以用Array.prototype.slice.call(变量)转为为Array。
+
+对于遍历：
+// for循环
+function forArgs() {
+    for (var i=0; i<arguments.length; i++) {
+        console.log(i+'. '+arguments[i]);
+    }
+}
+
+// forEach方法
+function forArgs() {
+    Array.prototype.forEach.call(arguments, function (elem, i) {
+        console.log(i+'. '+elem);
+    });
+}
+
+with操作同一个对象的多个属性时，提供一些书写的方便
+var o = {};
+with (o){
+  x = "abc";
+}
+with区块内部的变量，必须是当前对象已经存在的属性，否则会创造一个当前作用域的全局变量。这是因为with区块没有改变作用域，
+它的内部依然是当前作用域。
+
+with (o) {
+  console.log(x);
+}
+单纯从上面的代码块，根本无法判断x到底是全局变量，还是o对象的一个属性。这非常不利于代码的除错和模块化，编译器也无法对这段代码
+进行优化，只能留到运行时判断，这就拖慢了运行速度。因此，建议不要使用with语句，可以考虑用一个临时变量代替with。
+with(o1.o2.o3) {
+  console.log(p1 + p2);
+}
+// 可以写成
+var temp = o1.o2.o3;
+console.log(temp.p1 + temp.p2);
