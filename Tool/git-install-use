@@ -1,0 +1,131 @@
+
+
+第一：下载msysgit 下载地址：http://msysgit.github.io/
+
+第二：安装
+
+以Git-1.9.4-preview20140929为例。
+
+1.在安装的过程中，在选择安装的路径之后的选项卡中，找到windows Explorer integration选择simple context menu的单选项选项，下面有Git Bash Here 和 Git GUI Here的两个子选项也是要选的。
+当然上面的创建快捷方式和桌面图标也可以选择。
+
+2.在后面的adjusting your PATH environment的选项卡中
+第一个选项use Git from Bash only：在Git Bash中书写命令行，是最安全的选择；
+第二个选项 use Git from the Windows Command prompt：使用Git从Windows命令提示符，但是下面说明是：Git Bash和Windows命令提示符都可以使用Git;
+第三个选项use Git and optional unix tools from the windows command prompt是：Windows命令提示符下使用Git和可选的UNIX工具。
+（这个你可以根据自己的情况来选择，我选择的是默认的第一个）
+
+3.在configuring the line ending conversions的选项卡(前面的英文就不写了，大家可以自己对照)
+第一个选项：如果是跨平台项目，在windows系统安装，选择；
+第二个选项：如果是跨平台项目，在Unix系统安装，选择；
+第三个选项：非跨平台项目，选择。
+（这个也是看自己的选择，我选择的是默认的第一项。）
+
+第三：使用
+
+1.现在打开Git bash，输入ssh-keygen。如果不想每次提交的时候输入用户名和密码，只需要一直enter下去。你也可以设置自己的用户名和密码，保证安全。
+
+2. Git初始化配置 
+1） 配置使用git仓库的人员姓名 
+       git config --global user.name "Your Name Comes Here" 
+2） 配置使用git仓库的人员email 
+       git config --global user.email you@yourdomain.example.com 
+
+
+
+注意：
+1.ls不能显示中文目录
+解决办法：在git/etc/git-completion.bash中增加一行：
+alias ls=‘ls --show-control-chars --color=auto’
+
+2.git commit不能提交中文注释：
+解决办法：在git/etc/inputrc中的对应的行：
+set output-meta on
+set conver-meta off
+
+3.git log无法显示中文注释
+解决办法：在git/etc/profile中增加一行：
+export LESSCHARSET=iso8859
+
+
+
+
+git其他命令
+
+创建新分支并命名，此处我们创建名为 new_stuff 的分支 
+git branch new_stuff
+ 
+
+移到新分支上
+git checkout new_stuff
+开始你的工作并保存结果
+各种工具.....
+
+添加所改动的文件以便提交
+git add .
+提交改动
+git commit -m "made some changes"
+回到 master 主分支
+git checkout master
+合并到主分支
+ 
+ 
+Git常用操作命令收集：
+1) 远程仓库相关命令
+检出仓库：$ git clone git://github.com/jquery/jquery.git
+查看远程仓库：$ git remote -v
+添加远程仓库：$ git remote add [name] [url]
+删除远程仓库：$ git remote rm [name]
+修改远程仓库：$ git remote set-url --push[name][newUrl]
+拉取远程仓库：$ git pull [remoteName] [localBranchName]
+推送远程仓库：$ git push [remoteName] [localBranchName]
+ 
+2）分支(branch)操作相关命令
+查看本地分支：$ git branch
+查看远程分支：$ git branch -r
+创建本地分支：$ git branch [name] ----注意新分支创建后不会自动切换为当前分支
+切换分支：$ git checkout [name]
+创建新分支并立即切换到新分支：$ git checkout -b [name]
+删除分支：$ git branch -d [name] ---- -d选项只能删除已经参与了合并的分支，对于未有合并的分支是无法删除的。如果想强制删除一个分支，可以使用-D选项
+合并分支：$ git merge [name] ----将名称为[name]的分支与当前分支合并
+创建远程分支(本地分支push到远程)：$ git push origin [name]
+删除远程分支：$ git push origin :heads/[name]
+我从master分支创建了一个issue5560分支，做了一些修改后，使用git push origin master提交，但是显示的结果却是'Everything up-to-date'，发生问题的原因是git push origin master 在没有track远程分支的本地分支中默认提交的master分支，因为master分支默认指向了origin master 分支，这里要使用git push origin issue5560：master 就可以把issue5560推送到远程的master分支了。
+
+    如果想把本地的某个分支test提交到远程仓库，并作为远程仓库的master分支，或者作为另外一个名叫test的分支，那么可以这么做。
+
+$ git push origin test:master         // 提交本地test分支作为远程的master分支 //好像只写这一句，远程的github就会自动创建一个test分支
+$ git push origin test:test              // 提交本地test分支作为远程的test分支
+
+如果想删除远程的分支呢？类似于上面，如果:左边的分支为空，那么将删除:右边的远程的分支。
+
+$ git push origin :test              // 刚提交到远程的test将被删除，但是本地还会保存的，不用担心
+3）版本(tag)操作相关命令
+查看版本：$ git tag
+创建版本：$ git tag [name]
+删除版本：$ git tag -d [name]
+查看远程版本：$ git tag -r
+创建远程版本(本地版本push到远程)：$ git push origin [name]
+删除远程版本：$ git push origin :refs/tags/[name]
+ 
+4) 子模块(submodule)相关操作命令
+添加子模块：$ git submodule add [url] [path]
+如：$ git submodule add git://github.com/soberh/ui-libs.git src/main/webapp/ui-libs
+初始化子模块：$ git submodule init ----只在首次检出仓库时运行一次就行
+更新子模块：$ git submodule update ----每次更新或切换分支后都需要运行一下
+删除子模块：（分4步走哦）
+1)$ git rm --cached [path]
+2) 编辑“.gitmodules”文件，将子模块的相关配置节点删除掉
+3) 编辑“.git/config”文件，将子模块的相关配置节点删除掉
+4) 手动删除子模块残留的目录
+ 
+5）忽略一些文件、文件夹不提交
+在仓库根目录下创建名称为“.gitignore”的文件，写入不需要的文件夹名或文件，每个元素占一行即可，如
+target
+bin
+*.db
+ 
+2. 
+git pull：相当于是从远程获取最新版本并merge到本地
+git pull origin master
+
