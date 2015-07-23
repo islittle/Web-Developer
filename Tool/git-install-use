@@ -12,7 +12,8 @@
 
 2.在后面的adjusting your PATH environment的选项卡中
 第一个选项use Git from Bash only：在Git Bash中书写命令行，是最安全的选择；
-第二个选项 use Git from the Windows Command prompt：使用Git从Windows命令提示符，但是下面说明是：Git Bash和Windows命令提示符都可以使用Git;
+第二个选项 use Git from the Windows Command prompt：使用Git从Windows命令提示符，但是下面说明是：Git Bash和Windows命令提示符
+都可以使用Git;
 第三个选项use Git and optional unix tools from the windows command prompt是：Windows命令提示符下使用Git和可选的UNIX工具。
 （这个你可以根据自己的情况来选择，我选择的是默认的第一个）
 
