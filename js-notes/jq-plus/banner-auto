@@ -1,0 +1,47 @@
+注释：在大多数网站我们在首页都能见到banner的效果切换，有的是左右的，有的是淡入淡出的，还有有一些是特别绚丽的效果，下面自己写了一
+套。希望对有需要的有帮助。里面有错误的可以联系本人。
+
+注意：转载 需加 wangfeng 创建 
+
+<h1>banner切换</h1>
+demo结构
+&lt;div class="all-bannerc center cl"&gt;
+	&lt;ul class="banner-imgc cl"&gt;
+		&lt;li class="fl tc"&gt;&lt;a href="" class="banner-img"&gt;&lt;img src="" alt="1"&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li class="fl tc"&gt;&lt;a href="" class="banner-img"&gt;&lt;img src="" alt="2"&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li class="fl tc"&gt;&lt;a href="" class="banner-img"&gt;&lt;img src="" alt="3"&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li class="fl tc"&gt;&lt;a href="" class="banner-img"&gt;&lt;img src="" alt="4"&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li class="fl tc"&gt;&lt;a href="" class="banner-img"&gt;&lt;img src="" alt="5"&gt;&lt;/a&gt;&lt;/li&gt;
+		&lt;li class="fl tc"&gt;&lt;a href="" class="banner-img"&gt;&lt;img src="" alt="5"&gt;&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+jq编码
+var $bannerli = $('.banner-imgc li');
+var $bannerli_Num = $bannerli.length-1;
+var $bannericon = $('<ul class="ib banner-icon"></ul>').css('width',$bannerli_Num*22+22);(22为小图片的宽度加margin左右和)
+for( banner_i = 0; banner_i < $bannerli_Num+1; banner_i++){
+	$('<li class="banner-ictu allicon ib"></li>').appendTo($bannericon);
+	}
+$('.all-bannerc').append($bannericon);
+var $bannericonli = $('.banner-icon li');
+var $bannericonNum =0;
+function bannerM(Num){
+	$bannericonli.eq(Num).addClass('cur').siblings('li').removeClass('cur');
+	$bannerli.eq(Num).stop().fadeIn(400).siblings('li').fadeOut(0);
+	};
+function bannerAuto(){
+	$bannericonNum = ($bannericonNum == $bannerli_Num )?0:++$bannericonNum;
+	bannerM($bannericonNum);
+};
+banner_T = setInterval(bannerAuto,4000);
+$('.banner-icon').hover(function(){
+	clearInterval(banner_T);
+	},function(){
+	banner_T=setInterval(bannerAuto,4000)
+	});
+$bannericonli.mouseenter(function(){
+	if($bannerli.is(':animated')) return;
+	$bannericonNum = $('.banner-icon li').index(this);
+	bannerM($bannericonNum);
+	})
+$bannericonli.eq(0).mouseenter();
