@@ -385,3 +385,68 @@ v1 === v2 // true
 
 undefined和null与其他类型的值比较时，结果都为false，它们互相比较时结果为true
 undefined == null // true
+
+
+相等运算符隐藏的类型转换，会带来一些违反直觉的结果。这些表达式都很容易出错，因此不要使用相等运算符（==），
+最好只使用严格相等运算符（===）。
+'' == '0'           // false
+0 == ''             // true
+0 == '0'            // true
+
+false == 'false'    // false
+false == '0'        // true
+
+false == undefined  // false
+false == null       // false
+null == undefined   // true
+
+' \t\r\n ' == 0     // true
+
+位运算只对整数有效，遇到小数时，会将小数部分舍去，只保留整数部分。所以，将一个小数与0进行或运算，等同于对该数去除小数部分，即取整数位。
+
+2.9 | 0
+// 2
+
+-2.9 | 0
+// -2
+
+需要注意的是，这种取整方法不适用超过32位整数最大值2147483647的数。
+2147483649.4 | 0;
+// -2147483647
+
+“异或运算”有一个特殊运用，连续对两个数a和b进行三次异或运算，aˆ=b, bˆ=a, aˆ=b，可以互换它们的值
+var a = 1;
+var b = 9;
+a^=b, b^=a, a^=b;
+
+a // 9
+b // 1
+
+将函数放在圆括号中，会返回函数本身。如果圆括号紧跟在函数的后面，就表示调用函数，即对函数求值。
+function f(){return 1;}
+
+(f) // function f(){return 1;}
+f() // 1
+
+
+void常用于网页链接的触发鼠标点击事件的写法(目的是返回undefined可以防止网页跳转。)。
+<a href="#" onclick="f();">文字</a>
+上面代码有一个问题，函数f必须返回false，或者onclick事件必须返回false，否则会引起浏览器跳转到另一个页面。
+function f(){
+    // some code
+    return false;
+}
+或者写成
+<a href="#" onclick="f();return false;">文字</a>
+void运算符可以取代上面两种写法。
+<a href="javascript:void(0)" onclick="f();">文字</a>
+
+对于优先级别相同的运算符，大多数情况，计算顺序总是从左到右，这叫做运算符的“左结合”（left-to-right associativity），即从左
+边开始计算。
+但是少数运算符的计算顺序是从右到左，即从右边开始计算，这叫做运算符的“右结合”（right-to-left associativity）。其中，最主要的
+是赋值运算符（=）和三元条件运算符（?:）。
+w = x = y = z;
+q = a?b:c?d:e?f:g;
+相当于下面的样子。
+w = (x = (y = z)); 
+q = a?b:(c?d:(e?f:g));
