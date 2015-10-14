@@ -17,4 +17,13 @@ input{ <br/>
 }<br/>
 @media screen and (-webkit-min-device-pixel-ratio:0) { input{ line-height: 100%; } }<br/>
 
+——————————————————————————————————————————————————————————————————————————————————————————————————————————》
+这里加一个去掉input autocomplete的背景色的问题。（这里改成了#fff）
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #fff inset;
+    color: #ccc
+}
 
+input:-webkit-autofill,input:focus:-webkit-autofill {
+    -webkit-text-fill-color: #ccc
+}
