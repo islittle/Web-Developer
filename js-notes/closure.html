@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>闭包问题-by LIttle</title>
+</head>
+<body>
+	<p id="help">Helpful notes will appear here</p>
+	<p>E-mail: <input type="text" id="email" name="email"></p>
+	<p>Name: <input type="text" id="name" name="name"></p>
+	<p>Age: <input type="text" id="age" name="age"></p>
+</body>
+</html>
+<script type="text/javascript">
+	window.onload = function(){
+
+		function showHelp(help) {
+		  document.getElementById('help').innerHTML = help;
+		}
+
+		function setupHelp() {
+		  var helpText = [
+		      {'id': 'email', 'help': 'Your e-mail address'},
+		      {'id': 'name', 'help': 'Your full name'},
+		      {'id': 'age', 'help': 'Your age (you must be over 16)'}
+		    ];
+
+		  for (var i = 0; i < helpText.length; i++) {
+		    var item = helpText[i];
+		    // 在自执行函数表达式闭包内部
+			// i的值作为locked的索引存在，在循环执行结束以后，尽管最后i的值变成了元素总数
+			// 但闭包内部的lockedInIndex值是没有改变即为help的值不变，因为他已经执行完毕了
+			// 所以当焦点的时候，返回对应的结果（像一个堆积）
+			(function (help){
+				document.getElementById(item.id).onfocus = function(){
+					showHelp(help);
+				}
+			})(item.help);
+			//也可以下面这样，在处理函数那里使用自执行函数表达式
+			// 但是相对来说，上面代码更具可观性
+		    // document.getElementById(item.id).onfocus =  function(help){
+		    // 	return function(){
+		    // 		showHelp(help);
+		    // 	}
+		    // }(item.help);
+		  }
+		}
+
+		setupHelp();
+
+	}
+</script>
