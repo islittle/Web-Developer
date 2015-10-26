@@ -1,0 +1,76 @@
+
+转载标注来源 和 wangfeng 创建
+
+1.ECMAScript是通过上下文来区分的，如果function myFun(){}是作为赋值表达式的一部分的话是一个函数表达式，如果function myFun(){}被包含在一个函数体内，或者位于程序的最顶部的话是一个函数声明。括号 ()是一个分组操作符，它的内部只能包含表达式。
+
+function myFun(){} // 声明，是程序的一部分
+
+var foo= function myFun(){}; // 表达式，是赋值表达式的一部分
+
+new function foo(){}; // 表达式，是new表达式
+
+(function(){
+  function foo(){} // 声明，是函数体的一部分
+})();
+
+(function foo(){}); // 表达式：包含在分组操作符内
+
+下面列举一个易出错的问题
+
+ //有的浏览器会返回first的这个function，而有的浏览器返回的却是第二个
+ if (true) {
+    function foo() {
+      return 'one';
+    }
+  }
+  else {
+    function foo() {
+      return 'two';
+    }
+  }
+  foo();
+
+  // 我们要规范的用下面的
+  var foo;
+  if (true) {
+    foo = function() {
+      return 'one';
+    };
+  }
+  else {
+    foo = function() {
+      return 'two';
+    };
+  }
+  foo()
+
+
+2.释放内存
+
+ function createFn(){
+    return (function(){
+      var sf;
+      if (true) {
+        sf = function SF(){
+          return 'standard';
+        };
+      }
+      else if (false) {
+        sf = function SF(){
+          return 'alternative';
+        };
+      }
+      else {
+        sf = function SF(){
+          return 'fallback';
+        };
+      }
+      // var SF = null;(这里设置为null可以释放内存)
+      return sf;
+    })();
+  }
+
+  var arr = [ ];
+  for (var i=0; i<10000; i++) {
+    arr[i] = createFn();
+  }
