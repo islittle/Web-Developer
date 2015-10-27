@@ -2,7 +2,7 @@
 
 转载标注来源 和 wangfeng 创建
 
-讲数组转化为千位分割我们会经常遇到，方法很多，各有所见。下面列举我认为不错的（不建议转为数组后遍历，会多了一步比较耗资源）：
+讲数字千位分割我们会经常遇到，方法很多，各有所见。下面列举我认为不错的（不建议转为数组后遍历，会多了一步比较耗资源）：
 
 第一种：
 function toThousands(num) {
@@ -47,3 +47,6 @@ function toThousands(num) {
 function toThousands(num) {
     return (num || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,');
 }
+
+
+
