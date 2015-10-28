@@ -1,0 +1,67 @@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>console.table的高级调试 by little</title>
+</head>
+<body>
+	注意：转载请说明来源 wangfeng 创建
+	通过console.table()做JavaScript调试,结果请看控制台
+</body>
+</html>
+<script type="text/javascript">
+	window.onload = function(){
+		//第一种：数组数据,需要键值对象
+		var arr = [{num:'one'},{num:'two'},{num:'threee'}];
+		console.table(arr);
+
+		var arr1 = [{num:'one'},{num:'one',m:'two'},{num:'threee'}];
+		console.table(arr1);
+
+		//下面这种模式打出来就不行
+		var arr2 = [1,2,3];
+		console.table(arr2);
+
+		//第二种：对象数据
+		var obj ={
+			one: {num:'one'},
+			two: {num:'two'},
+			threee: {num:'threee'}
+		}
+		console.table(obj);
+
+		var obj1 ={
+			one: {num1:'one'},
+			two: {num2:'two'},
+			threee: {num3:'threee'}
+		}
+		console.table(obj1);
+
+		var obj2 ={
+			one: {num1:'one',num2:'two-same'},
+			two: {num2:'two'},
+			threee: {num3:'threee',num4:'four'}
+		}
+		console.table(obj2);
+
+		var obj3 ={
+			one: {num:'one',font:'雅黑'},
+			two: {num:'two',font:'黑体'},
+			threee: {num:'threee',font:'宋体'}
+		}
+		console.table(obj3,'font');
+		console.table(obj3,['num','font']);
+
+		//下面这种模式打出来就不行
+		var obj4 ={
+			one: 'one',
+			two: 'two',
+			threee: 'threee'
+		}
+		console.table(obj4);
+	}
+</script>
+
+
