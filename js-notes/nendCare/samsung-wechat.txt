@@ -13,6 +13,7 @@ samsung s5的微信，有时可以执行，有时不可以执行，开始以为�
 代码：
 
 reloadHtmlSource: function(){
+  //can.deparam这里是canjs里面方法deparam把后缀转化对象
   var params = can.deparam(window.location.search.substr(1)) || {};
   params.timestamp = new Date().getTime();
   window.location.search = '?' + $.param(params);
