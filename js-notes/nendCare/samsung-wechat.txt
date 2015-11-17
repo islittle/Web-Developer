@@ -14,9 +14,7 @@ samsung s5的微信，有时可以执行，有时不可以执行，开始以为�
 
 reloadHtmlSource: function(){
   var params = can.deparam(window.location.search.substr(1)) || {};
-  
-
-params.timestamp = new Date().getTime();
+  params.timestamp = new Date().getTime();
   window.location.search = '?' + $.param(params);
 }
 
