@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>浮点运算-by Little</title>
+</head>
+
+<body>
+    <p>注释：重新浮点运算的函数解决JavaScript浮点运算的bug</p>
+    <script>
+    function mathFloatCal(number1, number2, style, n) {　　
+        var n1 = number1.toString().split('.')[1].length || 0,
+            n2 = number2.toString().split('.')[1].length || 0,
+            r1 = Number(number1.toString().replace('.', '')),
+            r2 = Number(number2.toString().replace('.', '')),
+            m, r;　　
+        with(Math) {
+            labelMap = {
+                'plus': function() {
+                    m = pow(10, max(n1, n2));
+                    r = (number1 * m + number2 * m) / m;
+                    return r;
+                },
+                'reduction': function() {
+                    m = pow(10, max(n1, n2));
+                    r = (number1 * m - number2 * m) / m;
+                    return r;
+                },
+                'multiplication': function() {
+                    m = n1 + n2;
+                    r = (r1 * r2) / pow(10, m);
+                    return r;
+                },
+                'division': function() {
+                    r = (r1 / r2) * pow(10, n2 - n1);
+                    return r;
+                }
+            };
+            labelMap[style]();
+            n ? r = r.toFixed(n) : r = r;
+            return r;
+        }
+    }
+    var a = mathFloatCal(20.84, 5.21, 'plus', 2);
+    var b = mathFloatCal(20.84, 5.21, 'reduction', 2);
+    var c = mathFloatCal(20.84, 5.21, 'multiplication', 2);
+    var d = mathFloatCal(20.84, 5.21, 'division', 2);
+    var e = mathFloatCal(20.84, 5.21, 'plus');
+    var f = mathFloatCal(20.84, 5.21, 'reduction');
+    var g = mathFloatCal(20.84, 5.21, 'multiplication');
+    var h = mathFloatCal(20.84, 5.21, 'division');
+    document.write('运算的数字为20.84和5.21' + '<br>');
+    document.write('有限制小数位（加）：' + a + '<br>');
+    document.write('有限制小数位（减）：' + b + '<br>');
+    document.write('有限制小数位（乘）：' + c + '<br>');
+    document.write('有限制小数位（除）：' + d + '<br>');
+    document.write('未限制小数位（加）：' + e + '<br>');
+    document.write('未限制小数位（减）：' + f + '<br>');
+    document.write('未限制小数位（乘）：' + g + '<br>');
+    document.write('未限制小数位（除）：' + h + '<br>');
+    </script>
+</body>
+
+</html>
