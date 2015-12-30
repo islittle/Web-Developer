@@ -1,0 +1,17 @@
+
+
+说明:移动端输入框要求11位数字并显示344格式
+
+注意：转载 需加 wangfeng 创建 
+
+'.redbag-main-input keyup':function(element,event){
+  var length = element.val().length;
+  if(length <=13){
+    var value = element.val().replace(/^(\d{3})([^\s])/, '$1 $2').replace(/\s(\d{4})(?=\d)/g, ' $1 ');
+    element.val(value);
+  } else if(length > 13) {
+    var value = element.val().substr(0,13);
+    element.val(value);
+  }
+}
+
