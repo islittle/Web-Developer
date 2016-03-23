@@ -111,7 +111,91 @@ height: 100%;
 <div class="box box6">
 	<span>垂直居中元素6</span>
 </div>
+<style>
+.box{
+  width:200px; 
+  height:200px; 
+  background:red;  
+}
+.box1{
+  text-align:center; 
+  display:table-cell;
+  vertical-align:middle;
+}
+.box2{
+  display:flex;
+  justify-content:center;
+  align-items:center; 
+  text-align:center;
+}
+.box3{ position:relative;}
+.box3 span{
+  position:absolute; 
+  left:50%; 
+  top:50%; 
+  -webkit-transform:translate(-50%,-50%); 
+  width:100%; 
+  text-align:center;
+}
+.box4{
+  text-align:center; 
+  font-size:0;
+}
+.box4 span{
+  vertical-align:middle; 
+  display:inline-block; 
+  font-size:16px;
+}
+.box4:after{
+  width:0;
+  height:100%;
+  display:inline-block;
+  vertical-align:middle;
+}
+.box4:after{
+  content:''
+}
+.box5{ 
+  display:flex; 
+  text-align:center;
+}
+.box5 span{
+  margin:auto;
+}
+.box6{
+  display:-webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center; 
+  text-align:center;
+}
+</style>
 ```
+
+<h4>1、display:table-cell</h4>
+<div class="box box1">
+	<span>垂直居中元素1</span>
+</div>
+<h4>2、display:flex</h4>
+<div class="box box2">
+	<span>垂直居中元素2</span>
+</div>
+
+<h4>3、translate(-50%,-50%)</h4>
+<div class="box box3">
+	<span>垂直居中元素3</span>
+</div>
+<h4>4、display:inline-block</h4>
+<div class="box box4">
+	<span>垂直居中元素4</span>
+</div>
+<h4>5、margin:auto</h4>
+<div class="box box5">
+	<span>垂直居中元素5</span>
+</div>
+<h4>6、display:-webkit-box</h4>
+<div class="box box6">
+	<span>垂直居中元素6</span>
+</div>
 <style>
 .box{
   width:200px; 
