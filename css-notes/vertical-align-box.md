@@ -84,7 +84,7 @@ height: 100%;
   &lt;/div&gt;<br/>
   
   
-##未知宽高的水平垂直居中其他（只考虑主流或移动端作法）
+##列举未知宽高的水平垂直居中（只考虑主流或移动端作法）
 ```
 <h4>1、display:table-cell</h4>
 <div class="box box1">
