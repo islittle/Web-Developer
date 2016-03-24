@@ -1,0 +1,26 @@
+{
+  "name": "gulp",
+  "version": "3.9.1",
+  "description": "The streaming build system",
+  "homepage": "http://gulpjs.com",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gulpjs/gulp"
+  },
+  "author": {
+    "name": "wangfeng",
+    "email": "islittle@outlook.com",
+    "url": "http://www.github.com/islittle"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.githubusercontent.com/gulpjs/gulp/master/LICENSE"
+    }
+  ],
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-webserver": "^0.9.1"
+  }
+}
