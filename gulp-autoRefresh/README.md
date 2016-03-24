@@ -46,3 +46,6 @@ npm instal gulp-livereload gulp-webserver --save-dev
 ##nodejs修改文件后自动执行
 
 >npm -g install supervisor
+
+
+注意：转载需要 wangfeng 创建
