@@ -50,6 +50,7 @@ npm instal gulp-livereload gulp-webserver --save-dev
 [本项目的app目录下有一个test.js测试文件](https://github.com/islittle/Web-Developer/blob/master/gulp-autoRefresh/app/test.js)
 
 执行结果截图:
+
 ![supervisor test.js](https://github.com/islittle/Web-Developer/blob/master/linkImg/20160329104518.png)
 
 注意：转载需要 wangfeng 创建
