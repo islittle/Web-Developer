@@ -51,6 +51,6 @@ npm instal gulp-livereload gulp-webserver --save-dev
 
 执行结果截图:
 
-![supervisor test.js](https://github.com/islittle/Web-Developer/blob/master/linkImg/20160329104518.png)
+![supervisor test.js](https://github.com/islittle/Web-Developer/blob/master/linkImg/20160329.png)
 
 注意：转载需要 wangfeng 创建

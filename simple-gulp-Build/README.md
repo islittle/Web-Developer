@@ -1,5 +1,5 @@
 
-##glup自动监控
+##glup前端的简单构建
 
 说明：自动刷新提高开发效率。
 
@@ -23,9 +23,7 @@
 
 ###4. Gulp插件安装（Install Gulp Plugins）
 
-npm instal gulp-livereload gulp-webserver --save-dev
-
->静态服务器（ gulp-webserver ）  网页自动刷新（ gulp-livereload ）
+npm instal Plugins(这就不写了) --save-dev
 
 
 ###5. Gulp任务配置（Task Configuration）
@@ -34,23 +32,16 @@ npm instal gulp-livereload gulp-webserver --save-dev
 
 2.Gulpfile.js文件，填写相关配置
 
-[点击本测试项目配置文件](https://github.com/islittle/Web-Developer/blob/master/gulp-autoRefresh/gulpfile.js)
+[点击本测试项目配置文件](https://github.com/islittle/Web-Developer/blob/master/simple-gulp-Build/gulpfile.js)
 
 ###6.执行gulp监控
 
 1.执行默认：gulp
 
-2.执行特定任务：例如 gulp watch
-
-
-##nodejs修改文件后自动执行
-
->npm -g install supervisor 然后执行supervisor ***.js
-
-[本项目的app目录下有一个test.js测试文件](https://github.com/islittle/Web-Developer/blob/master/gulp-autoRefresh/app/test.js)
+2.执行特定任务：例如 gulp watch/static
 
 执行结果截图:
 
-![supervisor test.js](https://github.com/islittle/Web-Developer/blob/master/linkImg/20160329104518.png)
+![gulp](https://github.com/islittle/Web-Developer/blob/master/linkImg/20160329104518.png)
 
 注意：转载需要 wangfeng 创建
