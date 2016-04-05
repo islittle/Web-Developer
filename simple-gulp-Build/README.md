@@ -40,8 +40,26 @@ npm instal Plugins(这就不写了) --save-dev
 
 2.执行特定任务：例如 gulp watch/static
 
-执行结果截图:
+执行结果:
 
-![gulp](https://github.com/islittle/Web-Developer/blob/master/linkImg/20160329104518.png)
+```
+[15:32:29] Using gulpfile D:\Web-Developer\simple-gulp-Build\gulpfile.js
+[15:32:29] Starting 'build'...
+[15:32:29] Starting 'clean'...
+[15:32:29] Starting 'watch'...
+[15:32:30] Finished 'watch' after 196 ms
+[15:32:30] Finished 'clean' after 353 ms
+[15:32:30] Starting 'style'...
+[15:32:30] Starting 'script'...
+[15:32:30] Starting 'image'...
+[15:32:31] Finished 'image' after 863 ms
+[15:32:31] Finished 'style' after 1.59 s
+[15:32:31] Finished 'script' after 1.16 s
+[15:32:31] Starting 'html'...
+[15:32:31] Finished 'html' after 130 ms
+[15:32:31] Finished 'build' after 2.09 s
+[15:32:31] Starting 'default'...
+[15:32:31] Finished 'default' after 18 μs
+```
 
 注意：转载需要 wangfeng 创建

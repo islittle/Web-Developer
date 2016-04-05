@@ -1,3 +1,8 @@
+/**
+ * gulpfile.js
+ * @author little wangfeng
+ * Created 2016-04-01 10:18.
+ */
 //依赖插件
 var gulp = require('gulp'),
     //动态引用插件
