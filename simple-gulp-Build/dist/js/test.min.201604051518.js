@@ -1,0 +1,1 @@
+document.onload=function(){alert("测试")}();

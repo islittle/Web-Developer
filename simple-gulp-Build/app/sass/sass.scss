@@ -1,0 +1,9 @@
+.p{
+	&.p1{
+		line-height: 1;
+	};
+	&.p2{
+		line-height: 4;
+		transform:translate3d(30%,30%,0);
+	}
+}
