@@ -23,4 +23,19 @@ import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc5
 
 3.重启sublime
 
+4.查看变化
+
+以sublime2为例，Sublime Text\Data\Packages\Package Control\Package Control.sublime-settings中
+```
+"channels": [
+		"https://sublime.wbond.net/repositories.json"
+	],
+```
+改成
+```
+"channels": [
+		"https://packagecontrol.io/channel_v3.json"
+	],
+```
+
 >转载需要 wangfeng 创建
