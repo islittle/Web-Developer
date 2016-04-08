@@ -1,5 +1,5 @@
 
-##sublime There are no packages available for installation的提示窗解决办法
+##sublime error:There are no packages available for installation的提示窗解决办法
 
 ###1.打开控制台（ctrl+`,默认快捷键），查看错误
 
