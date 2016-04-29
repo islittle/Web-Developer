@@ -1,7 +1,7 @@
 
 注释：我们代码都会写，优化是个大问题，好的方式有利于节约资源，废话少说，下面我举几个常用例子。
 
-> 注意：转载需加 wangfeng 创建 From：https://github.com/islittle/Web-Developer/new/master/js-notes/js-optimization
+> 注意：转载需加 wangfeng 创建 From：https://github.com/islittle/Web-Developer/blob/master/js-notes/js-optimization/good-style.md
 
 ###编程时使用join而不是字符串连接来构建字符串
 ```
