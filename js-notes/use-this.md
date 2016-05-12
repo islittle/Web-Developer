@@ -45,7 +45,7 @@ fn1();
 ```
 
 ###作为构造函数调用
-JavaScript 是使用基于原型（prototype）的继承方式, 构造函数也很特殊，如果不使用 new 调用，则和普通函数一样。new=后this 绑定到新创建的对象上。
+JavaScript 是使用基于原型（prototype）的继承方式, 构造函数也很特殊，如果不使用 new 调用，则和普通函数一样。new后this 绑定到新创建的对象上。
 (继承)
 ```
 function fn1(a){
