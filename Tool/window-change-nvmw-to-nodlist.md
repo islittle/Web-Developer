@@ -17,12 +17,19 @@ changed to use Nodist。
 
 
 ##完全卸载Node.js
+
 首先卸载Node.js应用程序
+
 确认在C:\Program Files中没有Nodejs目录
+
 确认在C:\Program Files (x86)没有Nodejs目录
+
 删除C:\Users{User}\AppData\Roaming\npm这个目录
+
 删除C:\Users{User}\AppData\Roaming\npm-cache这个目录
+
 确认在环境变量中没有对Node.js和npm的引用
+
 
 ##安装Nodist
 github：https://github.com/marcelklehr/nodist
