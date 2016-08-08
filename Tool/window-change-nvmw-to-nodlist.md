@@ -35,11 +35,38 @@ changed to use Nodist。
 github：https://github.com/marcelklehr/nodist
 load -》installer
 
-##Nodist最新版本
-nodist latest
+```
+> nodist
+# Lists installed versions highlighting the active ones.
+> nodist 4.x
+# Sets the global node version.
+> nodist local 4.x
+# Sets the node version per directory (including all subdirectories).
+> nodist env 4.x
+# Sets the node version per terminal.
+> nodist npm 3.x
+# Globally activate npm 3
 
-##查看Node版本
-node -v
+> nodist npm match
+# Globally activates the npm version that corresponds to the active node version
+# (the active node version may be the env, local or global version)
+> nodist npm local 2.x
+# Set the npm version for the current directory.
+> nodist npm env 2.x
+# Set the npm version for the current terminal environment.
+call nodist env 4.x
+# In a batch script use `call`.
+> nodist dist
+# Lists all available node versions.
+> nodist r 4.x -- foo.js -s
+# Runs a specific version without modifying any state.
+> nodist + 4.x
+# Just checks, if the version is installed and downloads it if not.
 
-##切换或者下载版本 
-nodist num
+> nodist + all
+# will install *everything*.
+> nodist - 4.1.1
+# Removes a version.
+> nodist --help
+# Displays a complete list of commands with examples.
+```
