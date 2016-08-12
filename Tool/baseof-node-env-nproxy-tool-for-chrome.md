@@ -7,18 +7,33 @@
 3. 将其他环境的AJAX接口的数据映射于本地（测试，预发，生产等），也就是说开启本地的服务，本地的服务拉取的数据来自其他环境的数据（例如：测试同学基本都是基于测试环境来find and check，将测试环境的数据来模拟本地拉取的数据，更直观发现问题）
 
 ###依赖插件node nproxy
->1.安装node，[node官网](https://nodejs.org/en/)下载安装，或者[node中文网](http://nodejs.cn/)下载
->2.全局安装nproxy，执行：npm install -g nproxy（目前几乎所有版本的node都集成了npm管理工具），或修改为淘宝cnpm更下载更快（*至于怎么配置百度就知道了，下面同类说明*）。
+>1.安装node
+
+[node官网](https://nodejs.org/en/)下载安装，或者[node中文网](http://nodejs.cn/)下载
+
+>2.全局安装nproxy
+
+npm install -g nproxy（目前几乎所有版本的node都集成了npm管理工具），或修改为淘宝cnpm更下载更快（*至于怎么配置百度就知道了，下面同类说明*）。
 
 ###添加chrome npoxy扩展
->1.设置-》扩展程序-》获取更多扩展程序-》搜索 Proxy SwitchySharp -》添加（或者百度搜索下载 SwitchySharp.crx 直接拉到扩展里面）
->2.配置chrome Proxy SwitchySharp，SwitchySharp-》选项
+>1.添加
+
+设置-》扩展程序-》获取更多扩展程序-》搜索 Proxy SwitchySharp -》添加（或者百度搜索下载 SwitchySharp.crx 直接拉到扩展里面）
+
+>2.配置chrome Proxy SwitchySharp
+
+SwitchySharp-》选项-》
 a.新建情景模式-》命名随便写，http代理（或https）填写127.0.0.1 端口默认 8989（可以指定其他）
 b.切换规则  配置一些规则，指向情景模式 ；例如：^(?!http:\/\/www\.xxx\.com\/m.api)(http:\/\/www\.xxx\.com\/)  
 
 ###配置使用
->1.进到项目中 创建一个启动js文件，但是不能命名为nproxy.js，否则不能启动。例如：nproxy_prd.js   nproxy_test.js  nproxy_rule.js 等等
->2.配置启动文件 例如：
+>1.创建
+
+进到项目中 创建一个启动js文件，但是不能命名为nproxy.js，否则不能启动。例如：nproxy_prd.js   nproxy_test.js  nproxy_rule.js 等等
+
+>2.配置
+
+打开创建好的启动文件 例如：
 ```
 module.exports = [
     //app为项目资源目录，下面不作说明,D:/local-project为本地项目路径,我这里简单配置一下。可以用正则或者*
