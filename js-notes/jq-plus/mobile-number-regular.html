@@ -28,10 +28,6 @@
 		//这里加了一步只能为1开头的11位数字
 		if (Regular.test(valueNum)) {
 			value = element.val().replace(/^(\d{3})([^\s])/, '$1 $2').replace(/\s(\d{4})(?=\d)/g, ' $1 ');
-                       if (/\s\s+/g.test(value) || (length <= 9 && (value.match(/\s/g) || '').length === 2) || 
-                           (length <=  3 && (value.match(/\s/g) || '').length >= 1)) {
-                               value = element.val().substr(0, length - 1)
-                           }
 		} else {
 			value = element.val().substr(0, length - 1);
 		}
