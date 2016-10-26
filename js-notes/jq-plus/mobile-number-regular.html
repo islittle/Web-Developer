@@ -24,14 +24,18 @@
 	//对手机号简单的1开头验证
 	var Regular = /^1[0-9]*$/;
 	if (length <= 13) {
+                var value;
 		//这里加了一步只能为1开头的11位数字
 		if (Regular.test(valueNum)) {
-			var value = element.val().replace(/^(\d{3})([^\s])/, '$1 $2').replace(/\s(\d{4})(?=\d)/g, ' $1 ');
-			element.val(value);
+			value = element.val().replace(/^(\d{3})([^\s])/, '$1 $2').replace(/\s(\d{4})(?=\d)/g, ' $1 ');
+                       if (/\s\s+/g.test(value) || (length <= 9 && (value.match(/\s/g) || '').length === 2) || 
+                           (length <=  3 && (value.match(/\s/g) || '').length >= 1)) {
+                               value = element.val().substr(0, length - 1)
+                           }
 		} else {
-			var value = element.val().substr(0, length - 1);
-			element.val(value);
+			value = element.val().substr(0, length - 1);
 		}
+                element.val(value);
 	} else if (length > 13) {
 		var value = element.val().substr(0, 13);
 		element.val(value);
