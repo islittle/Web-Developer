@@ -3,7 +3,7 @@
 
 #safari-format-time
 
-*注意：转载请说明来源 wangfeng [islittle.github.io](islittle.github.io) 创建*
+*注意：转载请说明来源 wangfeng [islittle.github.io](https://islittle.github.io) 创建*
 
 需要转化为原生格式
 
