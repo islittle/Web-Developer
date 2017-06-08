@@ -17,7 +17,7 @@ substring(start,end)
 + 如果 start 或 end 为负数，那么它将被替换为 0。
 
 
-##substr
+## substr
 
 ```
 stringObject.substr(start [, length ])
@@ -29,7 +29,7 @@ stringObject.substr(start [, length ])
 
 + 如果没有指定该参数，则子字符串将延续到stringObject的最后。
 
-##slice
+## slice
 
 ```
 stringObject.slice(start,end)
