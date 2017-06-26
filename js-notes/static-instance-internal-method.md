@@ -44,7 +44,7 @@ var BaseClass = function (){
 		alert('Defined by the "this"')
 	}
 };
-var instanceClass1 = new BaseClass;
+var instanceClass1 = new BaseClass();
 //定义静态方法
 BaseClass.prototype.f1 = function(){
      alert('Defined by the "BaseClass.prototype"');  
@@ -71,6 +71,6 @@ var BaseClass = function() {
         f2();  
     }  
 };  
-var instanceClass1 = new BaseClass; 
+var instanceClass1 = new BaseClass(); 
 instanceClass1.f3(); // 用闭包调用f1,f2的内部函数
 ```
